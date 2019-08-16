@@ -1,0 +1,29 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block content %}
+
+<section class="banner">
+    <div class="allbanner-img">
+        <div class="al-bn-txt">
+            <span class="wpag">{{ topic }}</span>
+        </div>
+    </div>
+</section>
+
+<section class="blg-det p35">
+    <div class="container">
+
+        <div class="all-heading txt-lft">
+            <span>Ready To Go <img src="{% static 'images/png.png' %}"></span>
+            <label>{% if head %}{{ head|slice:":6" }}{% else %}Success{% endif %}</label>
+            <div class="cust-form bx-sdw2">
+                <h4 class="bef-head">{{ message }}</h4>
+                <p class="cl-gr">For further queries, you can contact us at +977-9866059826.</p>
+                <a href="{% url 'trek:index' %}" class="rm-btn bg-gr">Go To Homepage</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="banner">
+    <div class="allbanner-img">
+        <div class="al-bn-txt">
+            <span class="wpag">Blogs</span>
+        </div>
+    </div>
+</section>
+
+
+<section class="blg-det p35">
+    <div class="container">
+
+        <div class="all-heading txt-lft">
+            <span>Traveller Diaries <img src="{% static 'images/png.png' %}"></span>
+            <label>Blogs</label>
+        </div>
+
+        <div class="row">
+            <!--should use for loop -->
+            {% for item in blogs %}
+            <div class="blg-det-sing">
+                <div class="col-md-6">                
+                    <div class="col-md-7 col-sm-7">
+                        <div class="blgls-img">
+                            <img width="294px" height="294px" src="{{ item.image.url }}">
+                            <div class="blgls-dt">
+                                <span class="center">{{ item.date.day }}</span>
+                                <label class="center">{{ item.date.month }}</label>
+                            </div>
+                        </div>    
+                    </div>
+
+                    <div class="col-md-5 col-sm-5">
+                        <div class="row">
+                            <div class="blg-ls">
+                                <h4>{{ item.title }}</h4>
+                                <p>{{ item.content|slice:":135" }}</p>
+                                <a href="{% url 'trek:blog_detail' item.pk%}" class="bg-gr a-re">Learn More</a>
+                            </div>   
+                                  
+                        </div>
+                    </div>   
+                    <div class="clearfix"></div>             
+                </div>
+            </div>
+            {% endfor %}
+
+            <!--<div class="rev-pag center">-->
+                <!--<ul class="pagination">-->
+                  <!--<li class="active"><a href="#">1</a></li>-->
+                  <!--<li><a href="#">2</a></li>-->
+                  <!--<li><a href="#">3</a></li>-->
+                  <!--<li><a href="#">4</a></li>-->
+                  <!--<li><a href="#">5</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+
+            <div class="clearfix"></div>
+
+        </div>        
+    </div>
+</section>
+
+{% endblock %}

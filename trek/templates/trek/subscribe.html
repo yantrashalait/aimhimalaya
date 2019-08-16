@@ -1,0 +1,96 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% block content %}
+<section class="banner">
+    <div class="banner-slide owl-carousel">
+        <div class="item">
+            <div class="ba-img">
+                <img src="{% static 'images/ban1.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="ba-text">
+                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
+                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <a href="{% url 'trek:book1' %}" class="bg-gr">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="ba-img">
+                <img src="{% static 'images/ban2.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="ba-text">
+                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
+                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <a href="" class="bg-gr">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="ba-img">
+                <img src="{% static 'images/ban3.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="ba-text">
+                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
+                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <a href="" class="bg-gr">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% if message %}
+<section class="blg-det p35">
+    <div class="container">
+
+        <div class="all-heading txt-lft">
+            <span>Ready To Go <img src="{% static 'images/png.png' %}"></span>
+            <label>Success</label>
+            <div class="cust-form bx-sdw2">
+                <h4 class="bef-head">{{ message }}</h4>
+                <p class="cl-gr">For further queries, you can contact us at +977-9866059826.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="suscribe p70 center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="all-heading">
+                    <span>For Update<img src="{% static 'images/png.png' %}"></span>
+                    <label>Suscribe</label>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="sus-form">
+                    <form method="post" action="{% url 'trek:subscribe' %}">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <input type="text" placeholder="FIRST NAME" name="first_name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" placeholder="LAST NAME" name="last_name" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="Email" placeholder="EMAIL ADDRESS" name="email" required>
+                        </div>
+
+                        <button class="rm-btn bg-gr sus-btn" type="submit">SUSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

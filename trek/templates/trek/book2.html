@@ -1,0 +1,162 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="banner">
+    <div class="allbanner-img">
+        <div class="al-bn-txt">
+            <span class="wpag">Book Step (2/3)</span>
+        </div>
+    </div>
+</section>
+
+<section class="book-steps p35">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="sin-st">
+                    <h5><span class="sin-stactive">1</span>Select The Trip</h5>
+
+                    <ul class="ste-li brf-fo">
+                        <li>Select the Trip</li>
+                        <li>Select Trip Date</li>
+                        <li>Select Number of Traveller</li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="sin-st">
+                    <h5 class="h-act"><span>2</span>Submit Travel Information</h5>
+
+                    <ul class="ste-li brf-fo">
+                        <li>Submit traveller Information</li>
+                        
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="sin-st">
+                    <h5><span>3</span>Payment Methods</h5>
+
+                    <ul class="ste-li brf-fo">
+                        <li>Download pdf / doc version of payment processing form</li>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="b-frm p35">
+    <div class="container">
+        <p class="cl-gr">All of your personal information will be securely stored in our office. We will not share your information with anyone unless we are completing previously agreed to official business on your behalf (obtaining travel permits, national park registration cards). Please complete the following information for each individual in your party:</p>
+
+        <form method="post" action=".">
+            {% csrf_token %}
+        <div class="cust-form bx-sdw2">
+            <h4 class="bef-head">Trip Information</h4>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Title*</h6>
+                <div class="cu-frs bx-sdw2">
+                    {{ form.title }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>First Name*</h6>
+                <div class="cu-frs bx-sdw2">
+                    {{ form.first_name }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Middle Name</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.middle_name }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Last Name*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.last_name }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Email*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.email }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Phone Number*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.phone_number }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Passport Number*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.passport_number }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Place of Issue*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.place_of_issue }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Issue Date*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    <input type="text" class="datepicker" name="issue_date">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Expiry Date*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    <input type="text" class="datepicker" name="expire_date">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Emergency Contact Number*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.emergency_contact_number }}
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <input type="checkbox"> I agree to all <a href="terms.html">TERMS AND CONDTION</a>
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+
+        <button class="rm-btn bg-gr">Next Process</button>
+        </form>
+
+    </div>
+</section>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $( ".datepicker" ).datepicker();
+    });
+
+</script>
+{% endblock %}

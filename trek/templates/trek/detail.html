@@ -1,0 +1,441 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% load filters %}
+{% block content %}
+<section class="banner">
+    <div class="allbanner-img">
+        <div class="al-bn-txt">
+            <span class="wpag">Package Detail</span>
+        </div>
+    </div>
+</section>
+
+<section class="pack-det p35">
+    <div class="container">
+        <div class="pac-head">
+            <h4>{{ item.name }}</h4>
+            <div class="pac-rat">
+                <span class="pa-gr">{% if item.rating %}{{ item.rating }}</span>/<span class="pa-gr">5</span> {% endif %}<span class="pd-rev">{{ item.id|get_review_count }}</span> Reviews
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-sm-7">
+                <div class="pd-war" id="main">
+                    <div class="pd-img-wrap">    
+                        <div class="col-md-10 col-sm-10 col-xs-9">
+                            <div class="row">
+                                <div class="slider slider-for">
+                                    {% for obj in item.images.all %}
+                                    <div>
+                                        <img src="{{ obj.image.url }}">
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>              
+                        <div class="col-md-2 col-sm-2 col-xs-3">
+                            <div class="slider slider-nav">
+                                {% for obj in item.images.all %}
+                                    <div>
+                                        <img src="{{ obj.image.url }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>    
+
+
+                    <div id="horizontalTab">
+                        <ul class="bg-gr">
+                            <li><a href="#tab-1">Trip Overview</a></li>
+                            <li><a href="#tab-2">Detail Itinery</a></li>
+                            <li><a href="#tab-3">Include Cost</a></li>
+                            <li><a href="#tab-4">Whats Exclude</a></li>
+                            <li><a href="#tab-5">Reviews</a></li>
+                            <li><a href="#tab-6">Tour Maps</a></li>
+                        </ul>
+
+                        <div id="tab-1">
+                            <div class="overv">
+                                <div class="fo-ic">
+                                    {% if item.group_size %}
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p><i class="fas fa-users"></i>Group Size:<span>{{ item.group_size }}</span></p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if item.duration %}
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p><i class="fas fa-clock"></i>Time:<span>{{ item.duration }} days</span></p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if item.destination %}
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p><i class="fas fa-globe"></i>Destination:<span>{{ item.destination|title }}</span></p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if item.departure_from %}
+                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                        <p><i class="fas fa-plane"></i>Depature From:<span>{{ item.departure_from|title }}</span></p>
+                                    </div>
+                                    {% endif %}
+
+                                    {% if item.meal_service %}
+                                    <div class="col-md-12">
+                                        <p><i class="fas fa-utensils"></i>Meal:<span>{{ item.meal_service }} meals served.</span></p>
+                                    </div>
+                                    {% endif %}
+                                    <div class="clearfix"></div>
+                                </div>
+
+                                <div class="trip-ov">
+                                    <h3 class="bef-head">Trip Introduction</h3>
+                                    <p>{{ item.introduction }}</p>
+                                </div>                                
+
+                                
+                                <h3 class="bef-head">Outline Itinery</h3>
+                                <ul class="i-br-list">
+                                    {% for obj in item.itinerary.all %}
+                                    <li><strong>Day {{ obj.day }} :</strong> {{ obj.description|title }}</li>
+                                    {% endfor %}
+                                </ul>
+
+                            
+                            </div>
+                        </div>
+
+
+                        <div id="tab-2">
+                            <div class="det-ite">
+                                <div class="di-head">
+                                    <h5>TOUR <span>Itinerary</span></h5>
+                                    <p>Highlight of your journey.</p>
+                                </div>
+
+                                <div class="it-wrap">
+                                    {% for obj in item.itinerary.all %}
+                                    <div class="it-sing">
+                                        <div class="col-md-6 col-sm-6 ">
+                                            <div class="row">
+                                                <div class="img-wid">
+                                                    <img width="375px" height="375px" src="{{ obj.image.url }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="row">
+                                                <div class="itd-text">
+                                                    <h4>{{ obj.place|title }}</h4>
+                                                    <span>{{ obj.sub_heading|title }}</span>
+
+                                                    <p>{{ obj.description|title }}</p>
+
+
+                                                    <div class="itd-acc">
+                                                        <div class="row">
+                                                            {% if obj.meals %}
+                                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                <div class="acc-wrap">
+                                                                    <i class="fas fa-utensils"></i>
+                                                                    <div class="acc-sing">
+                                                                        <span>Meals</span>
+                                                                        <p>{{ obj.meals }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                            {% if obj.travel %}
+                                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                <div class="acc-wrap">
+                                                                    <i class="fas fa-bus"></i>
+                                                                    <div class="acc-sing">
+                                                                        <span>Travel</span>
+                                                                        <p>{{ obj.travel|title }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                            {% if obj.accomodation %}
+                                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                <div class="acc-wrap">
+                                                                    <i class="fas fa-bed"></i>
+                                                                    <div class="acc-sing">
+                                                                        <span>Accomodation</span>
+                                                                        <p>{{ obj.accomodation|title }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                            {% if obj.altitude %}
+                                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                <div class="acc-wrap">
+                                                                    <i class="fas fa-mountain"></i>
+                                                                    <div class="acc-sing">
+                                                                        <span>Altitude</span>
+                                                                        <p>{{ obj.altitude }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            {% endif %}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                        <div class="day-abs">
+                                            <span class="br-e">Day {{ obj.day }}</span>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="tab-3">
+                            <h3 class="bef-head">Cost Included</h3>
+
+                            <ul class="i-br-list brf-fo">
+                                {% for obj in item.cost_included.all %}
+                                <li>{{ obj.included_items|title }}</li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+
+                        <div id="tab-4">
+                          <h3 class="bef-head">Cost Excluded</h3>
+
+                            <ul class="i-br-list brf-fo brf-ex">
+                                {% for obj in item.cost_excluded.all %}
+                                <li>{{ obj.excluded_items|title }}</li>
+                                {% endfor %}
+
+                            </ul>
+
+
+                        </div>
+
+                        <div id="tab-5">
+                            {% for obj in item.review_set.all %}
+                            {% if obj.accepted %}
+                            <div class="re-wrap bx-sdw3">
+
+                                <div class="col-md-3">
+                                    <div class="rev-img center">
+                                        <img src="{% static 'images/Person.jpg' %}">
+                                        <h6>{{ obj.full_name|title }}</h6>
+                                        {% if obj.address %}<p>{{ obj.address }}</span></p>{% else %}<p></p>{% endif %}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="rev-text">
+                                        <h3>"{{ obj.review }}"</h3>
+                                        <p>{{ obj.content }}</p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+
+                            <!--<div class="rev-pag center">-->
+                                <!--<ul class="pagination">-->
+                                  <!--<li class="active"><a href="#">1</a></li>-->
+                                  <!--<li><a href="#">2</a></li>-->
+                                  <!--<li><a href="#">3</a></li>-->
+                                  <!--<li><a href="#">4</a></li>-->
+                                  <!--<li><a href="#">5</a></li>-->
+                                <!--</ul>-->
+                            <!--</div>-->
+
+
+                            <div class="wr-rev">
+                                <div class="all-heading">
+                                    <span>About this trip<img src="{% static 'images/png.png' %}"></span>
+                                    <label>Write a Review</label>
+                                </div>
+                                <form method="post" action=".">
+                                    {% csrf_token %}
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6>Full Name*</h6>
+                                        <div class="cu-frs bx-sdw2">
+                                            {{ form.full_name }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6>Email*</h6>
+                                        <div class="cu-frs bx-sdw2">
+                                            {{ form.email }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6>Address*</h6>
+                                        <div class="cu-frs bx-sdw2">
+                                            {{ form.address }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6>Contact Number*</h6>
+                                        <div class="cu-frs bx-sdw2">
+                                            {{ form.contact }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6>Review Title*</h6>
+                                        <div class="cu-frs bx-sdw2">
+                                            {{ form.review }}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-6">
+                                        <h6>Rate This Package</h6>
+                                        <div class="rating">
+                                          <label>
+                                            <input type="radio" name="stars" value="1" />
+                                            <span class="icon">★</span>
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="stars" value="2" />
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="stars" value="3" />
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="stars" value="4" />
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="stars" value="5" />
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                            <span class="icon">★</span>
+                                          </label>
+                                        </div>
+                                    </div>
+                                    <input type="number" name="rating" id="id_rating" hidden>
+
+                                    <div class="col-md-8 col-sm-6">
+                                        <h6>Your Message</h6>
+                                        <div class="cu-frs bx-sdw2">
+                                            {{ form.content }}
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <button type="submit" class="rm-btn bg-gr">Submit</button>
+                                </form>
+                            </div>
+
+
+
+
+                        </div>
+
+                        <div id="tab-6">
+                            <div class="tab-map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27772.46939500828!2d82.07584285625967!3d29.52922049385368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a3364839cf9de1%3A0x555b45c4bc3b046f!2sRara+Lake!5e0!3m2!1sen!2snp!4v1558964069654!5m2!1sen!2snp" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>            
+ 
+            <div class="col-md-4 col-sm-5">
+                <div id="sidebar" class="bx-sdw3">
+                    <div class="rate">
+                        <div class="rating-stars">
+                            <h3>{{ item.price }}<span>per Person</span></h3>
+                            {% if item.rating %}
+
+                            {% with item.rating|range_rating as rates %}
+                            {% for count in rates %}
+                            <i class="fas fa-star"></i>
+                            {% endfor %}
+                            {% endwith %}
+
+                            {% with item.rating|rating_decimal as rate %}
+                            {% if rating != 0 %}
+                            <i class="fas fa-star-half-alt"></i>
+                            {% endif %}
+                            {% endwith %}
+
+                            <label>Excellent</label>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="customize">
+                            <a href="{% url 'trek:customize_trip' item.pk %}" class=""><!-- customize page -->
+                                <div class="oh-dis">Customize This Trip </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <p class="ava"> <i class="fas fa-check-circle"></i>Available in this season</p>
+                   <!--  <p class="ava not-ava"> <i class="fas fa-check-circle"></i>Not Available in this season</p> -->
+
+                    <a href="{% url 'trek:package_book' item.pk %}" class="bg-gr a-re center">Book Now</a>
+
+                    <div class="deshp">
+                         <p class="ava"> <i class="fas fa-check-circle"></i>Make your travel <span>Easy and Fun </span>with Nepholic</p>
+
+                         <div class="dis-inne">
+                            <img src="{% static 'images/neph.png' %}">
+                            <a href="" class="br-gr a-re center wid-smal">
+                                <i class="fas fa-shopping-cart"></i>Shop Now
+                            </a>
+                         </div>
+
+                         <div class="de-brn">
+                                <a href="">
+                                    <img src="{% static 'images/n1.png' %}">
+                                    <img src="{% static 'images/n2.png' %}">
+                                    <img src="{% static 'images/n1.png' %}">
+                                    <img src="{% static 'images/n2.png' %}">
+                                    <img src="{% static 'images/n1.png' %}">
+                                    <img src="{% static 'images/n1.png' %}">
+                                </a>
+                            </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+{% block script %}
+<script>
+$(':radio').change(function() {
+  $('#id_rating').val(this.value);
+});
+</script>
+{% endblock %}

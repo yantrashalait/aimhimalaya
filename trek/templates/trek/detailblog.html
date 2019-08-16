@@ -1,0 +1,67 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="banner">
+    <div class="allbanner-img">
+        <div class="al-bn-txt">
+            <span class="wpag">Blog Detail</span>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="blg-det p70">
+    <div class="container">
+
+        <div class="all-heading txt-lft">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Travel Blogs</label>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blg-det">
+                    <div class="blg-img">
+                        <img width="746px" height="300px" src="{{ blog.image.url }}">
+                        <div class="blg-head">
+                            <div class="blg-date br-e">
+                                <span>{{ blog.date.day }}</span>
+                                <label>{{ blog.date.month }}</label>
+                            </div>
+                            <div class="blg-by">
+                                <h4>{{ blog.title|title }}</h4>
+                                <p>By <span>{{ blog.author|title }}</span> <span class="br-left"> {{ blog.date }}</span> <span class="br-left">3 comments    </span></p>
+                            </div>
+                        </div>
+
+                        <div class="blg-detp">
+                            <p style="word-break: break-all;">{{ blog.content }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="rel-blg">
+                    <h4 class="bef-head">Related Blogs</h4>
+
+                    {% for item in related %}
+                    <div class="rel-bsing br-e">
+                        <a href="{% url 'trek:blog_detail' item.pk %}">
+                            <img width="320px" height="185px" src="{{ item.image.url }}">
+                            <div class="reb-det">
+                                <h4>{{ item.title|title }}</h4>
+                                <p style="word-break: break-all">{{ item.content|slice:":250" }}</p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>        
+    </div>
+</section>
+
+{% endblock %}

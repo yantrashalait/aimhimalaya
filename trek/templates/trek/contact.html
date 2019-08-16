@@ -1,0 +1,123 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% block content %}
+<section class="about br-tp p70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                
+               <div id="player"></div>
+
+                
+            </div>
+            <div class="col-md-5">
+                <div class="abt-text">
+                    <div class="all-heading txt-lft mar-btn">
+                        <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+                        <label>About us</label>
+                    </div>
+                    <div class="abt-bdy">
+                        <p>
+                            Whitepages is the authority in people search, established in 1997. With comprehensive contact information, including cell phone numbers, for over 275 million people nationwide, and SmartCheck
+                        </p>
+
+                        <p>
+                         the fast, comprehensive background check compiled from criminal and other records from all 50 states. Whitepages provides answers to over 2 million searches every day and powers the top ranked domains: Whitepages, 411, and Switchboard. In addition, top companies like Jet Blue, Intuit and Lego use Whitepages Pro to help prevent fraudulent trasparent.
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="co-det p35">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="con-sin">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h5>
+                        Aloknagar,Tinkune
+                        <span>Kathmandu,Nepal</span>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="con-sin">
+                    <i class="fas fa-phone"></i>
+                    <h5>9860558952
+                        <span>Phone Number</span>
+                    </h5>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="con-sin">
+                    <i class="fas fa-envelope"></i>
+                    <h5>kulchan@gmail.com
+                        <span>Gmail</span>
+                    </h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="ph-gal p70 center">
+    <div class="all-heading">
+        <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+        <label>Photo Gallery</label>
+    </div>
+
+    <div class="frm-galle owl-carousel">
+        <!-- for loop for image gallery -->
+        {% for item in gallery %}
+        <div class="item">  
+            <a class="example-image-link" href="{{ item.image.url }}" data-lightbox="example-set" ><img width="368px" height="368px" class="example-image" src="{{ item.image.url }}" alt=""/></a>
+        </div>
+        {% endfor %}
+
+        <!--end for loop-->
+    </div>  
+</section>
+
+<section class="suscribe p70 center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="all-heading">
+                    <span>For Update<img src="{% static 'images/png.png' %}"></span>
+                    <label>Suscribe</label>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="sus-form">
+                    <form method="post" action="{% url 'trek:subscribe' %}">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <input type="text" placeholder="FIRST NAME" name="first_name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" placeholder="LAST NAME" name="last_name" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="Email" placeholder="EMAIL ADDRESS" name="email" required>
+                        </div>
+
+                        <button class="rm-btn bg-gr sus-btn" type="submit">SUSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

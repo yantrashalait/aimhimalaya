@@ -1,0 +1,68 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% block content %}
+<section class="banner">
+    <div class="allbanner-img">
+        <div class="al-bn-txt">
+            <span class="wpag">Search Results</span>
+        </div>
+    </div>
+</section>
+
+<section class="offers p70 center">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Your Search Results</label>
+        </div>
+
+        <div class="car-body">
+            <div class="li-offer">
+                {% if packages %}
+                {% for item in packages %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="li-ofsin">
+                        <a href="{% url 'trek:detail' item.id %}">
+                            <div class="bo-img">
+                                <div class="bo-overlay"></div>
+                                <img width="350px" height="303px" src="{{ item.images.first.image.url }}">
+                                <div class="best-off">
+                                    <span>Rs {{ item.price }}</span>
+                                </div>
+
+                            </div>
+
+                            <div class="bft-det">
+                                <h3>{{ item.name }}</h3>
+                                <span class="bft-dat">({{ item.days }} day/{{ item.nights }} nights)</span>
+                                <p>{{ item.description }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="clearfix"></div>
+
+
+                <!--<div class="rev-pag center">-->
+                    <!--<ul class="pagination">-->
+                      <!--<li class="active"><a href="#">1</a></li>-->
+                      <!--<li><a href="#">2</a></li>-->
+                      <!--<li><a href="#">3</a></li>-->
+                      <!--<li><a href="#">4</a></li>-->
+                      <!--<li><a href="#">5</a></li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+                {% else %}
+                <div class="cust-form bx-sdw2">
+                    <p class="cl-rd">No packages matching your request found.</p>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

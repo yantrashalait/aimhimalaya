@@ -1,0 +1,236 @@
+@media screen and (max-width: 1024px) {
+   .dis-inne {
+	    display: inherit;
+	    margin: 30px 0;
+	    text-align: center;
+	}
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+
+	 .ba-text {
+	 	bottom: 10px;
+	 }
+
+	 .ba-text h4 {
+	 	font-size: 18px;
+	 	padding: 10px;
+	 }
+
+	.ba-text p {
+		font-size: 11px;
+		padding: 10px;
+	}
+
+	.abt-text {
+	    padding: 40px 0 0 0;
+	}
+
+	.client-rev .owl-nav {
+		left: -10px;
+	}
+
+	.best-off :after {
+		bottom: -21px;
+	}
+
+	.slider.slider-nav {
+	    margin-top: 0;
+	}
+
+	.abt-text:before {
+		display: none;
+	}
+
+
+
+
+}
+
+
+
+@media screen and (max-width: 480px) {
+	section.search .nice-select , .serch-btn{
+	    margin: 10px 0;
+	}
+
+	.spet-car .item a {
+		font-size: 12px;
+	}
+	.spet-car .item a .fas {
+		margin-right: 3px;
+	}
+
+	.bft-det h3 {
+		font-size: 12px;
+	}
+
+	span.bft-dat {
+	    font-size: 11px;
+	    margin-top: 5px;
+	}
+
+	.a1-info {
+	    padding: 25px;
+	}
+
+	s.p70 {
+	    padding: 40px 0;
+	}
+
+	.ba-text p {
+		display: none;
+	}
+
+	.ba-text{
+		position: relative;
+	}
+
+	.ba-text h4 {
+		display: block;
+		max-width: 100%;
+	}
+
+	.banner-slide .owl-nav {
+		bottom: 60px;
+	}
+
+	h4.bg-gr {
+	    background: transparent;
+	    border: navajowhite;
+	    color: #74cc01;
+	    padding: 0;
+	    margin-bottom: 5px;
+	}
+
+	.ba-text a {
+	    font-size: 10px;
+	    padding: 4px 8px;
+	}
+
+	.banner-slide .owl-nav span {
+	 	margin: 0 2px;
+	    padding: 3px 10px;
+	    font-size: 18px;
+	    height: 20px;
+	    width: 20px;
+	}
+
+	.fs-sing {
+    	padding: 0 20px;
+	}
+
+	.b-offer .owl-nav span, .a-offer .owl-nav span, .p-offer .owl-nav span, .frm-galle .owl-nav span, .spec-tabcon .owl-nav span {
+	    background: #74CC01;
+	    margin: 0 6px;
+	    padding: 3px 10px;
+	    font-size: 17px;
+	    height: 30px;
+	    width: 30px;
+
+	}
+
+	.b-offer .owl-nav button.owl-prev,
+	 .a-offer .owl-nav button.owl-prev,
+	  .spec-tabcon .owl-nav button.owl-prev {
+	    position: absolute;
+	    color: #fff;
+	 	top: 50%;
+	 	transform: translate(0,-50%);
+	 	left: -17px;
+	}
+
+
+	.b-offer .owl-nav button.owl-next,
+	.a-offer .owl-nav button.owl-next,
+	.spec-tabcon .owl-nav button.owl-next {
+	    position: absolute;
+	    color: #fff;
+	 	top: 50%;
+	 	transform: translate(0,-50%);
+	 	right: -17px;
+	}
+
+	.bx-sdw1 {
+		box-shadow: none;
+	}
+
+	.p70 {
+	    padding: 30px 0;
+	}
+
+	.best-off {
+		font-size: 12px;
+	}
+
+	.slider.slider-nav {
+	    margin-top: 0px;
+	}
+
+	iframe#player {
+	    padding-top: 0px;
+	}
+
+	.ba-img img {
+		height: 350px;
+	}
+
+	span.wpag {
+		font-size: 38px;
+	}
+
+	.allbanner-img {
+		height: 240px;
+	}
+
+	div#sidebar {
+	    margin-top: 50px;
+	}
+
+	.con-sin {
+	    display: inline-flex;
+	    width: 100%;
+	    margin: 15px 0;
+	}
+
+
+
+}
+
+
+@media screen and (max-width: 380px) {
+
+	.a1-info {
+	    padding: 5px;
+	}
+
+	.a1-info p {
+		font-size: 11px;
+	}
+	span.price {
+		font-size: 14px;
+	}
+
+	span.dayn {
+		font-size: 10px;
+	}
+
+	.spet-car .item a .fas {
+		display: none;
+	}
+
+	.spet-car .item a {
+		font-size: 11px
+	}
+
+	.fs-sing {
+    	padding: 0 10px;
+	}
+
+
+
+}
+ 

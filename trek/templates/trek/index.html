@@ -1,0 +1,421 @@
+{% extends 'trek/base.html' %}
+{% load static %}
+{% load filters %}
+
+{% block content %}
+
+<section class="banner">
+    <div class="banner-slide owl-carousel">
+        <div class="item">
+            <div class="ba-img">
+                <img width="1838px" height="613px" src="{% static 'images/ban1.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="ba-text">
+                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
+                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <a href="{% url 'trek:book1' %}" class="bg-gr">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="ba-img">
+                <img width="1838px" height="613px" src="{% static 'images/ban2.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="ba-text">
+                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
+                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <a href="" class="bg-gr">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="ba-img">
+                <img width="1838px" height="613px" src="{% static 'images/ban3.jpg' %}">
+            </div>
+            <div class="container">
+                <div class="ba-text">
+                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
+                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <a href="" class="bg-gr">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="search">
+    <div class="container">
+        <div class="row">
+            <form method="post" action="{% url 'trek:search' %}">
+                {% csrf_token %}
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="bx-sdw1">
+                        <select name="country">
+                            <option data-display="Country" value="">Country</option>
+                            {% for item in country %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="bx-sdw1">
+                        <select name="destination">
+                            <option data-display="Destination" value="">Destination</option>
+                            {% for item in destination %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="bx-sdw1">
+                        <select name="activity">
+                            <option data-display="Activities" value="">Activity</option>
+                            {% for item in activities %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <div class="bx-sdw1">
+                        <button class="serch-btn">
+                            <a><i class="fas fa-long-arrow-alt-right"></i>   Search</a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="about p70">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                
+               <div id="player"></div>
+
+                
+            </div>
+            <div class="col-md-5">
+                <div class="abt-text">
+                    <div class="all-heading txt-lft mar-btn">
+                        <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+                        <label>About us</label>
+                    </div>
+                    <div class="abt-bdy">
+                        <p>
+                            Whitepages is the authority in people search, established in 1997. With comprehensive contact information, including cell phone numbers, for over 275 million people nationwide, and SmartCheck
+                        </p>
+
+                        <p>
+                         the fast, comprehensive background check compiled from criminal and other records from all 50 states. Whitepages provides answers to over 2 million searches every day and powers the top ranked domains: Whitepages, 411, and Switchboard. In addition, top companies like Jet Blue, Intuit and Lego use Whitepages Pro to help prevent fraudulent trasparent.
+                        </p>
+
+                        <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="spec-pack p70">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Special Packages</label>
+        </div>
+
+        <div class="tab-car-wrap">
+            <div class="nav nav-tabs spec-packtab">
+            
+                <div class="spet-car owl-carousel bg-gr">
+                    {% for item in activities %}
+                        {% if forloop.first %}
+                            <div class="item active"><a data-toggle="tab" href="#menu{{ forloop.counter }}"><i class="fas fa-mountain"></i>{{ item.name }}</a></div>
+                        {% else %}
+                            <div class="item"><a data-toggle="tab" href="#menu{{ forloop.counter }}"><i class="fas fa-mountain"></i>{{ item.name }}</a></div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="tab-content">
+                {% for item in activities %}
+                {% if forloop.first %}
+                    <div id="menu{{ forloop.counter }}" class="tab-pane fade in active">
+                {% else %}
+                    <div id="menu{{ forloop.counter }}" class="tab-pane fade in">
+                {% endif %}
+                    <div class="spec-tabcon owl-carousel">
+                        {% with item|get_packages as packages%}
+                        {% for obj in packages %}
+                            <div class="item">
+                                <a href="{% url 'trek:detail' obj.pk %}">
+                                    <div class="bo-img">
+                                        <div class="bo-overlay"></div>
+                                        <img width="247px" height="247px" src="{{ obj.images.first.image.url }}">
+                                        
+                                    </div>
+
+                                    <div class="bft-det">
+                                        <h3>{{ obj.name }}</h3>
+                                        <span class="bft-dat">({{ obj.days }} days/{{ obj.nights }} nights)</span>
+                                        <p>With a massive still very wild, we propose to do tour of Musatang,located in the north…</p> 
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                        {% endwith %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section class="offers p70 center">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>BEST OFFER</label>
+        </div>
+
+        <div class="car-body">
+            <div class="b-offer owl-carousel">
+                {% for item in best %}
+                <div class="item">
+                    <a href="{% url 'trek:detail' item.pk %}">
+                        <div class="bo-img">
+                            <div class="bo-overlay"></div>
+                            <img width="360px" height="361px" src="{{ item.images.first.image.url }}">
+                            <div class="best-off">
+                                <span>Rs {{ item.price }}</span>
+                            </div>
+                            
+                        </div>
+
+                        <div class="bft-det">
+                            <h3>{{ item.name }}</h3>
+                            <span class="bft-dat">({{ item.days }} days/{{ item.nights }} nights)</span>
+                            <p>With a massive still very wild, we propose to do tour of Musatang,located in the north…</p> 
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <a href="{% url 'trek:offer_list' %}" class="rm-btn bg-gr">view more </i></a>
+        </div>
+    </div>
+</section>
+
+<section class="aws-tur p70 center">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Awesome tour</label>
+        </div>
+
+        <div class="a-offer owl-carousel">
+            {% for item in awesome %}
+            <div class="item">
+
+                <div class="a1-img">
+                    <div class="a-overlay"></div>    
+                    <img width="360px" height="245px" src="{{ item.images.first.image.url }}">
+
+                    <div class="pos-abs">
+                        <span>{{ item.name }}</span>
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <div class="a1-des">
+                    <div class="a1-count bor-rig">
+                        <ul>
+                            <li><i class="far fa-eye"></i> <span>{{ item.views }}</span></li>
+                            <li><i class="far fa-comments"></i><span>{{ item.review.count }}</span></li>
+                            <li><i class="far fa-share-square"></i><span>{{ item.shares }}</span></li>
+                            <li><i class="fas fa-map-marker-alt"></i><span>Map</span></li>
+                        </ul>
+                    </div>
+                    <div class="a1-info center">
+                        <span class="price">{{ item.price }}</span><span class="dayn">{{item.days}} days,{{ item.nights }} Nights</span>
+                        <p>{{ item.description }}</p>
+                        <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="{% url 'trek:package_listing' %}" class="rm-btn bg-gr">More Awesome</a>
+
+    </div>
+</section>
+
+<section class="pop-tur p70 center">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Popular tour</label>
+        </div>
+
+        <div class="p-offer owl-carousel"> 
+            <div class="item">
+                {% for item in popular %}
+                <div class="col-md-6 col-sm-6">
+                    <div class="sing-pl bx-sdw2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="p-img">
+                                    <div class="a-overlay"></div>
+                                    <img width="270px" height="234px" src="{{ item.images.first.image.url }}">
+                                    <span>{{ item.name }}</span>
+                                </div>                            
+                            </div>   
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="dis-in">
+                                    <div class="a1-info center p-info">
+                                        <span class="price">${{ item.price }}</span><span class="dayn">{{ item.days }} days,{{ item.nights }} Nights</span>
+                                        <p>{{ item.introduction }}</p>
+                                        <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
+                                    </div>
+                                    <div class="a1-count p-ofc">
+                                        <ul>
+                                            <li><i class="far fa-eye"></i></li>
+                                            <li><i class="far fa-comments"></i></li>
+                                            <li><i class="far fa-share-square"></i></li>
+                                            <li><i class="fas fa-map-marker-alt"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>        
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        <a href="{% url 'trek:popular_listing' %}" class="rm-btn bg-gr martp-50">More Popular</a>
+
+
+
+    </div>
+</section>
+
+<section class="ph-gal p70 center">
+    <div class="all-heading">
+        <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+        <label>Photo Gallery</label>
+    </div>
+
+    <div class="frm-galle owl-carousel">
+        {% for item in gallery %}
+        <div class="item">  
+            <a class="example-image-link" href="{{ item.image.url }}" data-lightbox="example-set" ><img height="368px" width="368px" class="example-image" src="{{ item.image.url }}" alt="{{ item.name }}"/></a>
+        </div>
+        {% endfor %}
+    </div>  
+</section>
+
+<section class="clients p70 center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="all-heading cl-head">
+                    <span>Relax & Enjoy<img src="{% static 'images/png.png' %}"></span>
+                    <label>Happy Clients</label>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="client-rev owl-carousel">
+                    {% for item in happy_clients %}
+                    <div class="item">
+                        <div class="rev-wrap bx-sdw2">
+                            <div class="cl-img-cvr">
+                                <img width="412px" height="142px" src="{{ item.cover_picture.url }}">
+                            </div>
+                            <img class="cl-pro" src="{{ item.profile_picture.url }}">
+                            <div class="cl-info">
+                                <h6>{{ item.name }}</h6>
+                                <span>{{ item.address }}</span>
+                                <p>{{ item.happy_review }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="suscribe p70 center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="all-heading">
+                    <span>For Update<img src="{% static 'images/png.png' %}"></span>
+                    <label>Suscribe</label>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="sus-form">
+                    <form method="post" action="{% url 'trek:subscribe' %}">
+                        {% csrf_token %}
+                        <div class="col-md-6">
+                            <input type="text" placeholder="FIRST NAME" name="first_name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <input type="text" placeholder="LAST NAME" name="last_name" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <input type="Email" placeholder="EMAIL ADDRESS" name="email" required>
+                        </div>
+
+                        <button class="rm-btn bg-gr sus-btn" type="submit">SUSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
