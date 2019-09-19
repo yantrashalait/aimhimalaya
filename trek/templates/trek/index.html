@@ -6,45 +6,20 @@
 
 <section class="banner">
     <div class="banner-slide owl-carousel">
+        {% for item in banner %}
         <div class="item">
             <div class="ba-img">
-                <img width="1838px" height="613px" src="{% static 'images/ban1.jpg' %}">
+                <img src="{{ item.image.url }}">
             </div>
             <div class="container">
                 <div class="ba-text">
-                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
-                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    <h4 class="bg-gr">{{ item.banner_title }}</h4>
+                    <p>{{ item.banner_description }}</p>
                     <a href="{% url 'trek:book1' %}" class="bg-gr">Book Now</a>
                 </div>
             </div>
         </div>
-
-        <div class="item">
-            <div class="ba-img">
-                <img width="1838px" height="613px" src="{% static 'images/ban2.jpg' %}">
-            </div>
-            <div class="container">
-                <div class="ba-text">
-                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
-                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <a href="" class="bg-gr">Book Now</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="ba-img">
-                <img width="1838px" height="613px" src="{% static 'images/ban3.jpg' %}">
-            </div>
-            <div class="container">
-                <div class="ba-text">
-                    <h4 class="bg-gr">Exprience Hiking With Us</h4>
-                    <p>Pellentesque tincidunt id nisl non molestie. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <a href="" class="bg-gr">Book Now</a>
-                </div>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
 </section>
 
@@ -113,13 +88,7 @@
                         <label>About us</label>
                     </div>
                     <div class="abt-bdy">
-                        <p>
-                            Whitepages is the authority in people search, established in 1997. With comprehensive contact information, including cell phone numbers, for over 275 million people nationwide, and SmartCheck
-                        </p>
-
-                        <p>
-                         the fast, comprehensive background check compiled from criminal and other records from all 50 states. Whitepages provides answers to over 2 million searches every day and powers the top ranked domains: Whitepages, 411, and Switchboard. In addition, top companies like Jet Blue, Intuit and Lego use Whitepages Pro to help prevent fraudulent trasparent.
-                        </p>
+                        {{ about.about_description|linebreaks }}
 
                         <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
@@ -143,9 +112,9 @@
                 <div class="spet-car owl-carousel bg-gr">
                     {% for item in activities %}
                         {% if forloop.first %}
-                            <div class="item active"><a data-toggle="tab" href="#menu{{ forloop.counter }}"><i class="fas fa-mountain"></i>{{ item.name }}</a></div>
+                            <div class="item active"><a data-toggle="tab" href="#menu{{ forloop.counter }}">{{ item.name }}</a></div>
                         {% else %}
-                            <div class="item"><a data-toggle="tab" href="#menu{{ forloop.counter }}"><i class="fas fa-mountain"></i>{{ item.name }}</a></div>
+                            <div class="item"><a data-toggle="tab" href="#menu{{ forloop.counter }}">{{ item.name }}</a></div>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -264,7 +233,7 @@
                         </ul>
                     </div>
                     <div class="a1-info center">
-                        <span class="price">{{ item.price }}</span><span class="dayn">{{item.days}} days,{{ item.nights }} Nights</span>
+                        <span class="price">Rs {{ item.price }}</span><span class="dayn">{{item.days}} days,{{ item.nights }} Nights</span>
                         <p>{{ item.description }}</p>
                         <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
                     </div>
@@ -305,7 +274,7 @@
                             <div class="row">
                                 <div class="dis-in">
                                     <div class="a1-info center p-info">
-                                        <span class="price">${{ item.price }}</span><span class="dayn">{{ item.days }} days,{{ item.nights }} Nights</span>
+                                        <span class="price">Rs {{ item.price }}</span><span class="dayn">{{ item.days }} days,{{ item.nights }} Nights</span>
                                         <p>{{ item.introduction }}</p>
                                         <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
                                     </div>

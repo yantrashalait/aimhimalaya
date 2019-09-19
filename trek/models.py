@@ -148,6 +148,8 @@ class Subscription(models.Model):
 class HeaderImage(models.Model):
     image = models.ImageField(upload_to='header/')
     name = models.CharField(max_length=100, null=True, blank=True)
+    banner_title = models.CharField(max_length=100, null=True, blank=True)
+    banner_description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -217,5 +219,9 @@ class Blog(models.Model):
         return self.author + ' ' + self.title
 
 
-
-
+class AboutUsDetail(models.Model):
+    about_description = models.TextField()
+    video_url = models.CharField(max_length=100, null=True, blank=True, help_text="Paste the youtube video url here")
+    address = models.CharField(max_length=300, null=True, blank=True, help_text="Your address")
+    contact_number = models.CharField(max_length=255, null=True, blank=True, help_text="Your contact Number")
+    email = models.CharField(max_length=255, null=True, blank=True, help_text="Your email address")

@@ -3,7 +3,7 @@ from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse, request
 from django.shortcuts import redirect, render
 from .models import Package, Review, Activity, HappyClient, PhotoGallery, Country, Destination, CustomTrip, \
-    TripBooking, TripPersonalInfo, Subscription, Blog
+    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail
 from .forms import TripPersonalInfoForm, TripBookForm, CustomTripForm, SubscriptionForm, ReviewForm
 
 from django.db.models import Q
@@ -22,6 +22,8 @@ class IndexView(TemplateView):
         context['gallery'] = PhotoGallery.objects.all()
         context['country'] = Country.objects.all()
         context['destination'] = Destination.objects.all()
+        context['banner'] = HeaderImage.objects.all()
+        context['about'] = AboutUsDetail.objects.last()
         return context
 
 
@@ -57,6 +59,7 @@ class ContactView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(ContactView, self).get_context_data(**kwargs)
         context['gallery'] = PhotoGallery.objects.all()
+        context['about'] = AboutUsDetail.objects.last()
         return context
 
 
