@@ -105,28 +105,28 @@
             </div>
 
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <h6>Passport Number*</h6>
+                <h6>Passport Number</h6>
                 <div class="cu-frs bx-sdw2">    
                     {{ form.passport_number }}
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <h6>Place of Issue*</h6>
+                <h6>Place of Issue</h6>
                 <div class="cu-frs bx-sdw2">    
                     {{ form.place_of_issue }}
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <h6>Issue Date*</h6>
+                <h6>Issue Date</h6>
                 <div class="cu-frs bx-sdw2">    
                     <input type="text" class="datepicker" name="issue_date">
                 </div>
             </div>
 
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <h6>Expiry Date*</h6>
+                <h6>Expiry Date</h6>
                 <div class="cu-frs bx-sdw2">    
                     <input type="text" class="datepicker" name="expire_date">
                 </div>
@@ -140,7 +140,7 @@
             </div>
 
             <div class="col-md-12">
-                <input type="checkbox"> I agree to all <a href="terms.html">TERMS AND CONDTION</a>
+                <input type="checkbox"> I agree to all <a href="{% url 'trek:terms' %}">TERMS AND CONDTION</a>
             </div>
             
             <div class="clearfix"></div>

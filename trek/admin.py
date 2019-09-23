@@ -36,11 +36,20 @@ class PackageAdmin(admin.ModelAdmin):
 
 class TripPersonalInformationInline(admin.TabularInline):
     model = TripPersonalInfo
+    readonly_fields = ['title', 'first_name', 'middle_name', 'last_name', 'email', 'phone_number', 'passport_number', 'place_of_issue', 'issue_date', 'expire_date', 'emergency_contact_number']
 
 
 class TripBookingAdmin(admin.ModelAdmin):
     inlines = [TripPersonalInformationInline]
+    readonly_fields = ['nationality', 'trip_name', 'start_date', 'booking_date']
+    list_display = ('trip_name', 'nationality', 'start_date', 'booking_date')
+    list_select_related = ('trip_name',)
 
+    def get_package_detail(self, obj):
+        return obj.trip_name + str(obj.trip_name.price)
+
+    # def get_person(self, obj):
+    #     return obj.person.first_name
 
 admin.site.register(Package, PackageAdmin)
 admin.site.register(HeaderImage)

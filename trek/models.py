@@ -52,7 +52,7 @@ class Package(models.Model):
 
 class PackageImage(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='package/images/')
+    image = models.ImageField(upload_to='package/images/', help_text="Image size: width=360px height=245px")
 
     # def save(self, *args, **kwargs):
     #     image = Image.open(self.image)
@@ -78,7 +78,7 @@ class PackageCostExluded(models.Model):
 class PackageItinerary(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='itinerary')
     day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)')
-    place = models.CharField(max_length=200)
+    # place = models.CharField(max_length=200)
     sub_heading = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField()
     meals = models.IntegerField(help_text='Served meals (in number)', null=True, blank=True)
@@ -108,7 +108,7 @@ class Review(models.Model):
 
 
 class PhotoGallery(models.Model):
-    image = models.ImageField(upload_to='gallery/')
+    image = models.ImageField(upload_to='gallery/', help_text="Image size: width=350px height=350px")
     name = models.CharField(max_length=100, default='', null=True, blank=True)
 
     def __str__(self):
@@ -129,8 +129,8 @@ class HappyClient(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=200)
     happy_review = models.TextField()
-    profile_picture = models.ImageField(upload_to='clients/profile/')
-    cover_picture = models.ImageField(upload_to='clients/cover/')
+    profile_picture = models.ImageField(upload_to='clients/profile/', help_text="Image size: width=65px height=65px")
+    cover_picture = models.ImageField(upload_to='clients/cover/', help_text="Image size: width=350px height=120px")
 
     def __str__(self):
         return self.name
@@ -146,7 +146,7 @@ class Subscription(models.Model):
 
 
 class HeaderImage(models.Model):
-    image = models.ImageField(upload_to='header/')
+    image = models.ImageField(upload_to='header/', help_text="Image size: width=1800px; height=600px")
     name = models.CharField(max_length=100, null=True, blank=True)
     banner_title = models.CharField(max_length=100, null=True, blank=True)
     banner_description = models.TextField(null=True, blank=True)
@@ -194,25 +194,25 @@ class TripBooking(models.Model):
 
 
 class TripPersonalInfo(models.Model):
-    trip_book = models.ForeignKey(TripBooking, on_delete=models.CASCADE, null=True, blank=True)
+    trip_book = models.ForeignKey(TripBooking, on_delete=models.CASCADE, null=True, blank=True, related_name="person")
     title = models.CharField(max_length=10, choices=TITLE_CHOICES)
     first_name = models.CharField(max_length=100)
     middle_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=100)
-    passport_number = models.CharField(max_length=50)
-    place_of_issue = models.CharField(max_length=100)
-    issue_date = models.DateField()
-    expire_date = models.DateField()
-    emergency_contact_number = models.CharField(max_length=100)
+    passport_number = models.CharField(max_length=50, null=True, blank=True)
+    place_of_issue = models.CharField(max_length=100, null=True, blank=True)
+    issue_date = models.DateField(null=True, blank=True)
+    expire_date = models.DateField(null=True, blank=True)
+    emergency_contact_number = models.CharField(max_length=100, null=True, blank=True)
 
 
 class Blog(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     date = models.DateField()
-    image = models.ImageField(upload_to='blogs/')
+    image = models.ImageField(upload_to='blogs/', help_text="Image size: width=370px height=370px")
     content = models.TextField()
 
     def __str__(self):

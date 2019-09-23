@@ -10,11 +10,6 @@ class TripPersonalInfoForm(forms.ModelForm):
         self.fields['last_name'].required = True
         self.fields['email'].required = True
         self.fields['phone_number'].required = True
-        self.fields['passport_number'].required = True
-        self.fields['place_of_issue'].required = True
-        self.fields['issue_date'].required = True
-        self.fields['expire_date'].required = True
-        self.fields['emergency_contact_number'].required = True
 
     class Meta:
         model = TripPersonalInfo
