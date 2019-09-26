@@ -78,14 +78,14 @@ class PackageCostExluded(models.Model):
 class PackageItinerary(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='itinerary')
     day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)')
-    # place = models.CharField(max_length=200)
-    sub_heading = models.CharField(max_length=200, null=True, blank=True)
+    place = models.CharField(max_length=200, null=True, blank=True)
+    place_description = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField()
     meals = models.IntegerField(help_text='Served meals (in number)', null=True, blank=True)
     altitude = models.CharField(max_length=100, help_text='Altitude of the place', null=True, blank=True)
-    accomodation = models.CharField(max_length=50, help_text='Type of Accomodation', null=True, blank=True)
-    travel = models.CharField(max_length=50, help_text='Type of travel', null=True, blank=True)
-    image = models.ImageField(upload_to='package/itinerary/')
+    accomodation = models.CharField(max_length=50, help_text='Type of Accomodation (Example: Hotel, Camp, etc.)', null=True, blank=True)
+    travel = models.CharField(max_length=50, help_text='Type of travel (Example: Bus, Plane, Train, etc.)', null=True, blank=True)
+    image = models.ImageField(upload_to='package/itinerary/', help_text="Image size: width=376px height=376px ")
 
 
 class Review(models.Model):

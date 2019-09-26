@@ -88,7 +88,7 @@
                         <label>About us</label>
                     </div>
                     <div class="abt-bdy">
-                        {{ about.about_description|linebreaks }}
+                        {{ about.about_description|linebreaks|truncatechars:500 }}
 
                         <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
@@ -139,8 +139,8 @@
 
                                     <div class="bft-det">
                                         <h3>{{ obj.name }}</h3>
-                                        <span class="bft-dat">({{ obj.days }} days/{{ obj.nights }} nights)</span>
-                                        <p>With a massive still very wild, we propose to do tour of Musatang,located in the north…</p> 
+                                        <span class="bft-dat">({% if obj.days %}{{ obj.days }} days{% endif %}{% if obj.nights %}/{{ obj.nights }} nights{% endif %})</span>
+                                        <p>{{ obj.introduction|truncatechars:50 }}</p> 
                                     </div>
                                 </a>
                             </div>
@@ -182,8 +182,8 @@
 
                         <div class="bft-det">
                             <h3>{{ item.name }}</h3>
-                            <span class="bft-dat">({{ item.days }} days/{{ item.nights }} nights)</span>
-                            <p>With a massive still very wild, we propose to do tour of Musatang,located in the north…</p> 
+                            <span class="bft-dat">({% if item.days %}{{ item.days }} days{% endif %}{% if item.nights %}/{{ item.nights }} nights{% endif %})</span>
+                            <p>{{ item.introduction|truncatechars:50 }}</p> 
                         </div>
                     </a>
                 </div>
@@ -233,8 +233,8 @@
                         </ul>
                     </div>
                     <div class="a1-info center">
-                        <span class="price">Rs {{ item.price }}</span><span class="dayn">{{item.days}} days,{{ item.nights }} Nights</span>
-                        <p>{{ item.description }}</p>
+                        <span class="price">Rs {{ item.price }}</span><span class="dayn">{% if item.days %}{{item.days}} days{% endif %}{% if item.nights %},{{ item.nights }} Nights{% endif %}</span>
+                        <p>{{ item.introduction|truncatechars:50 }}</p>
                         <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
                     </div>
                 </div>
@@ -274,8 +274,8 @@
                             <div class="row">
                                 <div class="dis-in">
                                     <div class="a1-info center p-info">
-                                        <span class="price">Rs {{ item.price }}</span><span class="dayn">{{ item.days }} days,{{ item.nights }} Nights</span>
-                                        <p>{{ item.introduction }}</p>
+                                        <span class="price">Rs {{ item.price }}</span><span class="dayn">{% if item.days %}{{ item.days }} days{% endif %}{% if item.nights %},{{ item.nights }} Nights{% endif %}</span>
+                                        <p>{{ item.introduction|truncatechars:50 }}</p>
                                         <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
                                     </div>
                                     <div class="a1-count p-ofc">

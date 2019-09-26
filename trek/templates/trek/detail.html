@@ -131,7 +131,7 @@
                                             <div class="row">
                                                 <div class="itd-text">
                                                     <h4>{{ obj.place|title }}</h4>
-                                                    <span>{{ obj.sub_heading|title }}</span>
+                                                    <span>{{ obj.place_description|title }}</span>
 
                                                     <p>{{ obj.description|title }}</p>
 
@@ -371,20 +371,19 @@
                         <div class="rating-stars">
                             <h3>Rs {{ item.price }}<span>per Person</span></h3>
                             {% if item.rating %}
+                                {% with item.rating|range_rating as rates %}
+                                    {% for count in rates %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                {% endwith %}
 
-                            {% with item.rating|range_rating as rates %}
-                            {% for count in rates %}
-                            <i class="fas fa-star"></i>
-                            {% endfor %}
-                            {% endwith %}
+                                {% with item.rating|rating_decimal as rate %}
+                                    {% if rating != 0 %}
+                                        <i class="fas fa-star-half-alt"></i>
+                                    {% endif %}
+                                {% endwith %}
 
-                            {% with item.rating|rating_decimal as rate %}
-                            {% if rating != 0 %}
-                            <i class="fas fa-star-half-alt"></i>
-                            {% endif %}
-                            {% endwith %}
-
-                            <label>Excellent</label>
+                                <label>Excellent</label>
                             {% endif %}
 
                         </div>
@@ -406,20 +405,15 @@
 
                          <div class="dis-inne">
                             <img src="{% static 'images/neph.png' %}">
-                            <a href="" class="br-gr a-re center wid-smal">
+                            <a href="https://www.nepholic.com/" class="br-gr a-re center wid-smal">
                                 <i class="fas fa-shopping-cart"></i>Shop Now
                             </a>
                          </div>
 
                          <div class="de-brn">
-                                <a href="">
-                                    <img src="{% static 'images/n1.png' %}">
-                                    <img src="{% static 'images/n2.png' %}">
-                                    <img src="{% static 'images/n1.png' %}">
-                                    <img src="{% static 'images/n2.png' %}">
-                                    <img src="{% static 'images/n1.png' %}">
-                                    <img src="{% static 'images/n1.png' %}">
-                                </a>
+                                <p>
+                                    Want to shop for your upcoming trek? You can find best deals for varieties of trek and travel accessories in <b>Nepholic</b>.
+                                </p>
                             </div>
 
                     </div>
