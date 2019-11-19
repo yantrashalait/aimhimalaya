@@ -17,6 +17,7 @@ class Destination(models.Model):
 
 class Activity(models.Model):
     name = models.CharField(max_length=100)
+    font_awesome_code = models.CharField(max_length=50, null=True, blank=True, help_text="Paste a font awesome code for activity icon here(e.g. fa-mountain, fa-hiking)")
 
     def __str__(self):
         return self.name
@@ -45,6 +46,7 @@ class Package(models.Model):
     speciality = models.CharField(max_length=50, choices=PACKAGE_CHOICES, null=True, blank=True)
     activities = models.ManyToManyField(Activity, help_text='Activities included in the package')
     rating = models.DecimalField(null=True, blank=True, max_digits=5, decimal_places=1)
+    map_image = models.ImageField(upload_to="package/map/", null=True, blank=True)
 
     def __str__(self):
         return self.name

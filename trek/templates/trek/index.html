@@ -8,8 +8,7 @@
     <div class="banner-slide owl-carousel">
         {% for item in banner %}
         <div class="item">
-            <div class="ba-img">
-                <img src="{{ item.image.url }}">
+            <div class="ba-img" style="background: url({{ item.image.url }});">
             </div>
             <div class="container">
                 <div class="ba-text">
@@ -88,7 +87,7 @@
                         <label>About us</label>
                     </div>
                     <div class="abt-bdy">
-                        {{ about.about_description|linebreaks|truncatechars:500 }}
+                        <p>{{ about.about_description|linebreaks|truncatechars:550 }}</p>
 
                         <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more <i class="fas fa-long-arrow-alt-right"></i></a>
                     </div>
@@ -112,9 +111,9 @@
                 <div class="spet-car owl-carousel bg-gr">
                     {% for item in activities %}
                         {% if forloop.first %}
-                            <div class="item active"><a data-toggle="tab" href="#menu{{ forloop.counter }}">{{ item.name }}</a></div>
+                            <div class="item active"><a data-toggle="tab" href="#menu{{ forloop.counter }}"><i class="fas {{ item.font_awesome_code }}"></i>{{ item.name }}</a></div>
                         {% else %}
-                            <div class="item"><a data-toggle="tab" href="#menu{{ forloop.counter }}">{{ item.name }}</a></div>
+                            <div class="item"><a data-toggle="tab" href="#menu{{ forloop.counter }}"><i class="fas {{ item.font_awesome_code }}"></i>{{ item.name }}</a></div>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -314,7 +313,7 @@
     <div class="frm-galle owl-carousel">
         {% for item in gallery %}
         <div class="item">  
-            <a class="example-image-link" href="{{ item.image.url }}" data-lightbox="example-set" ><img height="368px" width="368px" class="example-image" src="{{ item.image.url }}" alt="{{ item.name }}"/></a>
+            <a class="example-image-link" href="{{ item.image.url }}" data-lightbox="example-set" ><img class="example-image" src="{{ item.image.url }}" alt="{{ item.name }}"/></a>
         </div>
         {% endfor %}
     </div>  
@@ -379,7 +378,7 @@
                             <input type="Email" placeholder="EMAIL ADDRESS" name="email" required>
                         </div>
 
-                        <button class="rm-btn bg-gr sus-btn" type="submit">SUSCRIBE</button>
+                        <a href="" class="rm-btn bg-gr sus-btn">SUSCRIBE</a>
                     </form>
                 </div>
             </div>

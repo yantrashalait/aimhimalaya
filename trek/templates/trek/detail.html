@@ -356,7 +356,7 @@
 
                         <div id="tab-6">
                             <div class="tab-map">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27772.46939500828!2d82.07584285625967!3d29.52922049385368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a3364839cf9de1%3A0x555b45c4bc3b046f!2sRara+Lake!5e0!3m2!1sen!2snp!4v1558964069654!5m2!1sen!2snp" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <img src="{% static 'images/map.png' %}">
                             </div>
                         </div>
 
@@ -366,7 +366,7 @@
             </div>            
  
             <div class="col-md-4 col-sm-5">
-                <div id="sidebar" class="bx-sdw3">
+                <div id="sidebar" class="bx-sdw4">
                     <div class="rate">
                         <div class="rating-stars">
                             <h3>Rs {{ item.price }}<span>per Person</span></h3>
@@ -388,11 +388,11 @@
 
                         </div>
 
-                        <div class="customize">
-                            <a href="{% url 'trek:customize_trip' item.pk %}" class=""><!-- customize page -->
+                        <!-- <div class="customize">
+                            <a href="{% url 'trek:customize_trip' item.pk %}" class=""></a>
                                 <div class="oh-dis">Customize This Trip </div>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
 
                     <p class="ava"> <i class="fas fa-check-circle"></i>Available in this season</p>
@@ -411,10 +411,15 @@
                          </div>
 
                          <div class="de-brn">
-                                <p>
-                                    Want to shop for your upcoming trek? You can find best deals for varieties of trek and travel accessories in <b>Nepholic</b>.
-                                </p>
-                            </div>
+                            <p>
+                                Want to shop for your upcoming trek? You can find best deals for varieties of trek and travel accessories in <b>Nepholic</b>.
+                            </p>
+                        </div>
+                        <div class="customize">
+                            <a href="{% url 'trek:customize_trip' item.pk %}" class="hov-dis">
+                                <div class="oh-dis"><i class="fas fa-edit"></i>Customize This Trip </div>
+                            </a>
+                        </div>
 
                     </div>
 

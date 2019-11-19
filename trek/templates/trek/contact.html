@@ -1,82 +1,51 @@
 {% extends 'trek/base.html' %}
 {% load static %}
 {% block content %}
-<section class="about br-tp p70">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-7">
-                
-               <div id="player"></div>
+<section class="getint p35" style="background: url({% static 'images/contactback.jpg' %});">
+    <div class="col-md-7 col-sm-6 col-xs-12">
+        <div class="co-details">
+            <h4 class="hgt">Get In Touch</h4>
+            <div class="co-soc">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-youtube"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
 
-                
+                <p>{{ about.about_description|linebreaks }}</p>
             </div>
-            <div class="col-md-5">
-                <div class="abt-text">
-                    <div class="all-heading txt-lft mar-btn">
-                        <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-                        <label>About us</label>
-                    </div>
-                    <div class="abt-bdy">
-                        {{ about.about_description|linebreaks }}
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="co-det p35">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-4">
-                <div class="con-sin">
+            <div class="co-ctdet">
+                <div class="cdet-sing clearfix">
                     <i class="fas fa-map-marker-alt"></i>
-                    <h5>
-                        {{ about.address }}
-                        <span>Address</span>
-                    </h5>
+                    <h4>
+                        Our Location
+                        <span>{{ about.adddress }}</span>
+                    </h4>
                 </div>
-            </div>
 
-            <div class="col-md-4 col-sm-4">
-                <div class="con-sin">
+                <div class="cdet-sing clearfix">
                     <i class="fas fa-phone"></i>
-                    <h5>{{ about.contact_number }}
-                        <span>Phone Number</span>
-                    </h5>
+                    <h4>Phone Number
+                        <span>{{ about.contact_number }}</span>
+                    </h4>
                 </div>
-            </div>
 
-            <div class="col-md-4 col-sm-4">
-                <div class="con-sin">
+                <div class="cdet-sing clearfix">
                     <i class="fas fa-envelope"></i>
-                    <h5>{{ about.email }}
-                        <span>Gmail</span>
-                    </h5>
+                    <h4>Write us an Email
+                        <span>{{ about.email }}</span>
+                    </h4>
                 </div>
+
             </div>
-
         </div>
     </div>
-</section>
 
-<section class="ph-gal p70 center">
-    <div class="all-heading">
-        <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-        <label>Photo Gallery</label>
-    </div>
-
-    <div class="frm-galle owl-carousel">
-        <!-- for loop for image gallery -->
-        {% for item in gallery %}
-        <div class="item">  
-            <a class="example-image-link" href="{{ item.image.url }}" data-lightbox="example-set" ><img width="368px" height="368px" class="example-image" src="{{ item.image.url }}" alt=""/></a>
+    <div class="col-md-5 col-sm-6 col-xs-12">
+        <div class="co-cmap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.038279775947!2d85.34028171453781!3d27.68521173307241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1992fb6525df%3A0x9c15a7d7044d040a!2sKulchan%20Pvt.%20Ltd!5e0!3m2!1sen!2snp!4v1573912003769!5m2!1sen!2snp" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
         </div>
-        {% endfor %}
-
-        <!--end for loop-->
-    </div>  
+    </div>
+    <div class="clearfix"></div>
 </section>
 
 <section class="suscribe p70 center">
