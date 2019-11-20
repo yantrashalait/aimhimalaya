@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
   $('select').niceSelect();
 });
@@ -145,7 +147,7 @@ $('.frm-galle').owlCarousel({
       items: 3,
     },
     1000: {
-      items: 5,
+      items: 4,
       loop: true,
       
     }
@@ -183,6 +185,12 @@ $(document).ready(function(){
     $(this).addClass("active");
 });
 });
+
+
+  $('.clk-open').click(function(){
+    $('.mb-mnu').toggleClass("mb-nav-show");
+  })
+
 
 
 $(document).ready(function(){

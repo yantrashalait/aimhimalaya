@@ -45,14 +45,60 @@
 		display: none;
 	}
 
+	.nav-sing a {
+	    padding: 6px 8px;
+	    font-size: 11px;
+	    
+	}
+
+	button.bt-hv {
+	    height: 26px;
+	}
+
+	button.bt-hv .bt-h-show {
+		font-size: 11px;
+	}
+
+	.co-details {
+	    padding: 12% 6% 10% 11%;
+	}
+
+	.co-cmap iframe {
+		width: 100%;
+		clear: both;
+	}
 
 
+}
+
+
+@media screen and (max-width: 725px) { 
+
+	.logo img {
+	    width: 220px;
+	}
+
+	section.search .nice-select {
+	    margin-top: 25px;
+	}
+
+	.serch-btn {
+		    margin-top: 25px;
+		}
 
 }
 
 
 
 @media screen and (max-width: 480px) {
+
+
+	header {
+		display: none;
+	}
+
+
+
 	section.search .nice-select , .serch-btn{
 	    margin: 10px 0;
 	}
@@ -66,6 +112,10 @@
 
 	.bft-det h3 {
 		font-size: 12px;
+	}
+
+	.ba-text {
+	    bottom: 170px;
 	}
 
 	span.bft-dat {
@@ -86,7 +136,7 @@
 	}
 
 	.ba-text{
-		position: relative;
+		position: absolute;
 	}
 
 	.ba-text h4 {
@@ -95,28 +145,26 @@
 	}
 
 	.banner-slide .owl-nav {
-		bottom: 60px;
+		bottom: 100px;
 	}
 
 	h4.bg-gr {
-	    background: transparent;
-	    border: navajowhite;
-	    color: #74cc01;
-	    padding: 0;
+		background: rgba(11, 96, 49, 0.5);
 	    margin-bottom: 5px;
+	    border: none;
 	}
 
 	.ba-text a {
-	    font-size: 10px;
-	    padding: 4px 8px;
+	    font-size: 15px;
+	    padding: 8px 15px;
 	}
 
 	.banner-slide .owl-nav span {
-	 	margin: 0 2px;
+	    margin: 0 2px;
 	    padding: 3px 10px;
-	    font-size: 18px;
-	    height: 20px;
-	    width: 20px;
+	    font-size: 28px;
+	    height: 40px;
+	    width: 40px;
 	}
 
 	.fs-sing {
@@ -124,7 +172,7 @@
 	}
 
 	.b-offer .owl-nav span, .a-offer .owl-nav span, .p-offer .owl-nav span, .frm-galle .owl-nav span, .spec-tabcon .owl-nav span {
-	    background: #74CC01;
+	    background: #0B6031;
 	    margin: 0 6px;
 	    padding: 3px 10px;
 	    font-size: 17px;
@@ -196,6 +244,100 @@
 	    margin: 15px 0;
 	}
 
+	.lg-name h4 {
+	    margin-top: 20px;
+	}
+
+	.logo {
+		position: relative;
+		top: 0;
+	}
+
+	.head-nav {
+	    margin-top: 10px;
+	    text-align: center;
+	}
+
+	section#mb-header {
+		display: block;
+	}
+
+	section#mb-header {
+	    position: fixed;
+	    z-index: 999;
+	    background: #fff;
+	    width: 100%;
+	}
+
+	i.fas.fa-times.clk-open {
+	    color: #fff;
+	    font-size: 18px;
+	    padding: 10px;
+	}
+
+	.mb-allnavs a {
+	    display: block;
+	    margin: 10px;
+	    color: #fff;
+	    text-align: left;
+	    font-size: 15px;
+	}
+
+	.mb-allnavs a i {
+	    margin-right: 6px;
+	}
+
+	
+	.mb-allnavs a i.fas.fa-phone {
+	    transform: rotate(90deg);
+	}
+
+
+	.mb-logo img {
+	    width: 100%;
+	}
+
+	.mb-mnu {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100vh;
+	    background: #0b6031;
+	}
+
+	.mb-mnu {
+		display: none;
+	}
+
+	.mb-nav-show {
+		display: block;
+		text-align: right;
+	}
+
+	.menu-clk {
+	    text-align: right;
+	}
+
+	.menu-clk i {
+	    margin-top: 20px;
+	    margin-right: 20px;
+	    font-size: 20px;
+	}
+
+	.mbh-wrap {
+		    position: relative;
+		}
+
+
+	button.bt-hv {
+	    margin-top: 20px;
+	}
+
+	button.bt-hv:before {
+ 		top: 5px;
+ 	}
+
 
 
 }
@@ -230,6 +372,9 @@
     	padding: 0 10px;
 	}
 
+	img.cl-pro{
+		top: 85px;
+	}
 
 
 }

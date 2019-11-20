@@ -36,7 +36,7 @@
             <div class="col-md-3">
                 <a href="{% url 'trek:index' %}">
                 <div class="logo">
-                    <img src="{% static 'images/logo.png' %}">
+                    <img src="{% static 'images/logo2.png' %}">
                 </div>
                 </a>
             </div>
@@ -44,7 +44,7 @@
             <div class="col-md-9">
                 <div class="head-nav">
                     <div class="nav-sing">
-                            <button data-hover="9841478628" class="bt-hv"><div class="bt-h-show"><i class="fas fa-phone"></i>Call Us</div></button>
+                            <button data-hover="{{ about.contact_number }}" class="bt-hv"><div class="bt-h-show"><i class="fas fa-phone"></i>Call Us</div></button>
 
                     </div>
                     <div class="nav-sing">
@@ -62,6 +62,33 @@
         </div>
     </div>
 </header>
+
+<section id="mb-header">
+    <div class="mbh-wrap">
+        <div class="col-xs-6">
+            <div class="mb-logo">
+                <img src="{% static 'images/logo2.png' %}">
+            </div>
+        </div>
+
+        <div class="col-xs-6">
+            <div class="mb-nav">
+                 <div class="menu-clk"><i class="fas fa-list clk-open"></i></div>
+                 <div class="mb-mnu">
+                    <i class="fas fa-times clk-open"></i>
+                    <div class="mb-allnavs">
+                         <a href=""><i class="fas fa-phone"></i> {{ about.contact_number }}</a>
+                         <a href="{% url 'trek:create_trip' %}" class="br-gr"><i class="far fa-edit"></i> Create your trip</a>
+                         <a target="_blank" href="https://www.nepholic.com/"><i class="fas fa-shopping-basket"></i> Shop</a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+</section>
+
 {% block content %}
 {% endblock %}
 <footer id="footer">

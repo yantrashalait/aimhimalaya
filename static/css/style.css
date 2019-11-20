@@ -303,8 +303,8 @@ iframe#player {
 .abt-bdy p {
     font-size: 14px;
     color: #666666;
-    line-height: 21px;
-    margin: 22px 0;
+    line-height: 22px;
+    margin: 20px 0;
 }
 
 .abt-bdy p:first-child  {
@@ -1904,14 +1904,14 @@ h4.hgt {
     margin-left: -30px;
 }
 
-/*========new changes=============*/
-.bx-sdw1 button {
-    width: 263px;
+/*========new changes=============*/
+.bx-sdw1 button{
+    width: 100%;
     border: none;
     text-align: left;
 }
 
-button.rm-btn {
+button.rm-btn{
     display: inline-flex;
     width: 170px;
     height: 40px;
