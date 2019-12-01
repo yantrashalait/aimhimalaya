@@ -274,7 +274,7 @@
                                 <div class="dis-in">
                                     <div class="a1-info center p-info">
                                         <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
-                                        <p>{{ item.introduction|truncatechars:50 }}</p>
+                                        <p>{{ item.introduction|truncatechars:100 }}</p>
                                         <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
                                     </div>
                                     <div class="a1-count p-ofc">
