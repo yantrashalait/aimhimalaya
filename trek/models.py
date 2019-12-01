@@ -79,6 +79,7 @@ class PackageItinerary(models.Model):
     day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)')
     place = models.CharField(max_length=200, null=True, blank=True)
     place_description = models.CharField(max_length=200, null=True, blank=True)
+    outline = models.TextField(null=True, blank=True)
     description = models.TextField()
     meals = models.IntegerField(help_text='Served meals (in number)', null=True, blank=True)
     altitude = models.CharField(max_length=100, help_text='Altitude of the place', null=True, blank=True)

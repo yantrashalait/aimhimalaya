@@ -102,11 +102,89 @@
 
                                 
                                 <h3 class="bef-head">Outline Itinery</h3>
-                                <ul class="i-br-list">
+                                <div class="it-wrap">
+                                        {% for obj in item.itinerary.all %}
+                                        <div class="it-sing">
+                                            <div class="col-md-6 col-sm-6 ">
+                                                <div class="row">
+                                                    <div class="img-wid">
+                                                        <img width="375px" height="375px" src="{{ obj.image.url }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6">
+                                                <div class="row">
+                                                    <div class="itd-text">
+                                                        <h4>{{ obj.place|title }}</h4>
+                                                        <span>{{ obj.place_description|title }}</span>
+    
+                                                        <p>{{ obj.outline|title|linebreaks }}</p>
+    
+    
+                                                        <div class="itd-acc">
+                                                            <div class="row">
+                                                                {% if obj.meals %}
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="acc-wrap">
+                                                                        <i class="fas fa-utensils"></i>
+                                                                        <div class="acc-sing">
+                                                                            <span>Meals</span>
+                                                                            <p>{{ obj.meals }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% endif %}
+                                                                {% if obj.travel %}
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="acc-wrap">
+                                                                        <i class="fas fa-bus"></i>
+                                                                        <div class="acc-sing">
+                                                                            <span>Travel</span>
+                                                                            <p>{{ obj.travel|title }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% endif %}
+                                                                {% if obj.accomodation %}
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="acc-wrap">
+                                                                        <i class="fas fa-bed"></i>
+                                                                        <div class="acc-sing">
+                                                                            <span>Accomodation</span>
+                                                                            <p>{{ obj.accomodation|title }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% endif %}
+                                                                {% if obj.altitude %}
+                                                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                    <div class="acc-wrap">
+                                                                        <i class="fas fa-mountain"></i>
+                                                                        <div class="acc-sing">
+                                                                            <span>Altitude</span>
+                                                                            <p>{{ obj.altitude }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+    
+                                            <div class="day-abs">
+                                                <span class="br-e">Day {{ obj.day }}</span>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                <!-- <ul class="i-br-list">
                                     {% for obj in item.itinerary.all %}
                                     <li><strong>Day {{ obj.day }} :</strong> {{ obj.description|title }}</li>
                                     {% endfor %}
-                                </ul>
+                                </ul> -->
 
                             
                             </div>
@@ -119,8 +197,14 @@
                                     <h5>TOUR <span>Itinerary</span></h5>
                                     <p>Highlight of your journey.</p>
                                 </div>
+                                <ul class="i-br-list">
+                                        {% for obj in item.itinerary.all %}
+                                        <li><strong>Day {{ obj.day }} :</strong> <strong>{{ obj.outline|title }}</strong></li>
+                                        <p>{{ obj.description|linebreaks }}</p> 
+                                        {% endfor %}
+                                    </ul>
 
-                                <div class="it-wrap">
+                                <!-- <div class="it-wrap">
                                     {% for obj in item.itinerary.all %}
                                     <div class="it-sing">
                                         <div class="col-md-6 col-sm-6 ">
@@ -197,7 +281,7 @@
                                         </div>
                                     </div>
                                     {% endfor %}
-                                </div>
+                                </div> -->
                             </div>
                         </div>
 
