@@ -3,11 +3,19 @@
 {% load filters %}
 {% block content %}
 <section class="banner">
-    <div class="allbanner-img">
+    {% if banner %}
+    <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
             <span class="wpag">Package Detail</span>
         </div>
     </div>
+    {% else %}
+    <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
+        <div class="al-bn-txt">
+            <span class="wpag">Package Detail</span>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 <section class="pack-det p35">
@@ -84,17 +92,12 @@
                                     </div>
                                     {% endif %}
 
-                                    {% if item.meal_service %}
-                                    <div class="col-md-12">
-                                        <p><i class="fas fa-utensils"></i>Meal:<span>{{ item.meal_service }} meals served.</span></p>
-                                    </div>
-                                    {% endif %}
                                     <div class="clearfix"></div>
                                 </div>
 
                                 <div class="trip-ov">
                                     <h3 class="bef-head">Trip Introduction</h3>
-                                    <p>{{ item.introduction }}</p>
+                                    <p>{{ item.introduction|linebreaks }}</p>
                                 </div>                                
 
                                 
@@ -369,7 +372,7 @@
                 <div id="sidebar" class="bx-sdw4">
                     <div class="rate">
                         <div class="rating-stars">
-                            <h3>Rs {{ item.price }}<span>per Person</span></h3>
+                            <h3>$ {{ item.price }}<span>per Person</span></h3>
                             {% if item.rating %}
                                 {% with item.rating|range_rating as rates %}
                                     {% for count in rates %}
@@ -433,8 +436,35 @@
 {% endblock %}
 {% block script %}
 <script>
-$(':radio').change(function() {
-  $('#id_rating').val(this.value);
-});
+    $(function() {
+        var top = $("#sidebar").offset();
+        console.log(top);
+        var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+        var footTop = $('#footer').offset().top - parseFloat($('#footer').css('marginTop').replace(/auto/, 0));
+
+        var maxY = footTop - $('#sidebar').outerHeight();
+
+        $(window).scroll(function(evt) {
+            var y = $(this).scrollTop();
+            if (y > top) {
+                
+                if (y < maxY) {
+                    $('#sidebar').addClass('fixed').removeAttr('style');
+                } else {
+                    
+                    $('#sidebar').removeClass('fixed').css({
+                        position: 'absolute',
+                        top: (maxY - top) + 'px'
+                    });
+                }
+            } else {
+                $('#sidebar').removeClass('fixed');
+            }
+        });
+    });
+
+    $(':radio').change(function() {
+        $('#id_rating').val(this.value);
+    });
 </script>
 {% endblock %}

@@ -3,11 +3,19 @@
 {% block content %}
 
 <section class="banner">
-    <div class="allbanner-img">
+    {% if banner %}
+    <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
             <span class="wpag">Book Step (1/3)</span>
         </div>
     </div>
+    {% else %}
+    <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
+        <div class="al-bn-txt">
+            <span class="wpag">Book Step (1/3)</span>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 <section class="book-steps p35">
@@ -90,7 +98,7 @@
                 </div>
 
                 <div class="col-md-9 col-sm-9 col-xs-8">
-                    <input type="text" id="datepicker" name="start_date" required>
+                    <input type="text" id="datepicker" style="position: relative; z-index: 100000;" name="start_date" required>
                 </div>
                 {% if form.start_date.errors %}
                 {{ form.start_date.errors }}
@@ -109,8 +117,12 @@
 {% block script %}
 <script type="text/javascript">
     $(document).ready(function() {
-        $( "#datepicker" ).datepicker();
+        $("#datepicker").datepicker();
     });
+    $("#ui-datepicker-div").load(function(){
+        $("#ui-datepicker-div").attr('style', 'z-index: 1000 !important');
+    })
+    
 
 </script>
 {% endblock %}

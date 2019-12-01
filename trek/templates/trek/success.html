@@ -5,11 +5,19 @@
 {% block content %}
 
 <section class="banner">
-    <div class="allbanner-img">
+    {% if banner %}
+    <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
             <span class="wpag">{{ topic }}</span>
         </div>
     </div>
+    {% else %}
+    <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
+        <div class="al-bn-txt">
+            <span class="wpag">{{ topic }}</span>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 <section class="blg-det p35">
@@ -20,7 +28,7 @@
             <label>{% if head %}{{ head|slice:":6" }}{% else %}Success{% endif %}</label>
             <div class="cust-form bx-sdw2">
                 <h4 class="bef-head">{{ message }}</h4>
-                <p class="cl-gr">For further queries, you can contact us at +977-9866059826.</p>
+                <p class="cl-gr">For further queries, you can contact us at {{ about.contact_number }}.</p>
                 <a href="{% url 'trek:index' %}" class="rm-btn bg-gr">Go To Homepage</a>
             </div>
         </div>

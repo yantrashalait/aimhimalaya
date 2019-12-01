@@ -4,8 +4,6 @@ $(document).ready(function() {
   $('select').niceSelect();
 });
 
-
-
 $('.banner-slide').owlCarousel({
     loop: true,
     margin: 0,
@@ -213,7 +211,7 @@ var tag = document.createElement('script');
     player = new YT.Player('player', {
       height: '350',
       width: '680',
-      videoId: '89s6vHB6_Gw',
+      videoId: '_ojeQRNOOt8',
       events: {
         'onStateChange': onPlayerStateChange
       }
@@ -314,28 +312,30 @@ $('.slider-nav').slick({
            
 
 
+// the below codes are available in detail.html
+// $(function() {
+//     var top = $("#sidebar").offset();
+//     console.log(top);
+//     var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
+//     var footTop = $('#footer').offset().top - parseFloat($('#footer').css('marginTop').replace(/auto/, 0));
 
-$(function() {
-    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('marginTop').replace(/auto/, 0));
-    var footTop = $('#footer').offset().top - parseFloat($('#footer').css('marginTop').replace(/auto/, 0));
+//     var maxY = footTop - $('#sidebar').outerHeight();
 
-    var maxY = footTop - $('#sidebar').outerHeight();
-
-    $(window).scroll(function(evt) {
-        var y = $(this).scrollTop();
-        if (y > top) {
+//     $(window).scroll(function(evt) {
+//         var y = $(this).scrollTop();
+//         if (y > top) {
             
-            if (y < maxY) {
-                $('#sidebar').addClass('fixed').removeAttr('style');
-            } else {
+//             if (y < maxY) {
+//                 $('#sidebar').addClass('fixed').removeAttr('style');
+//             } else {
                 
-                $('#sidebar').removeClass('fixed').css({
-                    position: 'absolute',
-                    top: (maxY - top) + 'px'
-                });
-            }
-        } else {
-            $('#sidebar').removeClass('fixed');
-        }
-    });
-});
+//                 $('#sidebar').removeClass('fixed').css({
+//                     position: 'absolute',
+//                     top: (maxY - top) + 'px'
+//                 });
+//             }
+//         } else {
+//             $('#sidebar').removeClass('fixed');
+//         }
+//     });
+// });

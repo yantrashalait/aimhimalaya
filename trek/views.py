@@ -3,7 +3,7 @@ from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse, request
 from django.shortcuts import redirect, render
 from .models import Package, Review, Activity, HappyClient, PhotoGallery, Country, Destination, CustomTrip, \
-    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail
+    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage
 from .forms import TripPersonalInfoForm, TripBookForm, CustomTripForm, SubscriptionForm, ReviewForm
 
 from django.db.models import Q
@@ -38,6 +38,7 @@ class PackageDetail(TemplateView):
         package.save()
 
         context['form'] = ReviewForm()
+        context['banner'] = BlogBannerImage.objects.last()
         return context
 
     def post(self, request, *args, **kwargs):
@@ -73,6 +74,7 @@ class OfferView(TemplateView):
         context['destination'] = Destination.objects.all()
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
+        context['banner'] = BlogBannerImage.objects.last()
         return context
 
 
@@ -81,6 +83,11 @@ class BlogsView(ListView):
     model = Blog
     context_object_name = 'blogs'
     queryset = Blog.objects.all()
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(BlogsView, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context
 
 
 class BlogDetailView(DetailView):
@@ -91,11 +98,17 @@ class BlogDetailView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(BlogDetailView, self).get_context_data(**kwargs)
         context['related'] = Blog.objects.filter(~Q(id=kwargs.get('pk')))[:2]
+        context['banner'] = BlogBannerImage.objects.last()
         return context
 
 
 class TermsView(TemplateView):
     template_name = 'trek/terms.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(TermsView, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context
 
 
 class CreateTripView(CreateView):
@@ -104,9 +117,15 @@ class CreateTripView(CreateView):
     fields = '__all__'
     success_url = '/success/'
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(CreateTripView, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context   
+
 
 def success(request, *args, **kwargs):
-    return render(request, 'trek/success.html')
+    banner = BlogBannerImage.objects.last()
+    return render(request, 'trek/success.html', {'banner': banner})
 
 
 class SearchView(TemplateView):
@@ -128,6 +147,11 @@ class SearchView(TemplateView):
             packages = packages.filter(country=country)
 
         return render(request, self.template_name, {'packages': packages})
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(SearchView, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context
 
 
 class PackageListView(TemplateView):
@@ -140,6 +164,7 @@ class PackageListView(TemplateView):
         context['destination'] = Destination.objects.all()
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
+        context['banner'] = BlogBannerImage.objects.last()
         return context
 
 
@@ -153,6 +178,7 @@ class PopularListView(TemplateView):
         context['destination'] = Destination.objects.all()
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
+        context['banner'] = BlogBannerImage.objects.last()
         return context
 
 
@@ -160,6 +186,11 @@ class Book1(CreateView):
     template_name = 'trek/book1.html'
     model = TripBooking
     fields = ('nationality', 'trip_name', 'start_date')
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(Book1, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context
 
     def get_success_url(self):
         return reverse('trek:book2', kwargs=({'pk': self.object.id}))
@@ -179,15 +210,21 @@ class Book2(TemplateView):
         obj.trip_book = trip
         obj.save()
         return render(request, 'trek/book3.html')
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super(Book2, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context
 
 
 class PackageBook(TemplateView):
     template_name = 'trek/book1.html'
 
     def get(self, request, *args, **kwargs):
+        banner = BlogBannerImage.objects.last()
         package = Package.objects.get(pk=kwargs.get('pk'))
         form = TripBookForm(initial={'trip_name': package})
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form, 'banner': banner})
 
     def post(self, request, *args, **kwargs):
         form = TripBookForm(request.POST)
@@ -199,25 +236,34 @@ class CustomizeTripView(TemplateView):
     template_name = 'trek/create.html'
 
     def get(self, request, *args, **kwargs):
+        banner = BlogBannerImage.objects.last()
         package = Package.objects.get(pk=kwargs.get('pk'))
         form = CustomTripForm(initial={'trip_name': package.name, 'duration': package.duration})
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name, {'form': form, 'banner': banner})
 
     def post(self, request, *args, **kwargs):
         form = CustomTripForm(request.POST)
         form.save(commit=True)
-        return render(request, 'trek/success.html', {'message': 'Your trip has been created.', 'topic': 'Trip Customized'})
+        about = AboutUsDetail.objects.last()
+        return render(request, 'trek/success.html', {'message': 'Your trip has been created.', 'topic': 'Trip Customized', 'banner': BlogBannerImage.objects.last(), 'about': about})
 
 
 class SubscribeView(TemplateView):
+    template_name = 'trek/success.html'
     def post(self, request, *args, **kwargs):
         form = SubscriptionForm(request.POST)
+        about = AboutUsDetail.objects.last()
         if Subscription.objects.filter(email=form['email'].value()).exists():
-            return render(request, 'trek/success.html', {'message': 'You have already subscribed.', 'topic': 'Subscription', 'head': 'Failed'})
+            return render(request, self.template_name, {'message': 'You have already subscribed.', 'topic': 'Subscription', 'head': 'Failed', 'banner': BlogBannerImage.objects.last(), 'about': about})
         else:
             form.save()
-        return render(request, 'trek/success.html', {'message': 'You have successfully subscribed to this website.', 'topic': 'Subscription'})
+        return render(request, self.template_name, {'message': 'You have successfully subscribed to this website.', 'topic': 'Subscription', 'banner': BlogBannerImage.objects.last(), 'about': about})
 
 
 class GenericView(TemplateView):
     template_name = 'trek/generic.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(GenericView, self).get_context_data(**kwargs)
+        context['banner'] = BlogBannerImage.objects.last()
+        return context

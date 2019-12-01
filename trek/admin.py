@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Package, Review, Activity, Country, Destination, PhotoGallery, \
-    HappyClient, HeaderImage, Subscription, PackageImage, PackageCostIncluded, \
+    HappyClient, HeaderImage, Subscription, PackageImage, PackageCostIncluded, BlogBannerImage, \
     PackageCostExluded, PackageItinerary, CustomTrip, TripBooking, TripPersonalInfo, Blog, AboutUsDetail
 
 admin.site.register(Country)
@@ -36,7 +36,9 @@ class PackageAdmin(admin.ModelAdmin):
 
 class TripPersonalInformationInline(admin.TabularInline):
     model = TripPersonalInfo
-    readonly_fields = ['title', 'first_name', 'middle_name', 'last_name', 'email', 'phone_number', 'passport_number', 'place_of_issue', 'issue_date', 'expire_date', 'emergency_contact_number']
+    readonly_fields = ['title', 'first_name', 'middle_name', 'last_name', 'email', 
+    'phone_number', 'passport_number', 'place_of_issue', 'issue_date', 'expire_date', 
+    'emergency_contact_number', 'group_of_people', 'are_children_included']
 
 
 class TripBookingAdmin(admin.ModelAdmin):
@@ -55,3 +57,4 @@ admin.site.register(Package, PackageAdmin)
 admin.site.register(HeaderImage)
 admin.site.register(TripBooking, TripBookingAdmin)
 admin.site.register(Blog)
+admin.site.register(BlogBannerImage)

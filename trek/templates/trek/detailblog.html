@@ -3,11 +3,19 @@
 {% block content %}
 
 <section class="banner">
-    <div class="allbanner-img">
+    {% if banner %}
+    <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
             <span class="wpag">Blog Detail</span>
         </div>
     </div>
+    {% else %}
+    <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
+        <div class="al-bn-txt">
+            <span class="wpag">Blog Detail</span>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 
@@ -37,7 +45,7 @@
                         </div>
 
                         <div class="blg-detp">
-                            <p style="word-break: break-all;">{{ blog.content }}</p>
+                            <p style="word-break: break-all;">{{ blog.content|linebreaks }}</p>
                         </div>
                     </div>
                 </div>

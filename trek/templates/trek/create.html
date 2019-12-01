@@ -3,11 +3,19 @@
 {% block content %}
 
 <section class="banner">
-    <div class="allbanner-img">
+    {% if banner %}
+    <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
-            <span class="wpag">Create your Trip</span>
+            <span class="wpag">Create Your Trip</span>
         </div>
     </div>
+    {% else %}
+    <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
+        <div class="al-bn-txt">
+            <span class="wpag">Create Your Trip</span>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 <section class="cust-form p35">
@@ -29,14 +37,14 @@
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <h6>Trip Duration</h6>
+                    <h6>Trip Duration(in days)*</h6>
                     <div class="cu-frs bx-sdw2">
                         {{ form.duration }}
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <h6>Price Range</h6>
+                    <h6>Price Range(in dollars)*</h6>
                     <div class="cu-frs bx-sdw2">
                         {{ form.price_range }}
                     </div>

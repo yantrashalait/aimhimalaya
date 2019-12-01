@@ -20,7 +20,6 @@ a:hover {
 /*============= all heading =======*/
 
 
-
 header {
     position: fixed;
     z-index: 999;
@@ -31,8 +30,8 @@ header {
 }
 
 header {
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 section#mb-header {
@@ -811,7 +810,6 @@ img.cl-pro {
 }
 
 .allbanner-img  {
-     background: url(../images/allban.jpg); 
     background-position: center;
     background-size: cover;
     height: 350px;

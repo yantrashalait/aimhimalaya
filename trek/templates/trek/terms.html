@@ -4,11 +4,19 @@
 
 
 <section class="banner">
-    <div class="allbanner-img">
+    {% if banner %}
+    <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
-            <span class="wpag">Terms & Condition</span>
+            <span class="wpag">Terms and Condition</span>
         </div>
     </div>
+    {% else %}
+    <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
+        <div class="al-bn-txt">
+            <span class="wpag">Terms and Condition</span>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 

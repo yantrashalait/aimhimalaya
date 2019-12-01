@@ -32,14 +32,11 @@ class Package(models.Model):
     )
     name = models.CharField(max_length=100)
     duration = models.IntegerField(help_text='Total time duration(in days)')
-    days = models.IntegerField(null=True, blank=True)
-    nights = models.IntegerField(null=True, blank=True)
     price = models.FloatField(help_text='Price per person')
-    group_size = models.IntegerField(null=True, blank=True)
+    minimum_group_size = models.IntegerField(null=True, blank=True)
     departure_from = models.CharField(max_length=100, null=True, blank=True)
     country = models.ForeignKey(Country,  null=True, blank=True, on_delete=models.CASCADE)
     destination = models.ForeignKey(Destination, null=True, blank=True, on_delete=models.CASCADE)
-    meal_service = models.IntegerField(help_text='Served meals per day', null=True, blank=True)
     introduction = models.TextField(null=True, blank=True)
     views = models.IntegerField(default=0)
     shares = models.IntegerField(default=0)
@@ -89,6 +86,8 @@ class PackageItinerary(models.Model):
     travel = models.CharField(max_length=50, help_text='Type of travel (Example: Bus, Plane, Train, etc.)', null=True, blank=True)
     image = models.ImageField(upload_to='package/itinerary/', help_text="Image size: width=376px height=376px ")
 
+    class Meta:
+        ordering = ['day']
 
 class Review(models.Model):
     full_name = models.CharField(max_length=100)
@@ -163,7 +162,7 @@ class CustomTrip(models.Model):
     price_range = models.CharField(max_length=100, null=True, blank=True)
     full_name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
-    country = models.ForeignKey(Country, null=True, blank=True, on_delete=models.CASCADE)
+    country = models.CharField(max_length=100, null=True, blank=True)
     contact = models.CharField(max_length=10)
     message = models.TextField()
     date = models.DateTimeField(auto_now=True)
@@ -183,7 +182,7 @@ TITLE_CHOICES = (
 
 
 class TripBooking(models.Model):
-    nationality = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='trip_book')
+    nationality = models.CharField(max_length=100, null=True, blank=True)
     trip_name = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='book')
     start_date = models.DateField(null=True, blank=True)
     booking_date = models.DateTimeField(auto_now=True, null=True, blank=True)
@@ -208,6 +207,11 @@ class TripPersonalInfo(models.Model):
     issue_date = models.DateField(null=True, blank=True)
     expire_date = models.DateField(null=True, blank=True)
     emergency_contact_number = models.CharField(max_length=100, null=True, blank=True)
+    group_of_people = models.IntegerField(null=True, blank=True)
+    are_children_included = models.BooleanField(null=True, blank=True)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
 
 
 class Blog(models.Model):
@@ -227,3 +231,7 @@ class AboutUsDetail(models.Model):
     address = models.CharField(max_length=300, null=True, blank=True, help_text="Your address")
     contact_number = models.CharField(max_length=255, null=True, blank=True, help_text="Your contact Number")
     email = models.CharField(max_length=255, null=True, blank=True, help_text="Your email address")
+
+
+class BlogBannerImage(models.Model):
+    image = models.ImageField(upload_to='banner/blogs/', help_text="Image size: width=1803px height=380px")
