@@ -14,7 +14,9 @@
                 <div class="ba-text">
                     <h4 class="bg-gr">{{ item.banner_title }}</h4>
                     <p>{{ item.banner_description }}</p>
-                    <a href="{% url 'trek:book1' %}" class="bg-gr">Book Now</a>
+                    {% if item.package %}
+                        <a href="{% url 'trek:detail' item.package.id %}" class="bg-gr">Book Now</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
