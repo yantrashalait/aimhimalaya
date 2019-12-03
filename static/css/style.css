@@ -399,6 +399,7 @@ iframe#player {
     font-size: 14px;
     line-height: 20px;
     margin-top: 10px;
+    min-width: 165px;
 }
 
 span.price {
