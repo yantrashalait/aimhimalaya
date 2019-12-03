@@ -152,6 +152,7 @@ class HeaderImage(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     banner_title = models.CharField(max_length=100, null=True, blank=True)
     banner_description = models.TextField(null=True, blank=True)
+    package = models.ForeignKey(Package, related_name="banners", null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
