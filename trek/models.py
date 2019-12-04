@@ -44,6 +44,7 @@ class Package(models.Model):
     activities = models.ManyToManyField(Activity, help_text='Activities included in the package')
     rating = models.DecimalField(null=True, blank=True, max_digits=5, decimal_places=1)
     map_image = models.ImageField(upload_to="package/map/", null=True, blank=True)
+    available = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name

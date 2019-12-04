@@ -481,7 +481,7 @@
                         </div> -->
                     </div>
 
-                    <p class="ava"> <i class="fas fa-check-circle"></i>Available in this season</p>
+                    {% if item.available %}<p class="ava"> <i class="fas fa-check-circle"></i>Available in this season</p>{% endif %}
                    <!--  <p class="ava not-ava"> <i class="fas fa-check-circle"></i>Not Available in this season</p> -->
 
                     <a href="{% url 'trek:package_book' item.pk %}" class="bg-gr a-re center">Book Now</a>
