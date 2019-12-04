@@ -1932,6 +1932,10 @@ button.rm-btn{
     margin-top: 20px;
 }
 
+.fs-sing a{
+    color: #ffffff;
+}
+
 /* Star rating*/
 .rating {
     display: inline-block;

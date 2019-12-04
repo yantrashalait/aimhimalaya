@@ -235,6 +235,10 @@ class AboutUsDetail(models.Model):
     address = models.CharField(max_length=300, null=True, blank=True, help_text="Your address")
     contact_number = models.CharField(max_length=255, null=True, blank=True, help_text="Your contact Number")
     email = models.CharField(max_length=255, null=True, blank=True, help_text="Your email address")
+    youtube_link = models.CharField(max_length=500, blank=True, help_text="Youtube channel link")
+    facebook_link = models.CharField(max_length=500, blank=True, help_text="Facebook link")
+    instagram_link = models.CharField(max_length=500, blank=True, help_text="Instagram link")
+    twitter_link = models.CharField(max_length=500, blank=True, help_text="Twitter link")
 
 
 class BlogBannerImage(models.Model):
