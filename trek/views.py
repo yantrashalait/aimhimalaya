@@ -44,14 +44,12 @@ class PackageDetail(TemplateView):
     def post(self, request, *args, **kwargs):
         package = Package.objects.get(id=kwargs.get('pk'))
         form = ReviewForm(request.POST)
-        if not Subscription.objects.filter(email=form['email'].value()).exists():
-            return render(request, 'trek/subscribe.html', {'message': 'You need to subscribe to post a review.'})
-        else:
-            obj = form.save(commit=False)
-            obj.package = package
-            obj.save()
+        
+        obj = form.save(commit=False)
+        obj.package = package
+        obj.save()
 
-            return HttpResponseRedirect(reverse('trek:detail', kwargs=({'pk': kwargs.get('pk')})) + '#tab-5')
+        return HttpResponseRedirect(reverse('trek:detail', kwargs=({'pk': kwargs.get('pk')})) + '#tab-5')
 
 
 class ContactView(TemplateView):
