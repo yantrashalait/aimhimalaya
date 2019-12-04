@@ -211,6 +211,7 @@ class TripPersonalInfo(models.Model):
     emergency_contact_number = models.CharField(max_length=100, null=True, blank=True)
     group_of_people = models.IntegerField(null=True, blank=True)
     are_children_included = models.BooleanField(null=True, blank=True)
+    people_above_60_age = models.IntegerField(default=0, help_text="Number of people above 60 years of age")
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name

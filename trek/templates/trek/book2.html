@@ -147,6 +147,27 @@
                 </div>
             </div>
 
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Number of people*</h6>
+                <div class="cu-frs bx-sdw2">    
+                    {{ form.group_of_people }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Are there any childrens to be included?</h6>
+                <div class="cu-frs bx-sdw2">
+                    {{ form.are_children_included }}
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <h6>Number of people above 60 years of age*</h6>
+                <div class="cu-frs bx-sdw2">
+                    {{ form.people_above_60_age }}
+                </div>
+            </div>
+
             <div class="col-md-12">
                 <input type="checkbox"> I agree to all <a href="{% url 'trek:terms' %}">TERMS AND CONDTION</a>
             </div>
