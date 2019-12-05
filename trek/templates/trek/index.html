@@ -275,73 +275,76 @@
             <label>Popular tour</label>
         </div>
 
-        <div class="p-offer owl-carousel"> 
-            <div class="item">
-                {% for item in popular %}
-                <div class="col-md-6 col-sm-6">
-                    <div class="sing-pl bx-sdw2">
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="p-img">
-                                    <div class="a-overlay"></div>
-                                    <img width="270px" height="234px" src="{{ item.images.first.image.url }}">
-                                    <span></span>
-                                </div>                            
-                            </div>   
-                        </div>
+        <div class="p-offer owl-carousel">
+            {% with popular|separate_four as items %} 
+                {% for counts in items %}
+                    <div class="item">
+                        {% with popular|block_popular:forloop.counter as populars %}
+                            {% for item in populars %}
+                            <div class="col-md-6 col-sm-6">
+                                <div class="sing-pl bx-sdw2">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="p-img">
+                                                <div class="a-overlay"></div>
+                                                <img width="270px" height="234px" src="{{ item.images.first.image.url }}">
+                                                <span></span>
+                                            </div>                            
+                                        </div>   
+                                    </div>
 
-                        <div class="col-md-6">
-                            <div class="row">
-                                <div class="dis-in">
-                                    <div class="a1-info center p-info">
-                                        <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
-                                        <p><strong>{{ item.name }}</strong></p>
-                                        <div class="rating-stars">
-                                            {% if item.rating %}
-                                                {% with item.rating|range_rating as rates %}
-                                                    {% for count in rates %}
-                                                        <i class="fas fa-star"></i>
-                                                    {% endfor %}
-                                                {% endwith %}
-                                                {% with item.rating|rating_decimal as rate %}
-                                                    {% if rating != 0 %}
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    {% endif %}
-                                                {% endwith %}
-                                            {% else %}
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star-half-alt"></i>
-                                            {% endif %}
-                                        </div>
-                                        <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="dis-in">
+                                                <div class="a1-info center p-info">
+                                                    <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
+                                                    <p><strong>{{ item.name }}</strong></p>
+                                                    <div class="rating-stars">
+                                                        {% if item.rating %}
+                                                            {% with item.rating|range_rating as rates %}
+                                                                {% for count in rates %}
+                                                                    <i class="fas fa-star"></i>
+                                                                {% endfor %}
+                                                            {% endwith %}
+                                                            {% with item.rating|rating_decimal as rate %}
+                                                                {% if rating != 0 %}
+                                                                    <i class="fas fa-star-half-alt"></i>
+                                                                {% endif %}
+                                                            {% endwith %}
+                                                        {% else %}
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star-half-alt"></i>
+                                                        {% endif %}
+                                                    </div>
+                                                    <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
+                                                </div>
+                                                <div class="a1-count p-ofc">
+                                                    <ul>
+                                                        <li><i class="far fa-eye"></i></li>
+                                                        <li><i class="far fa-comments"></i></li>
+                                                        <li><i class="far fa-share-square"></i></li>
+                                                        <li><i class="fas fa-map-marker-alt"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>        
                                     </div>
-                                    <div class="a1-count p-ofc">
-                                        <ul>
-                                            <li><i class="far fa-eye"></i></li>
-                                            <li><i class="far fa-comments"></i></li>
-                                            <li><i class="far fa-share-square"></i></li>
-                                            <li><i class="fas fa-map-marker-alt"></i></li>
-                                        </ul>
-                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
-                            </div>        
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                {% endfor %}
+                            </div>
+                            {% endfor %}
 
-                <div class="clearfix"></div>
-            </div>
+                            <div class="clearfix"></div>
+                        {% endwith %}
+                    </div>
+                {% endfor %}
+            {% endwith %}
         </div>
 
         <a href="{% url 'trek:popular_listing' %}" class="rm-btn bg-gr martp-50">More Popular</a>
-
-
-
     </div>
 </section>
 
