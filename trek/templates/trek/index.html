@@ -184,7 +184,27 @@
                         <div class="bft-det">
                             <h3>{{ item.name }}</h3>
                             <span class="bft-dat">({{ item.duration }} days)</span>
-                            <p>{{ item.introduction|truncatechars:50 }}</p> 
+                            <div class="rating-stars">
+                                {% if item.rating %}
+                                    {% with item.rating|range_rating as rates %}
+                                        {% for count in rates %}
+                                            <i class="fas fa-star"></i>
+                                        {% endfor %}
+                                    {% endwith %}
+                                    {% with item.rating|rating_decimal as rate %}
+                                        {% if rating != 0 %}
+                                            <i class="fas fa-star-half-alt"></i>
+                                        {% endif %}
+                                    {% endwith %}
+                                {% else %}
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                {% endif %}
+                            </div>
+                            <p>{{ item.introduction|truncatechars:200 }}</p> 
                         </div>
                     </a>
                 </div>
@@ -209,33 +229,32 @@
                 <div class="a1-img">
                     <div class="a-overlay"></div>    
                     <img width="360px" height="245px" src="{{ item.images.first.image.url }}">
-
-                    <!-- <div class="pos-abs">
-                        <span>{{ item.name }}</span>
-                        <div class="rating-stars">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div> -->
-
-                    
                 </div>
 
                 <div class="a1-des">
-                    <div class="a1-count bor-rig">
-                        <ul>
-                            <li><i class="far fa-eye"></i> <span>{{ item.views }}</span></li>
-                            <li><i class="far fa-comments"></i><span>{{ item.review.count }}</span></li>
-                            <li><i class="far fa-share-square"></i><span>{{ item.shares }}</span></li>
-                            <li><i class="fas fa-map-marker-alt"></i><span>Map</span></li>
-                        </ul>
-                    </div>
                     <div class="a1-info center">
                         <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
-                        <p>{{ item.name }}</p>
+                        <p><strong>{{ item.name }}</strong></p>
+                        <div class="rating-stars">
+                            {% if item.rating %}
+                                {% with item.rating|range_rating as rates %}
+                                    {% for count in rates %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                {% endwith %}
+                                {% with item.rating|rating_decimal as rate %}
+                                    {% if rating != 0 %}
+                                        <i class="fas fa-star-half-alt"></i>
+                                    {% endif %}
+                                {% endwith %}
+                            {% else %}
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            {% endif %}
+                        </div>
                         <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
                     </div>
                 </div>
@@ -276,14 +295,34 @@
                                 <div class="dis-in">
                                     <div class="a1-info center p-info">
                                         <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
-                                        <p>{{ item.name }}</p>
+                                        <p><strong>{{ item.name }}</strong></p>
+                                        <div class="rating-stars">
+                                            {% if item.rating %}
+                                                {% with item.rating|range_rating as rates %}
+                                                    {% for count in rates %}
+                                                        <i class="fas fa-star"></i>
+                                                    {% endfor %}
+                                                {% endwith %}
+                                                {% with item.rating|rating_decimal as rate %}
+                                                    {% if rating != 0 %}
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    {% endif %}
+                                                {% endwith %}
+                                            {% else %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            {% endif %}
+                                        </div>
                                         <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
                                     </div>
                                     <div class="a1-count p-ofc">
                                         <ul>
-                                            <li><i class="far fa-eye">{{ item.views }}</i></li>
+                                            <li><i class="far fa-eye"></i></li>
                                             <li><i class="far fa-comments"></i></li>
-                                            <li><i class="far fa-share-square">{{ item.shares }}</i></li>
+                                            <li><i class="far fa-share-square"></i></li>
                                             <li><i class="fas fa-map-marker-alt"></i></li>
                                         </ul>
                                     </div>
