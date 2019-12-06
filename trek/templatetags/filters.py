@@ -50,7 +50,6 @@ def block_popular(popular, index=None):
         start = (index - 1) * 4
         end = start + 4
         print(start, end)
-        print(Package.objects.filter(speciality='Popular')[start:end])
         return Package.objects.filter(speciality='Popular')[start:end]
 
 

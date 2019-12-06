@@ -442,7 +442,11 @@
 
                         <div id="tab-6">
                             <div class="tab-map">
-                                <img src="{{ item.map_image.url }}">
+                                {% if item.map_image %}
+                                    <img src="{{ item.map_image.url }}">
+                                {% else %}
+                                    <img src="" alt="Map Image">
+                                {% endif %}
                             </div>
                         </div>
 
