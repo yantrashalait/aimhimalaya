@@ -240,6 +240,7 @@ class AboutUsDetail(models.Model):
     facebook_link = models.CharField(max_length=500, blank=True, help_text="Facebook link")
     instagram_link = models.CharField(max_length=500, blank=True, help_text="Instagram link")
     twitter_link = models.CharField(max_length=500, blank=True, help_text="Twitter link")
+    whatsapp_number = models.CharField(max_length=50, null=True, blank=True)
 
 
 class BlogBannerImage(models.Model):
