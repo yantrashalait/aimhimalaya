@@ -1946,6 +1946,11 @@ button.rm-btn{
     border-bottom: 3px solid #0B6031;
 } */
 
+.book_trip span{
+    position: absolute;
+    top: 5px;
+}
+
 
 /* Star rating*/
 .rating {

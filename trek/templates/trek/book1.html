@@ -78,6 +78,9 @@
                 {{ form.nationality.errors }}
                 {% endif %}
             </div>
+            <br>
+            <br>
+            <br>
 
             <div class="sing-bf cu-frs">
                 <div class="col-md-3 col-sm-3 col-xs-4">
@@ -118,11 +121,18 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $("#datepicker").datepicker();
+        $(".book_trip").click(function(){
+            $(this).attr('style', 'z-index: 1000000 !important');
+        });
+        $('#datepicker').click(function(){
+            $(".book_trip").css('z-index', "");
+        })
     });
-    $("#ui-datepicker-div").load(function(){
-        $("#ui-datepicker-div").attr('style', 'z-index: 1000 !important');
-    })
-    
 
+    $("#ui-datepicker-div").load(function(){
+        $("#ui-datepicker-div").attr('style', 'z-index: 1000000 !important');
+    })
+
+      
 </script>
 {% endblock %}

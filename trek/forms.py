@@ -26,6 +26,7 @@ class TripBookForm(forms.ModelForm):
         self.fields['trip_name'].required = True
         self.fields['nationality'].required = True
         self.fields['start_date'].required = True
+        self.fields['trip_name'].widget.attrs.update({'class' : 'book_trip'})
 
     class Meta:
         model = TripBooking
