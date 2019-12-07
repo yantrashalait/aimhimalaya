@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 
 class Country(models.Model):
@@ -37,7 +38,7 @@ class Package(models.Model):
     departure_from = models.CharField(max_length=100, null=True, blank=True)
     country = models.ForeignKey(Country,  null=True, blank=True, on_delete=models.CASCADE)
     destination = models.ForeignKey(Destination, null=True, blank=True, on_delete=models.CASCADE)
-    introduction = models.TextField(null=True, blank=True)
+    introduction = HTMLField(null=True, blank=True)
     views = models.IntegerField(default=0)
     shares = models.IntegerField(default=0)
     speciality = models.CharField(max_length=50, choices=PACKAGE_CHOICES, null=True, blank=True)
@@ -80,8 +81,8 @@ class PackageItinerary(models.Model):
     day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)')
     place = models.CharField(max_length=200, null=True, blank=True)
     place_description = models.CharField(max_length=200, null=True, blank=True)
-    outline = models.TextField(null=True, blank=True)
-    description = models.TextField()
+    outline = HTMLField(null=True, blank=True)
+    description = HTMLField(null=True, blank=True)
     meals = models.IntegerField(help_text='Served meals (in number)', null=True, blank=True)
     altitude = models.CharField(max_length=100, help_text='Altitude of the place', null=True, blank=True)
     accomodation = models.CharField(max_length=50, help_text='Type of Accomodation (Example: Hotel, Camp, etc.)', null=True, blank=True)
@@ -223,14 +224,14 @@ class Blog(models.Model):
     author = models.CharField(max_length=100)
     date = models.DateField()
     image = models.ImageField(upload_to='blogs/', help_text="Image size: width=370px height=370px")
-    content = models.TextField()
+    content = HTMLField(null=True, blank=True)
 
     def __str__(self):
         return self.author + ' ' + self.title
 
 
 class AboutUsDetail(models.Model):
-    about_description = models.TextField()
+    about_description = HTMLField()
     video_url = models.CharField(max_length=100, null=True, blank=True, help_text="Paste the youtube video url here")
     address = models.CharField(max_length=300, null=True, blank=True, help_text="Your address")
     contact_number = models.CharField(max_length=255, null=True, blank=True, help_text="Your contact Number")

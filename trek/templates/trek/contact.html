@@ -10,7 +10,7 @@
                 <a href="{{ about.youtube_link }}" target="_blank"><i class="fab fa-youtube"></i></a>
                 <a href="{{ about.instagram_link }}" target="_blank"><i class="fab fa-instagram"></i></a>
 
-                <p id="about">{{ about.about_description|linebreaks }}</p>
+                <p id="about">{{ about.about_description|safe }}</p>
             </div>
 
             <div class="co-ctdet">
