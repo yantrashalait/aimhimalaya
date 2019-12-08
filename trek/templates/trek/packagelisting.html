@@ -95,6 +95,26 @@
                                     <div class="a1-info center p-info">
                                         <span class="price">${{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
                                         <p><strong>{{ item.name }}</strong></p>
+                                        <div class="rating-stars">
+                                            {% if item.rating %}
+                                                {% with item.rating|range_rating as rates %}
+                                                    {% for count in rates %}
+                                                        <i class="fas fa-star"></i>
+                                                    {% endfor %}
+                                                {% endwith %}
+                                                {% with item.rating|rating_decimal as rate %}
+                                                    {% if rating != 0 %}
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    {% endif %}
+                                                {% endwith %}
+                                            {% else %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            {% endif %}
+                                        </div>
                                         <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
                                     </div>
                                     <div class="a1-count p-ofc">
