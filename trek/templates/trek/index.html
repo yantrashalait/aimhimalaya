@@ -133,15 +133,15 @@
                             <div class="item">
                                 <a href="{% url 'trek:detail' obj.pk %}">
                                     <div class="bo-img">
-                                        <div class="bo-overlay"></div>
-                                        <img width="247px" height="247px" src="{{ obj.images.first.image.url }}">
-                                        
+                                        <img width="200px" height="200px" src="{{ obj.images.first.image.url }}">
                                     </div>
 
-                                    <div class="bft-det">
-                                        <h3>{{ obj.name }}</h3>
+                                    <div class="special-det">
+                                        <div class="row special">
+                                            <span><strong>{{ obj.name|truncatechars:25 }}</strong></span>
+                                            <div class="special-price">${{ obj.price }}</div>
+                                        </div>
                                         <span class="bft-dat">({{ obj.duration }} days)</span>
-                                        <p>{{ obj.introduction|truncatechars:50 }}</p> 
                                     </div>
                                 </a>
                             </div>

@@ -19,6 +19,7 @@ class Destination(models.Model):
 class Activity(models.Model):
     name = models.CharField(max_length=100)
     font_awesome_code = models.CharField(max_length=50, null=True, blank=True, help_text="Paste a font awesome code for activity icon here(e.g. fa-mountain, fa-hiking)")
+    hidden = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

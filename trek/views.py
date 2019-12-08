@@ -17,7 +17,7 @@ class IndexView(TemplateView):
         context['best'] = Package.objects.filter(speciality='Best')[:5]
         context['popular'] = Package.objects.filter(speciality='Popular')
         context['awesome'] = Package.objects.filter(speciality='Awesome')
-        context['activities'] = Activity.objects.all()
+        context['activities'] = Activity.objects.filter(hidden=False)
         context['happy_clients'] = HappyClient.objects.all()
         context['gallery'] = PhotoGallery.objects.all()
         context['country'] = Country.objects.all()

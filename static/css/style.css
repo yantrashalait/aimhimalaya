@@ -1951,6 +1951,24 @@ button.rm-btn{
     top: 5px;
 }
 
+.special-det{
+    background: #fff;
+    color: #366738;
+}
+
+.special{
+    margin-left: 2px;
+    display: flex;
+}
+
+.special span{
+    width: 80%;
+}
+
+.special-price{
+    width: 20%;
+}
+
 
 /* Star rating*/
 .rating {
