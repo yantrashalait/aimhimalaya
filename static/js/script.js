@@ -135,7 +135,7 @@ $('.frm-galle').owlCarousel({
    dots:false,
    autoplay: true,
    autoplayTimeout: 6000,
-   nav:true,
+   nav:false,
    responsiveClass: false,
    responsive: {
     0: {
