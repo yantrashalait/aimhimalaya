@@ -69,19 +69,19 @@ class PackageImage(models.Model):
 
 class PackageCostIncluded(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='cost_included')
-    included_items = models.CharField(max_length=200, default='')
+    included_items = models.CharField(max_length=500, default='')
 
 
 class PackageCostExluded(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='cost_excluded')
-    excluded_items = models.CharField(max_length=200, default='')
+    excluded_items = models.CharField(max_length=500, default='')
 
 
 class PackageItinerary(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='itinerary')
     day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)')
     place = models.CharField(max_length=200, null=True, blank=True)
-    place_description = models.CharField(max_length=200, null=True, blank=True)
+    place_description = models.CharField(max_length=500, null=True, blank=True)
     outline = HTMLField(null=True, blank=True)
     description = HTMLField(null=True, blank=True)
     meals = models.IntegerField(help_text='Served meals (in number)', null=True, blank=True)
