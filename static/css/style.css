@@ -1963,10 +1963,12 @@ button.rm-btn{
 
 .special span{
     width: 80%;
+    font-size: 12px;
 }
 
 .special-price{
-    width: 20%;
+    width: 23%;
+    font-size: 12px;
 }
 
 
