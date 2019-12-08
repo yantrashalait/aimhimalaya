@@ -92,7 +92,27 @@
                             <div class="all-bft-det">
                                 <h3>{{ item.name }}</h3>
                                 <span class="bft-dat">({{ item.duration }} days)</span>
-                                <p>{{ item.introduction|truncatechars:50 }}</p>
+                                <div class="rating-stars">
+                                    {% if item.rating %}
+                                        {% with item.rating|range_rating as rates %}
+                                            {% for count in rates %}
+                                                <i class="fas fa-star"></i>
+                                            {% endfor %}
+                                        {% endwith %}
+                                        {% with item.rating|rating_decimal as rate %}
+                                            {% if rating != 0 %}
+                                                <i class="fas fa-star-half-alt"></i>
+                                            {% endif %}
+                                        {% endwith %}
+                                    {% else %}
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    {% endif %}
+                                </div>
+                                <p>{{ item.introduction|truncatechars:200 }}</p>
                             </div>
                         </a>
                     </div>
