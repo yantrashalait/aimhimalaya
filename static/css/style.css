@@ -1989,7 +1989,21 @@ button.rm-btn{
 
 .li-ofsin:hover .all-bft-det p {
     margin-top: 15px;
-    height: 80px;
+}
+
+.all-bft-det p{
+    letter-spacing: 1px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 5px;
+    font-size: 15px;
+    line-height: 1;
+    transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;
+    moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    height: 0;
+    overflow: hidden;
 }
 
 /* Star rating*/
