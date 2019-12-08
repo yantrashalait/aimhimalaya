@@ -400,6 +400,7 @@ iframe#player {
     line-height: 20px;
     margin-top: 10px;
     min-width: 179px;
+    min-height: 40px;
 }
 
 span.price {
