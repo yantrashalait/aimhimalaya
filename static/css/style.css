@@ -1111,7 +1111,7 @@ ul.r-tabs-nav li {
 
 ul.r-tabs-nav>li:last-child {
     border-right: none;
-    padding-left: 12px;
+    padding-left: 0px;
 }
 
 li.r-tabs-tab.r-tabs-state-active:after {
