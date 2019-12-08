@@ -1729,7 +1729,10 @@ iframe.fo-map {
 
 
 
-    button.bt-hv:hover{cursor: pointer}
+    button.bt-hv:hover{
+        cursor: pointer;
+        width: 300px;
+    }
 
     button.bt-hv {
         background: transparent;
@@ -2006,6 +2009,10 @@ button.rm-btn{
     overflow: hidden;
 }
 
+button.bt-hv i{
+    margin-right: 6px;
+    transform: rotate(-2deg);
+}
 /* Star rating*/
 .rating {
     display: inline-block;
