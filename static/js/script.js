@@ -8,7 +8,7 @@ $('.banner-slide').owlCarousel({
     loop: true,
     margin: 0,
     nav: true,
-    autoplay:false,
+    autoplay:true,
     dots: false,
     autoplayTimeout: 5000,
     responsive: {
@@ -133,6 +133,7 @@ $('.p-offer').owlCarousel({
 $('.frm-galle').owlCarousel({
    loop:true,
    dots:false,
+   autoplay: true,
    autoplayTimeout: 6000,
    nav:true,
    responsiveClass: false,
@@ -281,13 +282,18 @@ $(document).ready(function() {
  $('.slider-for').slick({
   slidesToShow: 1,
   slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
   arrows: false,
   fade: true,
-  asNavFor: '.slider-nav'
+  asNavFor: '.slider-nav',
 });
+
 $('.slider-nav').slick({
   slidesToShow: 4,
   slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
   asNavFor: '.slider-for',
   dots: false,
   // arrows: true,
