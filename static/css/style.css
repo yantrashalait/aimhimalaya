@@ -1974,6 +1974,23 @@ button.rm-btn{
 }
 
 
+.all-bft-det {
+    background-color: rgb(0, 0, 0, 0.45);
+    position: absolute;
+    padding: 0px 0px 18px 15px;
+    bottom: 0px;
+    z-index: 99;
+    text-align: left;
+    bottom: 15px;
+    right: 15px;
+    left: 15px;
+}
+
+.li-ofsin:hover .all-bft-det p {
+    margin-top: 15px;
+    height: 80px;
+}
+
 /* Star rating*/
 .rating {
     display: inline-block;

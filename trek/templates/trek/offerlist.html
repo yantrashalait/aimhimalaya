@@ -84,15 +84,15 @@
                                 <div class="bo-overlay"></div>
                                 <img src="{{ item.images.first.image.url }}">
                                 <div class="best-off">
-                                    <span>Rs {{ item.price }}</span>
+                                    <span>$ {{ item.price }}</span>
                                 </div>
                                 
                             </div>
 
-                            <div class="bft-det">
+                            <div class="all-bft-det">
                                 <h3>{{ item.name }}</h3>
-                                <span class="bft-dat">({{ item.days }} day/{{ item.nights }} nights)</span>
-                                <p>{{ item.introduction }}</p>
+                                <span class="bft-dat">({{ item.duration }} days)</span>
+                                <p>{{ item.introduction|truncatechars:50 }}</p>
                             </div>
                         </a>
                     </div>
