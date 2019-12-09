@@ -3,7 +3,8 @@ from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse, request
 from django.shortcuts import redirect, render
 from .models import Package, Review, Activity, HappyClient, PhotoGallery, Country, Destination, CustomTrip, \
-    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage, Generic
+    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage, Generic,\
+        TermsAndCondition, PaymentProcess
 from .forms import TripPersonalInfoForm, TripBookForm, CustomTripForm, SubscriptionForm, ReviewForm
 from django.http import JsonResponse
 import json
@@ -108,6 +109,7 @@ class TermsView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super(TermsView, self).get_context_data(**kwargs)
         context['banner'] = BlogBannerImage.objects.last()
+        context['terms'] = TermsAndCondition.objects.last()
         return context
 
 
@@ -209,7 +211,8 @@ class Book2(TemplateView):
         obj = form.save(commit=False)
         obj.trip_book = trip
         obj.save()
-        return render(request, 'trek/book3.html')
+        payment = PaymentProcess.objects.last()
+        return render(request, 'trek/book3.html', {'payment': payment})
     
     def get_context_data(self, *args, **kwargs):
         context = super(Book2, self).get_context_data(**kwargs)

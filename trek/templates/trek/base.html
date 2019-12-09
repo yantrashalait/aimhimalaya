@@ -156,14 +156,11 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 col-xs-6">
-                    <h2>Pilgrimages</h2>
+                    <h2>The Popular Links</h2>
                     <ul>
-                       <li><a href="">Pashupatinath</a></li>
-                       <li><a href="">Yoga</a></li>
-                       <li><a href="">Meditation</a></li>
-                       <li><a href="">Ayurveda</a></li>
-                       <li><a href="">Failth Healing</a></li>
-                       <li><a href="">Astrlogy</a></li>
+                        {% for item in popular_links %}
+                            <li><a href="{% url 'trek:generic' item.pk %}">{{ item.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
 

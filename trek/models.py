@@ -252,6 +252,7 @@ class Generic(models.Model):
     SECTION_CHOICES = (
         ('About_Nepal', 'About Nepal'),
         ('Before_Visit', 'Before You Come'),
+        ('Popular_Links', 'The Popular Links'),
     )
 
     section = models.CharField(max_length=500, choices=SECTION_CHOICES, default='')
@@ -261,3 +262,12 @@ class Generic(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class TermsAndCondition(models.Model):
+    content = HTMLField()
+
+
+class PaymentProcess(models.Model):
+    content = HTMLField()
+    

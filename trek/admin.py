@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import Package, Review, Activity, Country, Destination, PhotoGallery, \
     HappyClient, HeaderImage, Subscription, PackageImage, PackageCostIncluded, BlogBannerImage, \
     PackageCostExluded, PackageItinerary, CustomTrip, TripBooking, TripPersonalInfo, Blog, AboutUsDetail,\
-        Generic
+        Generic, TermsAndCondition, PaymentProcess
 
 admin.site.register(Country)
 admin.site.register(Destination)
@@ -14,6 +14,8 @@ admin.site.register(Subscription)
 admin.site.register(CustomTrip)
 admin.site.register(AboutUsDetail)
 admin.site.register(Generic)
+admin.site.register(TermsAndCondition)
+admin.site.register(PaymentProcess)
 
 
 class PackageImageInline(admin.TabularInline):
