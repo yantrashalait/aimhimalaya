@@ -2007,6 +2007,12 @@ button.bt-hv i{
     margin-right: 6px;
     transform: rotate(-2deg);
 }
+
+ul.i-br-list li{
+    padding-left: 20px;
+    text-indent: -1.30em;
+}
+
 /* Star rating*/
 .rating {
     display: inline-block;
