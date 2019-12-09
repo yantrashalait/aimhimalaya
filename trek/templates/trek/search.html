@@ -1,5 +1,6 @@
 {% extends 'trek/base.html' %}
 {% load static %}
+{% load filters %}
 {% block content %}
 <section class="banner">
     {% if banner %}
@@ -29,25 +30,45 @@
                 {% if packages %}
                 {% for item in packages %}
                 <div class="col-md-4 col-sm-6">
-                    <div class="li-ofsin">
-                        <a href="{% url 'trek:detail' item.id %}">
-                            <div class="bo-img">
-                                <div class="bo-overlay"></div>
-                                <img width="350px" height="303px" src="{{ item.images.first.image.url }}">
-                                <div class="best-off">
-                                    <span>$ {{ item.price }}</span>
+                        <div class="li-ofsin">
+                            <a href="{% url 'trek:detail' item.pk %}">
+                                <div class="bo-img">
+                                    <div class="bo-overlay"></div>
+                                    <img style="height: 234px;" src="{{ item.images.first.image.url }}">
+                                    <div class="best-off">
+                                        <span>$ {{ item.price }}</span>
+                                    </div>
+                                    
                                 </div>
-
-                            </div>
-
-                            <div class="bft-det">
-                                <h3>{{ item.name }}</h3>
-                                <span class="bft-dat">{{ item.duration }} days</span>
-                                <p>{{ item.description }}</p>
-                            </div>
-                        </a>
+    
+                                <div class="all-bft-det">
+                                    <h3>{{ item.name|truncatechars:20 }}</h3>
+                                    <span class="bft-dat">({{ item.duration }} days)</span>
+                                    <div class="rating-stars">
+                                        {% if item.rating %}
+                                            {% with item.rating|range_rating as rates %}
+                                                {% for count in rates %}
+                                                    <i class="fas fa-star"></i>
+                                                {% endfor %}
+                                            {% endwith %}
+                                            {% with item.rating|rating_decimal as rate %}
+                                                {% if rating != 0 %}
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                {% endif %}
+                                            {% endwith %}
+                                        {% else %}
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        {% endif %}
+                                    </div>
+                                    <p>{{ item.introduction|truncatechars:200|safe }}</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 {% endfor %}
 
                 <div class="clearfix"></div>
