@@ -447,6 +447,7 @@
                             $.each(result, function(id, obj){
                                 var nice_select = destination.next();
                                 var ul = nice_select.find("ul");
+                                destination.append($("<option />").val(obj.id).text(obj.name));
                                 ul.append($("<li />").val(obj.id).text(obj.name).addClass("option"));
                             });
                         }
