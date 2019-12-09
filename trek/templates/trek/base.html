@@ -140,38 +140,30 @@
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <h2>About Nepal</h2>
                     <ul>
-                       <li><a href="{% url 'trek:generic' %}">History</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Geography</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Wildlife</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Climate</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Plants</a></li>
-                       <li><a href="{% url 'trek:generic' %}">People</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Culture</a></li>
+                        {% for item in about_nepal %}
+                            <li><a href="{% url 'trek:generic' item.pk %}">{{ item.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
-
+                
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <h2>Before You Come</h2>
                     <ul>
-                       <li><a href="{% url 'trek:generic' %}">Visit Nepal Info</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Local Transportation</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Trekking Permit</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Park Entry Fees</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Heritages Site Entry fees</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Tourist Policies</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Saftey in Mountains</a></li>
+                        {% for item in before_visit %}
+                            <li><a href="{% url 'trek:generic' item.pk %}">{{ item.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
 
                 <div class="col-md-3 col-sm-6 col-xs-6">
                     <h2>Pilgrimages</h2>
                     <ul>
-                       <li><a href="{% url 'trek:generic' %}">Pashupatinath</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Yoga</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Meditation</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Ayurveda</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Failth Healing</a></li>
-                       <li><a href="{% url 'trek:generic' %}">Astrlogy</a></li>
+                       <li><a href="">Pashupatinath</a></li>
+                       <li><a href="">Yoga</a></li>
+                       <li><a href="">Meditation</a></li>
+                       <li><a href="">Ayurveda</a></li>
+                       <li><a href="">Failth Healing</a></li>
+                       <li><a href="">Astrlogy</a></li>
                     </ul>
                 </div>
 

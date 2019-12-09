@@ -3,7 +3,7 @@ from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect, HttpResponse, request
 from django.shortcuts import redirect, render
 from .models import Package, Review, Activity, HappyClient, PhotoGallery, Country, Destination, CustomTrip, \
-    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage
+    TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage, Generic
 from .forms import TripPersonalInfoForm, TripBookForm, CustomTripForm, SubscriptionForm, ReviewForm
 
 from django.db.models import Q
@@ -264,4 +264,5 @@ class GenericView(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super(GenericView, self).get_context_data(**kwargs)
         context['banner'] = BlogBannerImage.objects.last()
+        context['generic'] = Generic.objects.get(pk=self.kwargs.get('pk'))
         return context

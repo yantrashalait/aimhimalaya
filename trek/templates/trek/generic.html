@@ -6,13 +6,13 @@
     {% if banner %}
     <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
         <div class="al-bn-txt">
-            <span class="wpag">Generic</span>
+            <span class="wpag">{{ generic.get_section_display|title }}</span>
         </div>
     </div>
     {% else %}
     <div class="allbanner-img" style="background: url({% static 'images/allban.jpg' %}); ">
         <div class="al-bn-txt">
-            <span class="wpag">Generic</span>
+            <span class="wpag">{{ generic.ge_section_display|title }}</span>
         </div>
     </div>
     {% endif %}
@@ -26,21 +26,17 @@
 
         <div class="all-heading txt-lft">
             <span>Know More<img src="{% static 'images/png.png' %}"></span>
-            <label>History of Nepal</label>
+            <label>{{ generic.title }}</label>
         </div>
 
         <div class="row">
             <div class="col-md-12">
                 <div class="blg-det">
                     <div class="blg-img">
-                        <img src="{% static 'images/blog.jpg' %}">
+                        <img src="{{ generic.image.url }}">
 
                         <div class="blg-detp">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing 
-                            </p>
+                            {{ generic.content|safe }}
                         </div>
                     </div>
                 </div>

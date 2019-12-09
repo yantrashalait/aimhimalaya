@@ -246,3 +246,18 @@ class AboutUsDetail(models.Model):
 
 class BlogBannerImage(models.Model):
     image = models.ImageField(upload_to='banner/blogs/', help_text="Image size: width=1803px height=380px")
+
+
+class Generic(models.Model):
+    SECTION_CHOICES = (
+        ('About_Nepal', 'About Nepal'),
+        ('Before_Visit', 'Before You Come'),
+    )
+
+    section = models.CharField(max_length=500, choices=SECTION_CHOICES, default='')
+    title = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='generics/', help_text="Image size: width=746px height=300px")
+    content = HTMLField()
+
+    def __str__(self):
+        return self.title

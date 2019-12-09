@@ -27,6 +27,6 @@ urlpatterns = [
 
     path('subscribe/', views.SubscribeView.as_view(), name='subscribe'),
 
-    path('generic/', views.GenericView.as_view(), name='generic'),
+    path('generic/<int:pk>/', views.GenericView.as_view(), name='generic'),
     path('tinymce/', include('tinymce.urls')),
 ]
