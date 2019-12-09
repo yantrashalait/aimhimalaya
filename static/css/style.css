@@ -1957,7 +1957,7 @@ button.rm-btn{
 
 .special{
     margin-left: 2px;
-    display: flex;
+    display: inline-block;
 }
 
 .special span{
