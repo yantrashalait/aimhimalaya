@@ -4,6 +4,10 @@
 	    margin: 30px 0;
 	    text-align: center;
 	}
+
+	#sidebar {
+		width: 300px;
+	}
 }
 
 
@@ -91,6 +95,15 @@
 
 
 @media screen and (max-width: 480px) {
+
+
+	#sidebar {
+		width: 100%;
+		background: #fff;
+		position: relative !important;
+		top: auto !important;
+		bottom:  auto !important
+	}
 
 
 	header {

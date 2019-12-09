@@ -5,6 +5,8 @@ from django.shortcuts import redirect, render
 from .models import Package, Review, Activity, HappyClient, PhotoGallery, Country, Destination, CustomTrip, \
     TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage, Generic
 from .forms import TripPersonalInfoForm, TripBookForm, CustomTripForm, SubscriptionForm, ReviewForm
+from django.http import JsonResponse
+import json
 
 from django.db.models import Q
 
@@ -266,3 +268,12 @@ class GenericView(TemplateView):
         context['banner'] = BlogBannerImage.objects.last()
         context['generic'] = Generic.objects.get(pk=self.kwargs.get('pk'))
         return context
+
+
+def get_destination(request, *args, **kwargs):
+    if request.method == 'GET':
+        act = request.GET.get('activity')
+        act = act.replace('act_', '')
+        destination = Destination.objects.filter(package__activities__id=act).distinct().values('name', 'id')
+        dst = json.dumps(list(destination))
+        return JsonResponse(dst, safe=False)

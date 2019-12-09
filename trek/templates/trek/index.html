@@ -39,12 +39,13 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="bx-sdw1">
-                        <select name="destination">
-                            <option data-display="Destination" value="">Destination</option>
-                            {% for item in destination %}
-                                <option value="{{ item.id }}">{{ item.name }}</option>
+                        <select name="activity" id="activity">
+                            <option data-display="Activities" value="">Activity</option>
+                            {% for item in activities %}
+                                <option value="act_{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -52,11 +53,8 @@
 
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="bx-sdw1">
-                        <select name="activity">
-                            <option data-display="Activities" value="">Activity</option>
-                            {% for item in activities %}
-                                <option value="{{ item.id }}">{{ item.name }}</option>
-                            {% endfor %}
+                        <select name="destination" id="destination">
+                            <option data-display="Destination" value="">Destination</option>
                         </select>
                     </div>
                 </div>
@@ -204,7 +202,7 @@
                                     <i class="fas fa-star-half-alt"></i>
                                 {% endif %}
                             </div>
-                            <p>{{ item.introduction|truncatechars:200 }}</p> 
+                            <p>{{ item.introduction|truncatechars:200|safe }}</p> 
                         </div>
                     </a>
                 </div>
@@ -430,4 +428,31 @@
     </div>
 </section>
 
+{% endblock %}
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            $(".option").click(function(){
+                var selected = $(this).attr('data-value');
+                if( selected.indexOf('act') !=-1){
+                    $.ajax({
+                        url: "{% url 'trek:get-destination' %}",
+                        data: {
+                            'activity': selected,
+                        },
+                        dataType: 'json',
+                        success: function(result){
+                            var destination = $('#destination');
+                            result = jQuery.parseJSON(result); 
+                            $.each(result, function(id, obj){
+                                var nice_select = destination.next();
+                                var ul = nice_select.find("ul");
+                                ul.append($("<li />").val(obj.id).text(obj.name).addClass("option"));
+                            });
+                        }
+                    });
+                }
+            }); 
+        });
+    </script>
 {% endblock %}

@@ -29,4 +29,6 @@ urlpatterns = [
 
     path('generic/<int:pk>/', views.GenericView.as_view(), name='generic'),
     path('tinymce/', include('tinymce.urls')),
+
+    path('get-destination/', views.get_destination, name='get-destination'),
 ]
