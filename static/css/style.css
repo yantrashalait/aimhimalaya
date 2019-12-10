@@ -2013,6 +2013,15 @@ ul.i-br-list li{
     text-indent: -1.24em;
 }
 
+section.fo-link ul li p a::before{
+    margin-right: 0px;
+    font-size: 14px;
+    vertical-align: "";
+    font-family: "";
+    font-weight: 900;
+    content: "";
+}
+
 /* Star rating*/
 .rating {
     display: inline-block;

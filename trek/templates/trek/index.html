@@ -87,7 +87,7 @@
                         <label>About us</label>
                     </div>
                     <div class="abt-bdy">
-                        <p>{{ about.about_description|safe|truncatechars:550 }}</p>
+                        <p>{{ about.about_description|truncatechars:2100|safe }}</p>
 
                         <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more</a>
                     </div>
@@ -202,7 +202,7 @@
                                     <i class="fas fa-star-half-alt"></i>
                                 {% endif %}
                             </div>
-                            <p>{{ item.introduction|truncatechars:200|safe }}</p> 
+                            <p>{{ item.introduction|safe|truncatechars:200 }}</p> 
                         </div>
                     </a>
                 </div>
