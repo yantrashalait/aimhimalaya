@@ -169,7 +169,7 @@
                             <div class="fo-contact">
                                 <img src="{% static 'images/inverse.png' %}">
                             </div>
-                                <p class="fo-des">{{ about.about_description|truncatechars:600|safe }}</p>
+                                <p class="fo-des">{{ about.about_description|truncatechars:100|safe }}</p>
                                 <p><a href=""><i class="fas fa-phone"></i> {{ about.contact_number }}</a></p>
                                 <p><a href=""><i class="fas fa-envelope"></i> {{ about.email }}</a></p>
                                 <p><a href=""><i class="fab fa-whatsapp"></i> {{ about.whatsapp_number }}</a></p>
