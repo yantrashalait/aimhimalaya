@@ -281,7 +281,7 @@ section.search .nice-select span.current {
     font-size: 15px;
     width: 28px;
     height: 28px;
-    margin: 0 20px;
+    margin: 0 15px;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -722,7 +722,7 @@ img.cl-pro {
 .spet-car .item a {
     color: #fff;
     font-size: 14px;
-    padding: 10px 40px;
+    padding: 10px 8px;
 }
 
 .spet-car .item {
@@ -747,8 +747,8 @@ img.cl-pro {
 
 .spet-car .item.active a i {
     color: black;
-    font-size: 15px;
-    margin-right: 10px;
+    /* font-size: 15px; */
+    /* margin-right: 10px; */
 }
 
     
@@ -1715,7 +1715,7 @@ section.about.br-tp {
 
 footer#footer {
     position: relative;
-    z-index: 999;
+    z-index: 90;
 }
 
 iframe.fo-map {
