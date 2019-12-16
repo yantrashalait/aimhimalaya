@@ -140,7 +140,6 @@
                                             <span><strong>{{ obj.name|truncatechars:30 }}</strong></span>
                                             <div class="special-price">${{ obj.price }}</div>
                                         </div>
-                                        <span class="bft-dat">({{ obj.duration }} days)</span>
                                     </div>
                                 </a>
                             </div>
@@ -183,7 +182,7 @@
                         <div class="bft-det">
                             <h3>{{ item.name }}</h3>
                             <span class="bft-dat">({{ item.duration }} days)</span>
-                            <div class="rating-stars">
+                            <div class="rating-stars demo">
                                 {% if item.rating %}
                                     {% with item.rating|range_rating as rates %}
                                         {% for count in rates %}
