@@ -1153,7 +1153,7 @@ li.r-tabs-state-default.r-tabs-tab a:hover {
 /* Tab anchor */
 .r-tabs .r-tabs-nav .r-tabs-anchor {
     display: inline-block;
-    padding: 13px 18px;
+    padding: 13px 17px;
 
     text-decoration: none;
     text-shadow: 0 1px rgba(0, 0, 0, 0.4);
