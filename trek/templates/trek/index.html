@@ -44,7 +44,7 @@
                     <div class="bx-sdw1">
                         <select name="activity" id="activity">
                             <option data-display="Activities" value="">Activity</option>
-                            {% for item in activities %}
+                            {% for item in search_activities %}
                                 <option value="act_{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
@@ -86,11 +86,12 @@
                         <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
                         <label>About us</label>
                     </div>
-                    <div class="abt-bdy">
-                        <p>{{ about.about_description|truncatechars:700|safe }}</p>
+                    <div class="abt-bdy" style="min-height:215px;">
+                        <p>{{ about.about_description|truncatechars:620|safe }}</p>
 
-                        <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more</a>
+                        
                     </div>
+                    <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more</a>
 
                 </div>
             </div>

@@ -257,7 +257,7 @@ class Generic(models.Model):
 
     section = models.CharField(max_length=500, choices=SECTION_CHOICES, default='')
     title = models.CharField(max_length=500)
-    image = models.ImageField(upload_to='generics/', help_text="Image size: width=746px height=300px")
+    image = models.ImageField(upload_to='generics/', help_text="Image size: width=746px height=300px", null=True, blank=True)
     content = HTMLField()
 
     def __str__(self):

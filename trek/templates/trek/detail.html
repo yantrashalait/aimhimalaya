@@ -36,7 +36,7 @@
                                 <div class="slider slider-for">
                                     {% for obj in item.images.all %}
                                     <div>
-                                        <img src="{{ obj.image.url }}">
+                                        <img src="{{ obj.image.url }}" style="height:373.97px; width:100%">
                                     </div>
                                     {% endfor %}
                                 </div>
@@ -96,7 +96,7 @@
                                 </div>
 
                                 <div class="trip-ov">
-                                    <h3 class="bef-head">Trip Introduction</h3>
+                                    <!-- <h3 class="bef-head">Trip Introduction</h3> -->
                                     <p>{{ item.introduction|safe }}</p>
                                 </div>                                
 

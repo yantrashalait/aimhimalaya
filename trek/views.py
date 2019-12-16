@@ -1,15 +1,23 @@
+import io
+import json
+
 from django.views.generic import TemplateView, CreateView, DetailView, ListView
 from django.urls import reverse, reverse_lazy
-from django.http import HttpResponseRedirect, HttpResponse, request
+from django.http import HttpResponseRedirect, HttpResponse, request, FileResponse
 from django.shortcuts import redirect, render
 from .models import Package, Review, Activity, HappyClient, PhotoGallery, Country, Destination, CustomTrip, \
     TripBooking, TripPersonalInfo, Subscription, Blog, HeaderImage, AboutUsDetail, BlogBannerImage, Generic,\
         TermsAndCondition, PaymentProcess
 from .forms import TripPersonalInfoForm, TripBookForm, CustomTripForm, SubscriptionForm, ReviewForm
 from django.http import JsonResponse
-import json
-
 from django.db.models import Q
+
+from reportlab.pdfgen import canvas
+from io import StringIO
+from xhtml2pdf import pisa
+from django.template.loader import get_template
+from django.template import Context
+from cgi import escape
 
 
 class IndexView(TemplateView):
@@ -20,6 +28,7 @@ class IndexView(TemplateView):
         context['best'] = Package.objects.filter(speciality='Best')[:5]
         context['popular'] = Package.objects.filter(speciality='Popular')
         context['awesome'] = Package.objects.filter(speciality='Awesome')
+        context['search_activities'] = Activity.objects.all()
         context['activities'] = Activity.objects.filter(hidden=False)
         context['happy_clients'] = HappyClient.objects.all()
         context['gallery'] = PhotoGallery.objects.all()
@@ -280,3 +289,37 @@ def get_destination(request, *args, **kwargs):
         destination = Destination.objects.filter(package__activities__id=act).distinct().values('name', 'id')
         dst = json.dumps(list(destination))
         return JsonResponse(dst, safe=False)
+
+
+def download_terms(request):
+    content = TermsAndCondition.objects.last().content
+
+    data = {'content': content}
+
+    template = get_template('trek/download.html')
+    html  = template.render(data)
+
+    file = open('Terms.pdf', "w+b")
+    pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
+
+    file.seek(0)
+    pdf = file.read()
+    file.close()            
+    return HttpResponse(pdf, 'application/pdf')
+
+
+def download_payment(request):
+    content = PaymentProcess.objects.last().content
+
+    data = {'content': content}
+
+    template = get_template('trek/download.html')
+    html  = template.render(data)
+
+    file = open('Payment.pdf', "w+b")
+    pisaStatus = pisa.CreatePDF(html.encode('utf-8'), dest=file, encoding='utf-8')
+
+    file.seek(0)
+    pdf = file.read()
+    file.close()            
+    return HttpResponse(pdf, 'application/pdf')

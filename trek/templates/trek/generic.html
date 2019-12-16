@@ -33,7 +33,9 @@
             <div class="col-md-12">
                 <div class="blg-det">
                     <div class="blg-img">
-                        <img src="{{ generic.image.url }}">
+                        {% if generic.image %}
+                            <img src="{{ generic.image.url }}">
+                        {% endif %}
 
                         <div class="blg-detp">
                             {{ generic.content|safe }}

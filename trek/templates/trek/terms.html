@@ -23,8 +23,7 @@
 <section class="book-ta p35">
     <div class="container">
         {{ terms.content|safe }}
-        <a href="" class="rm-btn bg-gr">Download PDF </a>
-
+        <a href="{% url 'trek:download_terms' %}" target="_blank" class="rm-btn bg-gr">Download PDF </a>
     </div>
 </section>
 

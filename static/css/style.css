@@ -2022,6 +2022,11 @@ section.fo-link ul li p a::before{
     content: "";
 }
 
+footer ul li{
+    padding-left: 20px;
+    text-indent: -1.24em;
+}
+
 /* Star rating*/
 .rating {
     display: inline-block;
