@@ -88,7 +88,7 @@ class PackageItinerary(models.Model):
     altitude = models.CharField(max_length=100, help_text='Altitude of the place', null=True, blank=True)
     accomodation = models.CharField(max_length=50, help_text='Type of Accomodation (Example: Hotel, Camp, etc.)', null=True, blank=True)
     travel = models.CharField(max_length=50, help_text='Type of travel (Example: Bus, Plane, Train, etc.)', null=True, blank=True)
-    image = models.ImageField(upload_to='package/itinerary/', help_text="Image size: width=376px height=376px ")
+    image = models.ImageField(upload_to='package/itinerary/', help_text="Image size: width=376px height=376px ", null=True, blank=True)
 
     class Meta:
         ordering = ['day']
