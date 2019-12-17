@@ -159,7 +159,7 @@
     <div class="container">
         <div class="all-heading">
             <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-            <label>BEST OFFERS</label>
+            <label>BEST OFFER</label>
         </div>
 
         <div class="car-body">
@@ -214,7 +214,7 @@
     <div class="container">
         <div class="all-heading">
             <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-            <label>Awesome tours</label>
+            <label>Awesome tour</label>
         </div>
 
         <div class="a-offer owl-carousel">
@@ -432,7 +432,7 @@
             $(".option").click(function(){
                 var selected = $(this).attr('data-value');
                 var select_name = $(this).parent().attr('name');
-                
+
                 if( selected.indexOf('count') !=-1){
                     $.ajax({
                         url: "{% url 'trek:get-activity' %}",
