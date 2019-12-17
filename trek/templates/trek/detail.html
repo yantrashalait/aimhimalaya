@@ -193,16 +193,9 @@
                                         {% for obj in item.itinerary.all %}
                                         <li><strong>Day {{ obj.day }} :</strong> <strong>{{ obj.outline|safe }}</strong></li>
                                         {% if obj.description %}
-<<<<<<< HEAD
                                             <p>{{ obj.description|safe }}</p> 
                                         {% else %}
                                             <p>----------</p>
-=======
-                                        <p>{{ obj.description|safe }}</p> 
-                                        {% else %}
-                                        <p>------</p>
-                                        {% endif %}
->>>>>>> 3923925ff603fd72bd010de6620decf93cca4cf6
                                         {% endfor %}
                                     </ul>
                             </div>
