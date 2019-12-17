@@ -288,6 +288,7 @@ class GenericView(TemplateView):
 def get_destination(request, *args, **kwargs):
     if request.method == 'GET':
         act = request.GET.get('activity')
+        act = act.replace('act_', '')
         destination = Destination.objects.filter(package__activities__id=act).distinct().values('name', 'id')
         dst = json.dumps(list(destination))
         return JsonResponse(dst, safe=False)
@@ -295,9 +296,11 @@ def get_destination(request, *args, **kwargs):
 
 def get_activity(request, *args, **kwargs):
     if request.method == 'GET':
-        act = request.GET.get('country')
-        act = act.replace('count_', '')
-        activities = Activity.objects.filter(package__destination__id=act).distinct().values('name', 'id')
+        country = request.GET.get('country')
+        country = country.replace('count_', '')
+        print(country)
+        activities = Activity.objects.filter(package__country__id=country).distinct().values('name', 'id')
+        print(activities)
         act = json.dumps(list(activities))
         return JsonResponse(act, safe=False)
 

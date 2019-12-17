@@ -79,7 +79,7 @@ class PackageCostExluded(models.Model):
 
 class PackageItinerary(models.Model):
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='itinerary')
-    day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)')
+    day = models.IntegerField(help_text='Number of day(1, 2, 3, etc.)', null=True, blank=True)
     place = models.CharField(max_length=200, null=True, blank=True)
     place_description = models.CharField(max_length=500, null=True, blank=True)
     outline = HTMLField(null=True, blank=True)
