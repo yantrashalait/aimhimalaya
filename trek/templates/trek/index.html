@@ -202,7 +202,11 @@
                                     <i class="fas fa-star-half-alt"></i>
                                 {% endif %}
                             </div>
-                            <p>{{ item.short_info }}</p> 
+                            {% if item.short_info %}
+                                <p>{{ item.short_info }}</p> 
+                            {% else %}
+                                <p>----------</p>
+                            {% endif %}
                         </div>
                     </a>
                 </div>

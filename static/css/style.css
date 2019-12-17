@@ -484,6 +484,7 @@ span.bft-dat {
     bottom: 0px;
     z-index: 99;
     text-align: left;
+    width: 100%;
 }
 
 .bft-det h3 {
