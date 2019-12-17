@@ -192,7 +192,11 @@
                                 <ul class="i-br-list">
                                         {% for obj in item.itinerary.all %}
                                         <li><strong>Day {{ obj.day }} :</strong> <strong>{{ obj.outline|safe }}</strong></li>
+                                        {% if obj.description %}
                                         <p>{{ obj.description|safe }}</p> 
+                                        {% else %}
+                                        <p>------</p>
+                                        {% endif %}
                                         {% endfor %}
                                     </ul>
                             </div>

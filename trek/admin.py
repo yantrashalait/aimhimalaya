@@ -32,6 +32,7 @@ class PackageExcludedCostInline(admin.TabularInline):
 
 class PackageItineraryInline(admin.TabularInline):
     model = PackageItinerary
+    min_num = 9
 
 
 class PackageAdmin(admin.ModelAdmin):
