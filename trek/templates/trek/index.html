@@ -44,6 +44,9 @@
                     <div class="bx-sdw1">
                         <select name="activity" id="activity">
                             <option data-display="Activities" value="">Activity</option>
+                            {% for item in activities %}
+                                <option value="act_{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -431,29 +434,6 @@
         $(document).ready(function(){
             $(".option").click(function(){
                 var selected = $(this).attr('data-value');
-                var select_name = $(this).parent().attr('name');
-
-                if( selected.indexOf('count') !=-1){
-                    $.ajax({
-                        url: "{% url 'trek:get-activity' %}",
-                        data: {
-                            'country': selected,
-                        },
-                        dataType: 'json',
-                        success: function(result){
-                            var activity = $('#activity');
-                            result = jQuery.parseJSON(result); 
-                            var nice_select = activity.next();
-                            var ul = nice_select.find("ul");
-                            ul.empty();
-                            $.each(result, function(id, obj){
-                                activity.append($("<option />").val(obj.id).text(obj.name));
-                                ul.append($("<li />").val(obj.id).text(obj.name).addClass("option"));
-                            });
-                        }
-                    });
-                }
-
                 if( select_name.indexOf('activity') !=-1){
                     $.ajax({
                         url: "{% url 'trek:get-destination' %}",
