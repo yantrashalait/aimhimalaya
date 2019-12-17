@@ -34,7 +34,7 @@
                         <select name="country">
                             <option data-display="Country" value="">Country</option>
                             {% for item in country %}
-                                <option value="{{ item.id }}">{{ item.name }}</option>
+                                <option value="count_{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -434,7 +434,37 @@
         $(document).ready(function(){
             $(".option").click(function(){
                 var selected = $(this).attr('data-value');
+                if( selected.indexOf('count') !=-1){
+                    console.log('country selected')
+                    $.ajax({
+                        url: "{% url 'trek:get-activity' %}",
+                        data: {
+                            'country': selected,
+                        },
+                        dataType: 'json',
+                        success: function(result){
+                            var activity = $('#activity');
+                            result = jQuery.parseJSON(result); 
+                            var nice_select = activity.next();
+                            var ul = nice_select.find("ul");
+                            ul.empty();
+                            $.each(result, function(id, obj){
+                                activity.append($("<option />").val("act_" + obj.id).text(obj.name));
+                                ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "act_"+obj.id));
+                            });
+                            var destination = $('#destination');
+                            result = jQuery.parseJSON(result); 
+                            var nice_select = destination.next();
+                            var ul = nice_select.find("ul");
+                            ul.empty();
+                        }
+                    });
+                }
+            }); 
+            $(".list").on("click", ".option", function(){
+                var selected = $(this).attr('data-value');
                 if( selected.indexOf('act') !=-1){
+                    console.log('act selected');
                     $.ajax({
                         url: "{% url 'trek:get-destination' %}",
                         data: {
@@ -454,7 +484,7 @@
                         }
                     });
                 }
-            }); 
+            });
         });
     </script>
 {% endblock %}

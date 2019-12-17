@@ -2,6 +2,7 @@
 {% load static %}
 {% load filters %}
 {% block content %}
+
 <section class="banner">
     {% if banner %}
     <div class="allbanner-img" style="background: url({{ banner.image.url }}); ">
@@ -29,12 +30,12 @@
                         <select name="country">
                             <option data-display="Country" value="">Country</option>
                             {% for item in country %}
-                                <option value="{{ item.id }}">{{ item.name }}</option>
+                                <option value="count_{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
                 </div>
-
+                
                 <div class="col-md-3 col-sm-3 col-xs-6" style="z-index:1000;">
                     <div class="bx-sdw1">
                         <select name="activity" id="activity">
@@ -53,7 +54,7 @@
                         </select>
                     </div>
                 </div>
-
+    
                 <div class="col-md-3 col-sm-3 col-xs-6">
                     <div class="bx-sdw1">
                         <button class="serch-btn">
@@ -66,76 +67,90 @@
     </div>
 </section>
 
-<section class="offers p70 center">
+<section class="aws-tur p70 center">
     <div class="container">
         <div class="all-heading">
             <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-            <label>BEST OFFER</label>
+            <label>All Tours</label>
         </div>
 
-        <div class="car-body">
-            <div class="li-offer">
-                {% for item in packages %}
-                <div class="col-md-4 col-sm-6">
-                    <div class="li-ofsin">
-                        <a href="{% url 'trek:detail' item.pk %}">
-                            <div class="bo-img">
-                                <div class="bo-overlay"></div>
-                                <img style="height: 234px;" src="{{ item.images.first.image.url }}">
-                                <div class="best-off">
-                                    <span>$ {{ item.price }}</span>
-                                </div>
-                                
-                            </div>
+        <div class="li-offer">
+            {% for item in packages %}
+            <div class="col-md-6 col-sm-6">
+                <div class="sing-pl bx-sdw2">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="p-img">
+                                    <div class="a-overlay"></div>
+                                    <img width="270px" height="234px" src="{{ item.images.first.image.url }}">
+                                    <span>{{ item.name }}</span>
+                                </div>                            
+                            </div>   
+                        </div>
 
-                            <div class="all-bft-det">
-                                <h3>{{ item.name|truncatechars:20 }}</h3>
-                                <span class="bft-dat">({{ item.duration }} days)</span>
-                                <div class="rating-stars">
-                                    {% if item.rating %}
-                                        {% with item.rating|range_rating as rates %}
-                                            {% for count in rates %}
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="dis-in">
+                                    <div class="a1-info center p-info">
+                                        <span class="price">${{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
+                                        <p><strong>{{ item.name }}</strong></p>
+                                        <div class="rating-stars">
+                                            {% if item.rating %}
+                                                {% with item.rating|range_rating as rates %}
+                                                    {% for count in rates %}
+                                                        <i class="fas fa-star"></i>
+                                                    {% endfor %}
+                                                {% endwith %}
+                                                {% with item.rating|rating_decimal as rate %}
+                                                    {% if rating != 0 %}
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    {% endif %}
+                                                {% endwith %}
+                                            {% else %}
                                                 <i class="fas fa-star"></i>
-                                            {% endfor %}
-                                        {% endwith %}
-                                        {% with item.rating|rating_decimal as rate %}
-                                            {% if rating != 0 %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
                                                 <i class="fas fa-star-half-alt"></i>
                                             {% endif %}
-                                        {% endwith %}
-                                    {% else %}
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    {% endif %}
+                                        </div>
+                                        <a href="{% url 'trek:detail' item.pk %}" class="bg-gr a-re">Read More</a>
+                                    </div>
+                                    <div class="a1-count p-ofc">
+                                        <ul>
+                                            <li><i class="far fa-eye"></i></li>
+                                            <li><i class="far fa-comments"></i></li>
+                                            <li><i class="far fa-share-square"></i></li>
+                                            <li><i class="fas fa-map-marker-alt"></i></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <p>{{ item.introduction|safe|truncatechars:200 }}</p>
-                            </div>
-                        </a>
+                            </div>        
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                </div>
-                {% endfor %}
-
-                <div class="clearfix"></div>
-
-                
-                <!--<div class="rev-pag center">-->
-                    <!--<ul class="pagination">-->
-                      <!--<li class="active"><a href="#">1</a></li>-->
-                      <!--<li><a href="#">2</a></li>-->
-                      <!--<li><a href="#">3</a></li>-->
-                      <!--<li><a href="#">4</a></li>-->
-                      <!--<li><a href="#">5</a></li>-->
-                    <!--</ul>-->
-                <!--</div>-->
-                
             </div>
+            {% endfor %}
+            <div class="clearfix"></div>
 
+            
+
+            <!--<div class="rev-pag center">-->
+                <!--<ul class="pagination">-->
+                  <!--<li class="active"><a href="#">1</a></li>-->
+                  <!--<li><a href="#">2</a></li>-->
+                  <!--<li><a href="#">3</a></li>-->
+                  <!--<li><a href="#">4</a></li>-->
+                  <!--<li><a href="#">5</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+    
         </div>
+
+
     </div>
 </section>
+
 
 <section class="clients p70 center">
     <div class="container">
@@ -204,13 +219,42 @@
     </div>
 </section>
 {% endblock %}
-
 {% block script %}
     <script>
         $(document).ready(function(){
             $(".option").click(function(){
                 var selected = $(this).attr('data-value');
+                if( selected.indexOf('count') !=-1){
+                    console.log('country selected')
+                    $.ajax({
+                        url: "{% url 'trek:get-activity' %}",
+                        data: {
+                            'country': selected,
+                        },
+                        dataType: 'json',
+                        success: function(result){
+                            var activity = $('#activity');
+                            result = jQuery.parseJSON(result); 
+                            var nice_select = activity.next();
+                            var ul = nice_select.find("ul");
+                            ul.empty();
+                            $.each(result, function(id, obj){
+                                activity.append($("<option />").val("act_" + obj.id).text(obj.name));
+                                ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "act_"+obj.id));
+                            });
+                            var destination = $('#destination');
+                            result = jQuery.parseJSON(result); 
+                            var nice_select = destination.next();
+                            var ul = nice_select.find("ul");
+                            ul.empty();
+                        }
+                    });
+                }
+            }); 
+            $(".list").on("click", ".option", function(){
+                var selected = $(this).attr('data-value');
                 if( selected.indexOf('act') !=-1){
+                    console.log('act selected');
                     $.ajax({
                         url: "{% url 'trek:get-destination' %}",
                         data: {
@@ -230,7 +274,7 @@
                         }
                     });
                 }
-            }); 
+            });
         });
     </script>
 {% endblock %}

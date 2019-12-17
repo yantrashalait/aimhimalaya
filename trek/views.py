@@ -144,8 +144,10 @@ class SearchView(TemplateView):
 
     def post(self, request):
         activity = request.POST.get('activity')
+        activity = activity.replace("act_", "")
         destination = request.POST.get('destination')
         country = request.POST.get('country')
+        country = country.replace("count_", "")
 
         packages = Package.objects.all()
         if activity is not "":
@@ -289,6 +291,17 @@ def get_destination(request, *args, **kwargs):
         destination = Destination.objects.filter(package__activities__id=act).distinct().values('name', 'id')
         dst = json.dumps(list(destination))
         return JsonResponse(dst, safe=False)
+
+
+def get_activity(request, *args, **kwargs):
+    if request.method == 'GET':
+        country = request.GET.get('country')
+        country = country.replace('count_', '')
+        print(country)
+        activities = Activity.objects.filter(package__country__id=country).distinct().values('name', 'id')
+        print(activities)
+        act = json.dumps(list(activities))
+        return JsonResponse(act, safe=False)
 
 
 def download_terms(request):
