@@ -85,6 +85,7 @@ class OfferView(TemplateView):
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
         context['banner'] = BlogBannerImage.objects.last()
+        context['name'] = "Best Offers"
         return context
 
 
@@ -178,6 +179,7 @@ class PackageListView(TemplateView):
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
         context['banner'] = BlogBannerImage.objects.last()
+        context['name'] = "Awesome Tours"
         return context
 
 
@@ -192,6 +194,7 @@ class PopularListView(TemplateView):
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
         context['banner'] = BlogBannerImage.objects.last()
+        context['name'] = "Popular Tours"
         return context
 
 
