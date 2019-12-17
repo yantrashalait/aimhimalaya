@@ -25,7 +25,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
-        context['best'] = Package.objects.filter(speciality='Best')[:5]
+        context['best'] = Package.objects.filter(speciality='Best')
         context['popular'] = Package.objects.filter(speciality='Popular')
         context['awesome'] = Package.objects.filter(speciality='Awesome')
         context['search_activities'] = Activity.objects.all()
