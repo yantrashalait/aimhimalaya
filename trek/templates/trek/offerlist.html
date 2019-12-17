@@ -80,15 +80,15 @@
                     <div class="li-ofsin">
                         <a href="{% url 'trek:detail' item.pk %}">
                             <div class="bo-img">
-                                <!-- <div class="bo-overlay"></div> -->
+                                <div class="bo-overlay"></div>
                                 <img style="height: 234px;" src="{{ item.images.first.image.url }}">
-                                <!-- <div class="best-off">
+                                <div class="best-off">
                                     <span>$ {{ item.price }}</span>
-                                </div> -->
+                                </div>
                                 
                             </div>
 
-                            <!-- <div class="all-bft-det">
+                            <div class="all-bft-det">
                                 <h3>{{ item.name|truncatechars:20 }}</h3>
                                 <span class="bft-dat">({{ item.duration }} days)</span>
                                 <div class="rating-stars">
@@ -112,7 +112,7 @@
                                     {% endif %}
                                 </div>
                                 <p>{{ item.introduction|safe|truncatechars:200 }}</p>
-                            </div> -->
+                            </div>
                         </a>
                     </div>
                 </div>
