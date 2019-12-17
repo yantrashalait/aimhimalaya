@@ -297,7 +297,7 @@ def get_activity(request, *args, **kwargs):
     if request.method == 'GET':
         act = request.GET.get('country')
         act = act.replace('count_', '')
-        activities = Activity.objects.filter(package__destinations__id=act).distinct().values('name', 'id')
+        activities = Activity.objects.filter(package__destination__id=act).distinct().values('name', 'id')
         act = json.dumps(list(activities))
         return JsonResponse(act, safe=False)
 
