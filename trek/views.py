@@ -288,7 +288,6 @@ class GenericView(TemplateView):
 def get_destination(request, *args, **kwargs):
     if request.method == 'GET':
         act = request.GET.get('activity')
-        act = act.replace('act_', '')
         destination = Destination.objects.filter(package__activities__id=act).distinct().values('name', 'id')
         dst = json.dumps(list(destination))
         return JsonResponse(dst, safe=False)
