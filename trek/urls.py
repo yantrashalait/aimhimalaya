@@ -31,6 +31,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
 
     path('get-destination/', views.get_destination, name='get-destination'),
+    path('get-activity/', views.get_activity, name="get-activity"),
 
     path('terms/download/', views.download_terms, name='download_terms'),
     path('payment/download/', views.download_payment, name='download_payment'),

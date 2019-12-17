@@ -294,6 +294,15 @@ def get_destination(request, *args, **kwargs):
         return JsonResponse(dst, safe=False)
 
 
+def get_activity(request, *args, **kwargs):
+    if request.method == 'GET':
+        act = request.GET.get('country')
+        act = act.replace('count_', '')
+        activities = Activity.objects.filter(package__activities__id=act).distinct().values('name', 'id')
+        act = json.dumps(list(activities))
+        return JsonResponse(act, safe=False)
+
+
 def download_terms(request):
     content = TermsAndCondition.objects.last().content
 

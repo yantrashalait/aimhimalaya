@@ -34,7 +34,7 @@
                         <select name="country">
                             <option data-display="Country" value="">Country</option>
                             {% for item in country %}
-                                <option value="{{ item.id }}">{{ item.name }}</option>
+                                <option value="count_{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -44,9 +44,6 @@
                     <div class="bx-sdw1">
                         <select name="activity" id="activity">
                             <option data-display="Activities" value="">Activity</option>
-                            {% for item in search_activities %}
-                                <option value="act_{{ item.id }}">{{ item.name }}</option>
-                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -450,6 +447,26 @@
                             $.each(result, function(id, obj){
                                 destination.append($("<option />").val(obj.id).text(obj.name));
                                 ul.append($("<li />").val(obj.id).text(obj.name).addClass("option"));
+                            });
+                        }
+                    });
+                }
+                if( selected.indexOf('count') !=-1){
+                    $.ajax({
+                        url: "{% url 'trek:get-activity' %}",
+                        data: {
+                            'country': selected,
+                        },
+                        dataType: 'json',
+                        success: function(result){
+                            var activity = $('#activity');
+                            result = jQuery.parseJSON(result); 
+                            var nice_select = activity.next();
+                            var ul = nice_select.find("ul");
+                            ul.empty();
+                            $.each(result, function(id, obj){
+                                activity.append($("<option />").val("act_" + obj.id).text(obj.name));
+                                ul.append($("<li />").val("act_" + obj.id).text(obj.name).addClass("option"));
                             });
                         }
                     });
