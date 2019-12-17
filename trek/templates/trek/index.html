@@ -452,6 +452,12 @@
                                 activity.append($("<option />").val("act_" + obj.id).text(obj.name));
                                 ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "act_"+obj.id));
                             });
+
+                            var destination = $('#destination');
+                            result = jQuery.parseJSON(result); 
+                            var nice_select = destination.next();
+                            var ul = nice_select.find("ul");
+                            ul.empty();
                         }
                     });
                 }

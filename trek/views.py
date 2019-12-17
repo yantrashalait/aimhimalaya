@@ -145,8 +145,10 @@ class SearchView(TemplateView):
 
     def post(self, request):
         activity = request.POST.get('activity')
+        activity = activity.replace("act_", "")
         destination = request.POST.get('destination')
         country = request.POST.get('country')
+        country = country.replace("count_", "")
 
         packages = Package.objects.all()
         if activity is not "":
