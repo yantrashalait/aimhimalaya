@@ -64,7 +64,11 @@
                                             <i class="fas fa-star-half-alt"></i>
                                         {% endif %}
                                     </div>
-                                    <p>{{ item.introduction|safe|truncatechars:200 }}</p>
+                                    {% if item.short_info %}
+                                <p>{{ item.short_info }}</p> 
+                            {% else %}
+                                <p>----------</p>
+                            {% endif %}
                                 </div>
                             </a>
                         </div>
