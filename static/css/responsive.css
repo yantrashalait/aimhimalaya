@@ -483,17 +483,22 @@
 	}
 
 	.bft-det h3{
-		font-size: 8px;
+		font-size: 12px;
 		position: relative;
-		top: 24px;
+		top: 40px;
 		left: 0px;
+	}
+
+	.b-offer .bft-det .rating-stars{
+		position: relative;
+		top: 28px;
 	}
 
 	.bft-det span{
 		margin-top: 5px;
-		font-size: 8px;
+		font-size: 12px;
 		position: relative;
-		top: 37px;
+		top: 73px;
 		left: 0px;
 	}
 
