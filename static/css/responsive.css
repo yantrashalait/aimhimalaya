@@ -302,10 +302,11 @@
 
 	.mb-allnavs a {
 	    display: block;
-	    margin: 7px;
+	    margin: 10px;
 	    color: #fff;
 	    text-align: left;
-	    font-size: 13px;
+		font-size: 15px;
+		word-wrap:break-word;
 	}
 
 	.mb-allnavs a i {
