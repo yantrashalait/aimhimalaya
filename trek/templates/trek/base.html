@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/slick-theme.css' %}"/>
     <style>
         .scrolled{
-            background-color: #ffffff;
+            background: #ffffff;
             box-shadow: 0 0 6px #999;
         }
     </style>
@@ -84,6 +84,7 @@
                  <div class="mb-mnu">
                     <i class="fas fa-times clk-open"></i>
                     <div class="mb-allnavs">
+                         <a href=""><i class="fas fa-envelope"></i>{{ about.email }}</a>
                          <a href=""><i class="fas fa-phone"></i> {{ about.contact_number }}</a>
                          <a href="{% url 'trek:create_trip' %}" class="br-gr"><i class="far fa-edit"></i> Create your trip</a>
                          <a target="_blank" href="https://www.nepholic.com/"><i class="fas fa-shopping-basket"></i> Shop</a>
