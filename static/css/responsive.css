@@ -367,32 +367,32 @@
 		height:100%;
 	}
 
-	.bft-det h3{
+	/* .bft-det h3{
 		font-size: 8px;
 		position: relative;
 		top: 24px;
 		left: 0px;
-	}
+	} */
 
-	.bft-det span{
+	/* .bft-det span{
 		margin-top: 5px;
 		font-size: 8px;
 		position: relative;
 		top: 37px;
 		left: 0px;
-	}
+	} */
 
-	.best-off{
+	/* .best-off{
 		font-size: 8px;
 		right: 0;
 		height: 0;		
-	}
+	} */
 
-	.bft-det{
+	/* .bft-det{
 		padding: 0px;
 		top: 0px;
 		text-align: center;
-	}
+	} */
 
 	.b-offer .item:hover .bft-det p {
 		margin-top: 0px;
@@ -442,32 +442,32 @@
 		height:100%;
 	}
 
-	.bft-det h3{
+	/* .bft-det h3{
 		font-size: 8px;
 		position: relative;
 		top: 24px;
 		left: 0px;
-	}
+	} */
 
-	.bft-det span{
+	/* .bft-det span{
 		margin-top: 5px;
 		font-size: 8px;
 		position: relative;
 		top: 37px;
 		left: 0px;
-	}
+	} */
 
-	.best-off{
+	/* .best-off{
 		font-size: 8px;
 		right: 0;
 		height: 0;		
-	}
+	} */
 
-	.bft-det{
+	/* .bft-det{
 		padding: 0px;
 		top: 0px;
 		text-align: center;
-	}
+	} */
 
 	.b-offer .item:hover .bft-det p {
 		margin-top: 0px;
