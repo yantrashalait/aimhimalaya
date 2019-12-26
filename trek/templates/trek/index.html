@@ -457,17 +457,13 @@
                             ul.empty();
                             $.each(result, function(id, obj){
                                 activity.append($("<option />").val("act_" + obj.id).text(obj.name));
-                                ul.append($("<li />").text(obj.name).addClass("option activity").attr('data-value', "act_"+obj.id));
+                                ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "act_"+obj.id));
                             });
-                            var destination = $('#destination');
-                            var nice_select = destination.next();
-                            var ul = nice_select.find("ul");
-                            ul.empty();
                         }
                     });
                 }
             }); 
-            $(".list").on("click", ".activity", function(){
+            $(".list").on("click", ".option", function(){
                 var selected = $(this).attr('data-value');
                 if( selected.indexOf('act') !=-1){
                     console.log('act selected');
@@ -483,11 +479,9 @@
                             var nice_select = destination.next();
                             var ul = nice_select.find("ul");
                             ul.empty();
-                            console.log(result);
                             $.each(result, function(id, obj){
-                                console.log(id);
                                 destination.append($("<option />").val("dest_" + obj.id).text(obj.name));
-                                ul.append($("<li />").val("dest_" + obj.id).text(obj.name).addClass("option"));
+                                ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "dest_"+obj.id));
                             });
                         }
                     });
