@@ -12,6 +12,11 @@
 	.bo-img img{
 		height:100%;
 	}
+
+	.a1-info p {
+		font-size: 11px;
+		min-width: 130px;
+	}
 }
 
 
@@ -78,6 +83,11 @@
 
 	.bo-img img{
 		height:100%;
+	}
+
+	.a1-info p {
+		font-size: 11px;
+		min-width: 240px;
 	}
 
 
@@ -404,6 +414,21 @@
 }
 
 
+@media screen and (max-width: 425px){
+	.a1-info p {
+		font-size: 11px;
+		min-width: 265px;
+	}
+}
+
+
+@media screen and (max-width: 375px){
+	.a1-info p {
+		font-size: 11px;
+		min-width: 254px;
+	}
+}
+
 @media screen and (max-width: 380px) {
 
 	.a1-info {
@@ -412,8 +437,9 @@
 
 	.a1-info p {
 		font-size: 11px;
-		min-width: 200px;
+		min-width: 254px;
 	}
+
 	span.price {
 		font-size: 14px;
 	}
@@ -517,6 +543,11 @@
 	.b-offer .item:hover .bft-det p {
 		margin-top: 0px;
 		height: 0px;
+	}
+
+	.a1-info p {
+		font-size: 11px;
+		min-width: 200px;
 	}
 }
 
