@@ -55,6 +55,9 @@
                     <div class="bx-sdw1">
                         <select name="destination" id="destination">
                             <option data-display="Destination" value="">Destination</option>
+                            {% for item in destination %}
+                                <option value="dest_{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -454,10 +457,9 @@
                             ul.empty();
                             $.each(result, function(id, obj){
                                 activity.append($("<option />").val("act_" + obj.id).text(obj.name));
-                                ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "act_"+obj.id));
+                                ul.append($("<li />").text(obj.name).addClass("option activity").attr('data-value', "act_"+obj.id));
                             });
                             var destination = $('#destination');
-                            result = jQuery.parseJSON(result); 
                             var nice_select = destination.next();
                             var ul = nice_select.find("ul");
                             ul.empty();
@@ -465,7 +467,7 @@
                     });
                 }
             }); 
-            $(".list").on("click", ".option", function(){
+            $(".list").on("click", ".activity", function(){
                 var selected = $(this).attr('data-value');
                 if( selected.indexOf('act') !=-1){
                     console.log('act selected');
@@ -481,9 +483,11 @@
                             var nice_select = destination.next();
                             var ul = nice_select.find("ul");
                             ul.empty();
+                            console.log(result);
                             $.each(result, function(id, obj){
-                                destination.append($("<option />").val(obj.id).text(obj.name));
-                                ul.append($("<li />").val(obj.id).text(obj.name).addClass("option"));
+                                console.log(id);
+                                destination.append($("<option />").val("dest_" + obj.id).text(obj.name));
+                                ul.append($("<li />").val("dest_" + obj.id).text(obj.name).addClass("option"));
                             });
                         }
                     });

@@ -51,6 +51,9 @@
                     <div class="bx-sdw1">
                         <select name="destination" id="destination">
                             <option data-display="Destination" value="">Destination</option>
+                            {% for item in destination %}
+                                <option value="{{ item.id }}">{{ item.name }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
@@ -83,7 +86,6 @@
                                 <div class="p-img">
                                     <div class="a-overlay"></div>
                                     <img width="270px" height="234px" src="{{ item.images.first.image.url }}">
-                                    <span>{{ item.name }}</span>
                                 </div>                            
                             </div>   
                         </div>
