@@ -52,7 +52,7 @@
                         <select name="destination" id="destination">
                             <option data-display="Destination" value="">Destination</option>
                             {% for item in destination %}
-                                <option value="{{ item.id }}">{{ item.name }}</option>
+                                <option value="dest_{{ item.id }}">{{ item.name }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -270,8 +270,8 @@
                             var ul = nice_select.find("ul");
                             ul.empty();
                             $.each(result, function(id, obj){
-                                destination.append($("<option />").val(obj.id).text(obj.name));
-                                ul.append($("<li />").val(obj.id).text(obj.name).addClass("option"));
+                                destination.append($("<option />").val("dest_" + obj.id).text(obj.name));
+                                ul.append($("<li />").text(obj.name).addClass("option").attr('data-value', "dest_"+obj.id));
                             });
                         }
                     });
