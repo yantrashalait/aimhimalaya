@@ -28,6 +28,11 @@
 
 @media screen and (max-width: 768px) {
 
+	.blgls-img img {
+		width: 370px;
+		height: 250px;
+	}
+
 	 .ba-text {
 	 	bottom: 10px;
 	 }
@@ -103,6 +108,11 @@
 
 
 @media screen and (max-width: 725px) { 
+
+	.blgls-img img {
+		width: 370px;
+		height: 250px;
+	}
 
 	.logo img {
 	    width: 220px;
@@ -425,12 +435,21 @@
 		height: 213px;
 	}
 
-
+	.blgls-img img {
+		width: 250px;
+		height: 265px;
+	}
 
 }
 
 
 @media screen and (max-width: 425px){
+
+	.blgls-img img {
+		width: 250px;
+		height: 265px;
+	}
+
 	.frm-galle img{
 		height: 213px;
 	}
@@ -464,6 +483,12 @@
 
 
 @media screen and (max-width: 375px){
+
+	.blgls-img img {
+		width: 160px;
+		height: 250px;
+	}
+
 	.blg-det-sing{
 		margin-right: -15px;
 		margin-left: -15px;
@@ -491,6 +516,12 @@
 }
 
 @media screen and (max-width: 380px) {
+
+	.blgls-img img {
+		width: 160px;
+		height: 250px;
+	}
+
 	.blg-by{
 		width: 100%;
     	padding: 10px 10px;
@@ -589,6 +620,11 @@
 }
 
 @media screen and (max-width: 320px) {
+
+	.blgls-img img {
+		width: 160px;
+		height: 250px;
+	}
 
 	.blg-det-sing{
 		margin-right: -15px;
