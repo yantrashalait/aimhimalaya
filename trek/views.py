@@ -155,10 +155,10 @@ class SearchView(TemplateView):
         print(request.POST)
 
         if destination is not "" and activity is not "" and country is not "":
-            packages = packages.filter(destination_id=int(destination), activity_id=int(activity), country_id=int(country))
+            packages = packages.filter(destination_id=int(destination), activities__id=int(activity), country_id=int(country))
 
         elif destination is not "" and activity is not "":
-            packages = packages.filter(destination_id=int(destination), activity_id=int(activity))
+            packages = packages.filter(destination_id=int(destination), activities__id=int(activity))
         
         elif destination is not "":
             packages = packages.filter(destination_id=int(destination))
