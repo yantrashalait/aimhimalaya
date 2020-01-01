@@ -440,6 +440,9 @@
 		height: 265px;
 	}
 
+	.getint{
+		background: url() !important;
+	}
 }
 
 
@@ -479,6 +482,10 @@
 		font-size: 11px;
 		min-width: 265px;
 	}
+
+	.getint{
+		background: url() !important;
+	}
 }
 
 
@@ -512,6 +519,10 @@
 	.a1-info p {
 		font-size: 11px;
 		min-width: 254px;
+	}
+
+	.getint{
+		background: url() !important;
 	}
 }
 
@@ -616,6 +627,9 @@
 		height: 150px;
 	}
 
+	.getint{
+		background: url() !important;
+	}
 
 }
 
@@ -695,6 +709,10 @@
 
 	.frm-galle img{
 		height: 150px;
+	}
+
+	.getint{
+		background: url() !important;
 	}
 }
 
