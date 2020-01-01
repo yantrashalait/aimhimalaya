@@ -17,6 +17,10 @@
 		font-size: 11px;
 		min-width: 130px;
 	}
+
+	.frm-galle img{
+		height: 213px;
+	}
 }
 
 
@@ -90,6 +94,10 @@
 		min-width: 240px;
 	}
 
+	.frm-galle img{
+		height: 213px;
+	}
+
 
 }
 
@@ -110,6 +118,10 @@
 
 	.bo-img img{
 		height:100%;
+	}
+
+	.frm-galle img{
+		height: 213px;
 	}
 
 }
@@ -409,12 +421,41 @@
 		height: 0px;
 	}
 
+	.frm-galle img{
+		height: 213px;
+	}
+
 
 
 }
 
 
 @media screen and (max-width: 425px){
+	.frm-galle img{
+		height: 213px;
+	}
+
+	.blg-det-sing{
+		margin-right: -15px;
+		margin-left: -15px;
+		width: 125%;
+	}
+	
+	.blg-det-sing .col-md-6{
+		display: inline-flex;
+	}
+
+	.blg-by{
+		width: 100%;
+    	padding: 10px 10px;
+		padding-top: 20px;
+	}
+
+	.blg-head{
+		width: 125%;
+		padding: 10px 10px;
+	}
+
 	.a1-info p {
 		font-size: 11px;
 		min-width: 265px;
@@ -423,6 +464,26 @@
 
 
 @media screen and (max-width: 375px){
+	.blg-det-sing{
+		margin-right: -15px;
+		margin-left: -15px;
+	}
+	
+	.blg-det-sing .col-md-6{
+		display: inline-flex;
+	}
+
+	.blg-by{
+		width: 100%;
+    	padding: 10px 10px;
+		padding-top: 20px;
+	}
+
+	.blg-head{
+		width: 125%;
+		padding: 10px 10px;
+	}
+
 	.a1-info p {
 		font-size: 11px;
 		min-width: 254px;
@@ -430,6 +491,16 @@
 }
 
 @media screen and (max-width: 380px) {
+	.blg-by{
+		width: 100%;
+    	padding: 10px 10px;
+		padding-top: 20px;
+	}
+
+	.blg-head{
+		width: 125%;
+		padding: 10px 10px;
+	}
 
 	.a1-info {
 	    padding: 5px;
@@ -500,10 +571,46 @@
 		height: 0px;
 	}
 
+	.blg-det-sing{
+		margin-right: -15px;
+		margin-left: -15px;
+		width: 125%;
+	}
+	
+	.blg-det-sing .col-md-6{
+		display: inline-flex;
+	}
+
+	.frm-galle img{
+		height: 150px;
+	}
+
 
 }
 
 @media screen and (max-width: 320px) {
+
+	.blg-det-sing{
+		margin-right: -15px;
+		margin-left: -15px;
+		width: 125%;
+	}
+	
+	.blg-det-sing .col-md-6{
+		display: inline-flex;
+	}
+
+	.blg-by{
+		width: 100%;
+    	padding: 10px 10px;
+    	padding-top: 20px;
+	}
+
+	.blg-head{
+		width: 125%;
+		padding: 10px 10px;
+	}
+
 	.bo-img img{
 		height:100%;
 	}
@@ -548,6 +655,10 @@
 	.a1-info p {
 		font-size: 11px;
 		min-width: 200px;
+	}
+
+	.frm-galle img{
+		height: 150px;
 	}
 }
 

@@ -60,7 +60,7 @@
                             <img width="320px" height="185px" src="{{ item.image.url }}">
                             <div class="reb-det">
                                 <h4>{{ item.title|title }}</h4>
-                                <p style="word-break: break-all">{{ item.content|slice:":250" }}</p>
+                                <p style="word-break: break-all">{{ item.content|safe|slice:":300" }}...</p>
                             </div>
                         </a>
                     </div>

@@ -2029,6 +2029,10 @@ footer ul li{
     text-indent: -1.24em;
 }
 
+.frm-galle img{
+    height: 213px;
+}
+
 /* Star rating*/
 .rating {
     display: inline-block;

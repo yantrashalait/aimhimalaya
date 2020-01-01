@@ -46,7 +46,7 @@
                         <div class="row">
                             <div class="blg-ls">
                                 <h4>{{ item.title }}</h4>
-                                <p>{{ item.content|slice:":135" }}</p>
+                                <p>{{ item.content|safe|slice:":300" }}</p>
                                 <a href="{% url 'trek:blog_detail' item.pk%}" class="bg-gr a-re">Learn More</a>
                             </div>   
                                   
@@ -74,3 +74,4 @@
 </section>
 
 {% endblock %}
+
