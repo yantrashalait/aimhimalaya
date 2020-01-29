@@ -27,10 +27,10 @@ class Activity(models.Model):
 
 class Package(models.Model):
     PACKAGE_CHOICES = (
-        ('Awesome', 'Awesome Tour'),
+        ('Himalaya', 'Himalaya Tour'),
         ('Best', 'Best Offer'),
         ('Special', 'Special Package'),
-        ('Popular', 'Popular Tour'),
+        ('Pilgrim', 'Pilgirm Tour'),
     )
     name = models.CharField(max_length=100)
     duration = models.IntegerField(help_text='Total time duration(in days)')

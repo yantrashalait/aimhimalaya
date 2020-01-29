@@ -26,8 +26,8 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         context['best'] = Package.objects.filter(speciality='Best')
-        context['popular'] = Package.objects.filter(speciality='Popular')
-        context['awesome'] = Package.objects.filter(speciality='Awesome')
+        context['pilgrim'] = Package.objects.filter(speciality='Pilgrim')
+        context['himalaya'] = Package.objects.filter(speciality='Himalaya')
         context['search_activities'] = Activity.objects.all()
         context['activities'] = Activity.objects.filter(hidden=False)
         context['happy_clients'] = HappyClient.objects.all()
@@ -182,13 +182,13 @@ class PackageListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PackageListView, self).get_context_data(**kwargs)
-        context['packages'] = Package.objects.filter(speciality='Awesome')
+        context['packages'] = Package.objects.filter(speciality='Himalaya')
         context['country'] = Country.objects.all()
         context['destination'] = Destination.objects.all()
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
         context['banner'] = BlogBannerImage.objects.last()
-        context['name'] = "Awesome Tours"
+        context['name'] = "Himalaya Tours"
         return context
 
 
@@ -197,13 +197,13 @@ class PopularListView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PopularListView, self).get_context_data(**kwargs)
-        context['packages'] = Package.objects.filter(speciality='Popular')
+        context['packages'] = Package.objects.filter(speciality='Pilgrim')
         context['country'] = Country.objects.all()
         context['destination'] = Destination.objects.all()
         context['activities'] = Activity.objects.all()
         context['happy_clients'] = HappyClient.objects.all()
         context['banner'] = BlogBannerImage.objects.last()
-        context['name'] = "Popular Tours"
+        context['name'] = "Pilgrim Tours"
         return context
 
 

@@ -160,6 +160,58 @@
     </div>
 </section>
 
+<section class="aws-tur p70 center">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Himalaya tour</label>
+        </div>
+
+        <div class="a-offer owl-carousel">
+            {% for item in himalaya %}
+            <div class="item">
+
+                <div class="a1-img">
+                    <div class="a-overlay"></div>    
+                    <img width="360px" height="245px" src="{{ item.images.first.image.url }}">
+                </div>
+
+                <div class="a1-des">
+                    <div class="a1-info center">
+                        <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
+                        <p><strong>{{ item.name }}</strong></p>
+                        <div class="rating-stars">
+                            {% if item.rating %}
+                                {% with item.rating|range_rating as rates %}
+                                    {% for count in rates %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                {% endwith %}
+                                {% with item.rating|rating_decimal as rate %}
+                                    {% if rating != 0 %}
+                                        <i class="fas fa-star-half-alt"></i>
+                                    {% endif %}
+                                {% endwith %}
+                            {% else %}
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="{% url 'trek:package_listing' %}" class="rm-btn bg-gr">View More</a>
+
+    </div>
+</section>
 
 <section class="offers p70 center">
     <div class="container">
@@ -220,71 +272,18 @@
     </div>
 </section>
 
-<section class="aws-tur p70 center">
-    <div class="container">
-        <div class="all-heading">
-            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-            <label>Awesome tour</label>
-        </div>
-
-        <div class="a-offer owl-carousel">
-            {% for item in awesome %}
-            <div class="item">
-
-                <div class="a1-img">
-                    <div class="a-overlay"></div>    
-                    <img width="360px" height="245px" src="{{ item.images.first.image.url }}">
-                </div>
-
-                <div class="a1-des">
-                    <div class="a1-info center">
-                        <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
-                        <p><strong>{{ item.name }}</strong></p>
-                        <div class="rating-stars">
-                            {% if item.rating %}
-                                {% with item.rating|range_rating as rates %}
-                                    {% for count in rates %}
-                                        <i class="fas fa-star"></i>
-                                    {% endfor %}
-                                {% endwith %}
-                                {% with item.rating|rating_decimal as rate %}
-                                    {% if rating != 0 %}
-                                        <i class="fas fa-star-half-alt"></i>
-                                    {% endif %}
-                                {% endwith %}
-                            {% else %}
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            {% endif %}
-                        </div>
-                        <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
-                    </div>
-                </div>
-                
-            </div>
-            {% endfor %}
-        </div>
-
-        <a href="{% url 'trek:package_listing' %}" class="rm-btn bg-gr">View More</a>
-
-    </div>
-</section>
-
 <section class="pop-tur p70 center">
     <div class="container">
         <div class="all-heading">
             <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
-            <label>Popular tour</label>
+            <label>Pilgrim tour</label>
         </div>
 
         <div class="p-offer owl-carousel">
-            {% with popular|separate_four as items %} 
+            {% with pilgrim|separate_four as items %} 
                 {% for counts in items %}
                     <div class="item">
-                        {% with popular|block_popular:forloop.counter as populars %}
+                        {% with pilgrim|block_popular:forloop.counter as populars %}
                             {% for item in populars %}
                             <div class="col-md-6 col-sm-6">
                                 <div class="sing-pl bx-sdw2">

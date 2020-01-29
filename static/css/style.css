@@ -93,7 +93,7 @@ a.rm-btn  .fas {
 
 header {
     padding: 4px 0 7px;
-    /* border-top: 5px solid #0b6031; */
+    /* border-top: 5px solid #00b5c8; */
 }
 
 
@@ -117,9 +117,9 @@ header {
 }
 
 .nav-sing a.br-gr {
-    color: #0B6031;
+    color: #00b5c8;
     margin: 0 20px;
-    border: 1px solid #0b6031;
+    border: 1px solid #00b5c8;
     font-weight: 600;
     letter-spacing: 1px;
     border-radius: 10px;
@@ -128,7 +128,7 @@ header {
 /*    top: 6px;
     right: 50px;
     background: none;*/
-    color: #0B6031;
+    color: #00b5c8;
     font-size: 19px;
     border: 1px solid;
     padding: 0;
@@ -136,8 +136,8 @@ header {
 }   
 
 ..nav-sing .bg-gr {
-    background: #0B6031;
-    border: 1px solid #0B6031;
+    background: #00b5c8;
+    border: 1px solid #00b5c8;
     border-radius: 10px;
 }
 
@@ -209,7 +209,7 @@ header {
 }
 
 .banner-slide .owl-nav span {
-    background: #0B6031;
+    background: #00b5c8;
     margin: 0 6px;
     padding: 3px 10px;
     font-size: 37px;
@@ -250,11 +250,11 @@ section.search .nice-select.open .list {
 }
 
 section.search .nice-select:hover {
-	border-color: #0B6031;
+	border-color: #00b5c8;
 }
 
 section.search .nice-select .option:hover {
-	background: #0B6031; 	
+	background: #00b5c8; 	
 }
 
 section.search .nice-select span.current {
@@ -263,7 +263,7 @@ section.search .nice-select span.current {
 }
 
 .serch-btn {
-    background: #0B6031;
+    background: #00b5c8;
     font-size: 14px;
     text-transform: uppercase;
     color: #fff;
@@ -277,7 +277,7 @@ section.search .nice-select span.current {
 
 .serch-btn .fas {
     background: #fff;
-    color: #0B6031;
+    color: #00b5c8;
     font-size: 15px;
     width: 28px;
     height: 28px;
@@ -381,7 +381,7 @@ iframe#player {
 }
 
 .a1-count ul li .fas, .a1-count ul li .far {
-    color: #0B6031;
+    color: #00b5c8;
     margin-right: 10px;
 }
 
@@ -407,7 +407,7 @@ iframe#player {
 span.price {
     font-size: 30px;
     margin-right: 10px;
-    color: #0B6031;
+    color: #00b5c8;
 }
 
 span.dayn {
@@ -422,7 +422,7 @@ span.dayn {
 
 .a-re {
     padding: 8px 17px;
-    color: #0B6031;
+    color: #00b5c8;
     text-transform: capitalize;
     font-size: 14px;
     display: inline-block;
@@ -438,7 +438,7 @@ span.dayn {
 
 
 a.br-gr.a-re:hover {
-    background: #0B6031;
+    background: #00b5c8;
     color: #fff;
 }
 
@@ -451,7 +451,7 @@ a.br-gr.a-re:hover {
     font-size: 17px;
     text-align: center;
     font-weight: 700;
-    background-color: #0B6031;
+    background-color: #00b5c8;
     color: #fff;
     z-index: 999;
 }
@@ -464,7 +464,7 @@ a.br-gr.a-re:hover {
     height: 0;
     border-left: 36px solid transparent;
     border-right: 34px solid transparent;
-    border-top: 22px solid #0B6031;
+    border-top: 22px solid #00b5c8;
     bottom: -22px;
     left: 0;
     z-index: 999;
@@ -537,7 +537,7 @@ span.bft-dat {
 }
 
 /* .b-offer .item:hover span.bft-dat {
-    border-bottom: 3px solid #0B6031;
+    border-bottom: 3px solid #00b5c8;
 } */
 
 .b-offer .item:hover .bft-det p {
@@ -697,7 +697,7 @@ img.cl-pro {
 }
 
 .client-rev .owl-nav span {
-    background: #0B6031;
+    background: #00b5c8;
     margin: 0px 2px;
     padding: 3px 10px;
     font-size: 27px;
@@ -796,7 +796,7 @@ img.cl-pro {
 
 .spet-car .owl-nav span {
     background: #fff !important;
-    color: #0B6031 !important; 
+    color: #00b5c8 !important; 
     padding: 7px 6px !important;
     padding-bottom: 8px !important;
     border: 1px solid #dfdfdf !important;
@@ -807,7 +807,7 @@ img.cl-pro {
     font-size: 11px;
     font-weight: 500;
     margin-left: 6px;
-    color: #0B6031;
+    color: #00b5c8;
 }
 
 .spec-tabcon {
@@ -844,7 +844,7 @@ span.wpag {
     line-height: 25px;
     display: block;
     font-weight: 700;
-    color: #0B6031;
+    color: #00b5c8;
 }
 
     
@@ -997,7 +997,7 @@ section.fo-soc {
 }
 
 .fs-sing .fab {
-    background: #0B6031;
+    background: #00b5c8;
     width: 40px;
     height: 40px;
     display: inline-flex;
@@ -1192,7 +1192,7 @@ li.r-tabs-state-default.r-tabs-tab a:hover {
 .di-head h5 {
     font-size: 24px;
     text-transform: uppercase;
-    border-bottom: 2px solid #0B6031;
+    border-bottom: 2px solid #00b5c8;
     display: inline-block;
     padding-bottom: 5px;
     margin: 0;
@@ -1245,7 +1245,7 @@ li.r-tabs-state-default.r-tabs-tab a:hover {
 
 .acc-wrap .fas {
     font-size: 16px;
-    color: #0B6031;
+    color: #00b5c8;
     margin-right: 20px;
     margin-top: 5px;
 }
@@ -1318,7 +1318,7 @@ div#sidebar {
 .rating-stars h3 {
     margin: 0;
     font-size: 32px;
-    color: #0B6031;
+    color: #00b5c8;
     margin-bottom: 8px;
     font-weight: 700;
 }
@@ -1332,7 +1332,7 @@ div#sidebar {
 }
 
 .rating-stars .fas {
-    color: #0b6031;
+    color: #00b5c8;
     margin: 0px;
     font-size: 12px;
     letter-spacing: 2px;
@@ -1365,7 +1365,7 @@ div#sidebar a.bg-gr {
 
 
 p.ava .fas {
-    color: #0B6031;
+    color: #00b5c8;
     margin-right: 5px;
 }
 p.ava {
@@ -1439,14 +1439,14 @@ a.hov-dis {
 .rev-text h3 {
     margin: 0 0 10px;
     font-size: 24px;
-    color: #0B6031;
+    color: #00b5c8;
     font-weight: 800;
 }
 
 .rev-text h3 {
     margin: 0 0 10px;
     font-size: 24px;
-    color: #0B6031;
+    color: #00b5c8;
     font-weight: 800;
 }
 
@@ -1470,13 +1470,13 @@ a.hov-dis {
 }
 
 .rev-pag .pagination > li > a {
-    color: #0B6031;
+    color: #00b5c8;
 }
 
 .rev-pag .pagination > .active > a {
     color: #fff;
-    background-color: #0B6031;
-    border: 1px solid #0B6031;
+    background-color: #00b5c8;
+    border: 1px solid #00b5c8;
 }
 
 .tab-map iframe{
@@ -1488,7 +1488,7 @@ a.hov-dis {
 }
 
 .fo-ic .fas {
-    color: #0B6031;
+    color: #00b5c8;
     margin-right: 15px;
     font-size: 18px;
 }
@@ -1539,7 +1539,7 @@ ul.brf-fo li::before {
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     content: "\f101";
-    color: #0B6031;
+    color: #00b5c8;
   }
 
 ul.i-br-list.brf-fo.brf-ex li::before {
@@ -1585,18 +1585,18 @@ section.cust-form p {
 .sin-st h5 {
     font-size: 16px;
     font-weight: 600;
-    color: #0B6031;
+    color: #00b5c8;
     border-bottom: 2px solid #efefef;
     padding-bottom: 20px;
 }
 
 h5.h-act {
-    border-bottom: 2px solid #0B6031;
+    border-bottom: 2px solid #00b5c8;
 }
 
 .sin-st h5 span {
     color: white;
-    background: #0B6031;
+    background: #00b5c8;
     position: relative;
     padding: 5px;
     margin-right: 8px;
@@ -1611,7 +1611,7 @@ h5.h-act {
     height: 0;
     border-left: 9px solid transparent;
     border-right: 9px solid transparent;
-    border-top: 7px solid #0B6031;
+    border-top: 7px solid #00b5c8;
     bottom: -7px;
     left: 0px;
     z-index: 999;
@@ -1623,7 +1623,7 @@ section.b-frm a.rm-btn {
 
 p.cl-gr {
     font-size: 18px;
-    color: #0B6031;
+    color: #00b5c8;
     font-weight: 600;
 }
 
@@ -1666,7 +1666,7 @@ section.fo-cpy {
 }
 
 .cpy-righ label {
-    color: #0B6031;
+    color: #00b5c8;
 }
 
 section.fo-cpy p {
@@ -1733,7 +1733,7 @@ iframe.fo-map {
         background: transparent;
         outline: none;
         position: relative;
-        border: 1px solid #0b6031;
+        border: 1px solid #00b5c8;
         overflow: hidden;
         height: 36px;
         padding: 0 20px;
@@ -1767,7 +1767,7 @@ iframe.fo-map {
         letter-spacing: 2px;
         font-weight: 600;
         font-size: 12px;
-        color: #0b6031;
+        color: #00b5c8;
         transition: all .3s ease-in-out;
       }
 
@@ -1944,7 +1944,7 @@ button.rm-btn{
     height: 135px;
 } */
 /* .b-offer .item:hover span.bft-dat {
-    border-bottom: 3px solid #0B6031;
+    border-bottom: 3px solid #00b5c8;
 } */
 
 .book_trip span{

@@ -14,12 +14,12 @@ text-decoration: none;
 }
 
 .bg-gr {
-    background: #0B6031;
-    border: 1px solid #0B6031;
+    background: #00b5c8;
+    border: 1px solid #00b5c8;
 }
 
 .br-gr {
-    border: 1px solid #0B6031;
+    border: 1px solid #00b5c8;
 }
 
 .bg-gra {
@@ -138,7 +138,7 @@ text-decoration: none;
     top: 0px;
     left: 0;
     content: '';
-    background: #0B6031;
+    background: #00b5c8;
     height: 20px;
     width: 5px;
 }
@@ -192,7 +192,7 @@ text-decoration: none;
 .p-offer .owl-nav span,
 .frm-galle .owl-nav span,
 .spec-tabcon .owl-nav span {
-    background: #0B6031;
+    background: #00b5c8;
     margin: 0 6px;
     padding: 3px 10px;
     font-size: 27px;
