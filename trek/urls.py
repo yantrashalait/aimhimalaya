@@ -17,8 +17,9 @@ urlpatterns = [
 
     path('search/', views.SearchView.as_view(), name='search'),
     path('success/', views.success, name='success'),
-    path('package-list/', views.PackageListView.as_view(), name='package_listing'),
-    path('popular-list/', views.PopularListView.as_view(), name='popular_listing'),
+    path('himalaya-list/', views.PackageListView.as_view(), name='package_listing'),
+    path('pilgrim-list/', views.PopularListView.as_view(), name='popular_listing'),
+    path('yoga-list/', views.YogaListView.as_view(), name="yoga_listing"),
 
     path('book1/', views.Book1.as_view(), name='book1'),
     path('book1/<int:pk>/', views.PackageBook.as_view(), name='package_book'),

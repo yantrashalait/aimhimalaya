@@ -31,6 +31,7 @@ class Package(models.Model):
         ('Best', 'Best Offer'),
         ('Special', 'Special Package'),
         ('Pilgrim', 'Pilgirm Tour'),
+        ('Yoga', 'Yoga Tour'),
     )
     name = models.CharField(max_length=100)
     duration = models.IntegerField(help_text='Total time duration(in days)')
@@ -272,4 +273,3 @@ class TermsAndCondition(models.Model):
 
 class PaymentProcess(models.Model):
     content = HTMLField()
-    

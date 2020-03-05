@@ -78,10 +78,10 @@
     <div class="container">
         <div class="row">
             <!-- <div class="col-md-7">
-                
+
                <div id="player"></div>
 
-                
+
             </div> -->
             <div class="col-md-5">
                 <div class="abt-text">
@@ -92,7 +92,7 @@
                     <div class="abt-bdy" style="min-height:215px;">
                         <p>{{ about.about_description|truncatechars:620|safe }}</p>
 
-                        
+
                     </div>
                     <a href="{% url 'trek:contact' %}" class="rm-btn bg-gr">read more</a>
 
@@ -111,7 +111,7 @@
 
         <div class="tab-car-wrap">
             <div class="nav nav-tabs spec-packtab">
-            
+
                 <div class="spet-car owl-carousel bg-gr">
                     {% for item in activities %}
                         {% if forloop.first %}
@@ -152,7 +152,7 @@
                 </div>
                 {% endfor %}
             </div>
-            
+
         </div>
 
 
@@ -172,7 +172,7 @@
             <div class="item">
 
                 <div class="a1-img">
-                    <div class="a-overlay"></div>    
+                    <div class="a-overlay"></div>
                     <img width="360px" height="245px" src="{{ item.images.first.image.url }}">
                 </div>
 
@@ -203,12 +203,65 @@
                         <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
                     </div>
                 </div>
-                
+
             </div>
             {% endfor %}
         </div>
 
         <a href="{% url 'trek:package_listing' %}" class="rm-btn bg-gr">View More</a>
+
+    </div>
+</section>
+
+<section class="aws-tur p70 center">
+    <div class="container">
+        <div class="all-heading">
+            <span>Pack and go <img src="{% static 'images/png.png' %}"></span>
+            <label>Yoga tour</label>
+        </div>
+
+        <div class="a-offer owl-carousel">
+            {% for item in yoga %}
+            <div class="item">
+
+                <div class="a1-img">
+                    <div class="a-overlay"></div>
+                    <img width="360px" height="245px" src="{{ item.images.first.image.url }}">
+                </div>
+
+                <div class="a1-des">
+                    <div class="a1-info center">
+                        <span class="price">$ {{ item.price }}</span><span class="dayn">{{ item.duration }} days</span>
+                        <p><strong>{{ item.name }}</strong></p>
+                        <div class="rating-stars">
+                            {% if item.rating %}
+                                {% with item.rating|range_rating as rates %}
+                                    {% for count in rates %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                {% endwith %}
+                                {% with item.rating|rating_decimal as rate %}
+                                    {% if rating != 0 %}
+                                        <i class="fas fa-star-half-alt"></i>
+                                    {% endif %}
+                                {% endwith %}
+                            {% else %}
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'trek:detail' item.pk %}" class="br-gr a-re">Read More</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="{% url 'trek:yoga_listing' %}" class="rm-btn bg-gr">View More</a>
 
     </div>
 </section>
@@ -231,7 +284,7 @@
                             <div class="best-off">
                                 <span>$ {{ item.price }}</span>
                             </div>
-                            
+
                         </div>
 
                         <div class="bft-det">
@@ -258,7 +311,7 @@
                                 {% endif %}
                             </div>
                             {% if item.short_info %}
-                                <p>{{ item.short_info }}</p> 
+                                <p>{{ item.short_info }}</p>
                             {% else %}
                                 <p>----------</p>
                             {% endif %}
@@ -280,7 +333,7 @@
         </div>
 
         <div class="p-offer owl-carousel">
-            {% with pilgrim|separate_four as items %} 
+            {% with pilgrim|separate_four as items %}
                 {% for counts in items %}
                     <div class="item">
                         {% with pilgrim|block_popular:forloop.counter as populars %}
@@ -293,8 +346,8 @@
                                                 <div class="a-overlay"></div>
                                                 <img width="270px" height="234px" src="{{ item.images.first.image.url }}">
                                                 <span></span>
-                                            </div>                            
-                                        </div>   
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="col-md-6">
@@ -334,7 +387,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>        
+                                        </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -360,11 +413,11 @@
 
     <div class="frm-galle owl-carousel">
         {% for item in gallery %}
-        <div class="item">  
+        <div class="item">
             <a class="example-image-link" href="{{ item.image.url }}" data-lightbox="example-set" ><img class="example-image"src="{{ item.image.url }}" alt="{{ item.name }}"/></a>
         </div>
         {% endfor %}
-    </div>  
+    </div>
 </section>
 
 <section class="clients p70 center">
@@ -450,7 +503,7 @@
                         dataType: 'json',
                         success: function(result){
                             var activity = $('#activity');
-                            result = jQuery.parseJSON(result); 
+                            result = jQuery.parseJSON(result);
                             var nice_select = activity.next();
                             var ul = nice_select.find("ul");
                             ul.empty();
@@ -461,7 +514,7 @@
                         }
                     });
                 }
-            }); 
+            });
             $(".list").on("click", ".option", function(){
                 var selected = $(this).attr('data-value');
                 if( selected.indexOf('act') !=-1){
@@ -474,7 +527,7 @@
                         dataType: 'json',
                         success: function(result){
                             var destination = $('#destination');
-                            result = jQuery.parseJSON(result); 
+                            result = jQuery.parseJSON(result);
                             var nice_select = destination.next();
                             var ul = nice_select.find("ul");
                             ul.empty();

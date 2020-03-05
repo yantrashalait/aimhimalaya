@@ -28,6 +28,7 @@ class IndexView(TemplateView):
         context['best'] = Package.objects.filter(speciality='Best')
         context['pilgrim'] = Package.objects.filter(speciality='Pilgrim')
         context['himalaya'] = Package.objects.filter(speciality='Himalaya')
+        context['yoga'] = Package.objects.filter(speciality='Yoga')
         context['search_activities'] = Activity.objects.all()
         context['activities'] = Activity.objects.filter(hidden=False)
         context['happy_clients'] = HappyClient.objects.all()
@@ -56,7 +57,7 @@ class PackageDetail(TemplateView):
     def post(self, request, *args, **kwargs):
         package = Package.objects.get(id=kwargs.get('pk'))
         form = ReviewForm(request.POST)
-        
+
         obj = form.save(commit=False)
         obj.package = package
         obj.save()
@@ -132,7 +133,7 @@ class CreateTripView(CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super(CreateTripView, self).get_context_data(**kwargs)
         context['banner'] = BlogBannerImage.objects.last()
-        return context   
+        return context
 
 
 def success(request, *args, **kwargs):
@@ -159,18 +160,18 @@ class SearchView(TemplateView):
 
         elif destination is not "" and activity is not "":
             packages = packages.filter(destination_id=int(destination), activities__id=int(activity))
-        
+
         elif destination is not "":
             packages = packages.filter(destination_id=int(destination))
 
         elif activity is not "" and country is not "":
             packages = packages.filter(activities__id=int(activity), country_id=int(country))
-        
+
         elif country is not "":
             packages = packages.filter(country_id=int(country))
 
         return render(request, self.template_name, {'packages': packages})
-    
+
     def get_context_data(self, *args, **kwargs):
         context = super(SearchView, self).get_context_data(**kwargs)
         context['banner'] = BlogBannerImage.objects.last()
@@ -189,6 +190,21 @@ class PackageListView(TemplateView):
         context['happy_clients'] = HappyClient.objects.all()
         context['banner'] = BlogBannerImage.objects.last()
         context['name'] = "Himalaya Tours"
+        return context
+
+
+class YogaListView(TemplateView):
+    template_name = 'trek/packagelisting.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(YogaListView, self).get_context_data(**kwargs)
+        context['packages'] = Package.objects.filter(speciality='Yoga')
+        context['country'] = Country.objects.all()
+        context['destination'] = Destination.objects.all()
+        context['activities'] = Activity.objects.all()
+        context['happy_clients'] = HappyClient.objects.all()
+        context['banner'] = BlogBannerImage.objects.last()
+        context['name'] = "Yoga Tours"
         return context
 
 
@@ -236,7 +252,7 @@ class Book2(TemplateView):
         obj.save()
         payment = PaymentProcess.objects.last()
         return render(request, 'trek/book3.html', {'payment': payment})
-    
+
     def get_context_data(self, *args, **kwargs):
         context = super(Book2, self).get_context_data(**kwargs)
         context['banner'] = BlogBannerImage.objects.last()
@@ -329,7 +345,7 @@ def download_terms(request):
 
     file.seek(0)
     pdf = file.read()
-    file.close()            
+    file.close()
     return HttpResponse(pdf, 'application/pdf')
 
 
@@ -346,5 +362,5 @@ def download_payment(request):
 
     file.seek(0)
     pdf = file.read()
-    file.close()            
+    file.close()
     return HttpResponse(pdf, 'application/pdf')
