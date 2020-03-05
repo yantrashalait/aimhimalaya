@@ -26,7 +26,7 @@ header {
     left: 0;
     width: 100%;
     background: rgb(193,246,245);
-    background: linear-gradient(180deg, rgba(193,246,245,0.8) 0%, rgba(255,255,255,0.6) 69%, rgba(255,255,255,0.5) 80%, rgba(255,255,255,0.1) 100%);
+    background: linear-gradient(180deg, rgba(193,246,245,0.8) 0%, rgba(255,255,255,1.6) 69%, rgba(255,255,255,1.5) 80%, rgba(255,255,255,1.1) 100%);
 }
 
 header {
@@ -59,7 +59,7 @@ section#mb-header {
 
 .all-heading span img {
     margin-top: -20px;
-}	
+}
 
 
 /*============= all heading =======*/
@@ -133,7 +133,7 @@ header {
     border: 1px solid;
     padding: 0;
     text-align: center;
-}   
+}
 
 ..nav-sing .bg-gr {
     background: #00b5c8;
@@ -167,12 +167,12 @@ header {
 }
 
 .ba-text h4 {
-    
+
     font-size: 28px;
     display: inline-flex;
     max-width: 60%;
     line-height: 30px;
-    
+
     font-weight: bold;
 }
 
@@ -243,7 +243,7 @@ section.search .nice-select {
     margin-bottom: 0;
     border: 1px solid #DFDFDF;
 }
-	
+
 
 section.search .nice-select.open .list {
     width: 100%;
@@ -254,7 +254,7 @@ section.search .nice-select:hover {
 }
 
 section.search .nice-select .option:hover {
-	background: #00b5c8; 	
+	background: #00b5c8;
 }
 
 section.search .nice-select span.current {
@@ -331,7 +331,7 @@ iframe#player {
 	margin-bottom: 40px;
 }
 
-    
+
 
 .a1-img {
 	position: relative;
@@ -339,7 +339,7 @@ iframe#player {
 
 
 .a1-img span {
-	
+
 	font-size: 20px;
 	text-transform : uppercase;
 	font-weight: bold;
@@ -718,7 +718,7 @@ img.cl-pro {
 
 .spet-car  {
     position: relative;
-} 
+}
 
 .spet-car .item a {
     color: #fff;
@@ -752,7 +752,7 @@ img.cl-pro {
     /* margin-right: 10px; */
 }
 
-    
+
 
 .spet-car .owl-nav button.owl-prev {
     position: absolute;
@@ -796,13 +796,13 @@ img.cl-pro {
 
 .spet-car .owl-nav span {
     background: #fff !important;
-    color: #00b5c8 !important; 
+    color: #00b5c8 !important;
     padding: 7px 6px !important;
     padding-bottom: 8px !important;
     border: 1px solid #dfdfdf !important;
     font-weight: bold !important;
 }
-    
+
 .spec-pack-sing h3 span {
     font-size: 11px;
     font-weight: 500;
@@ -834,7 +834,7 @@ span.wpag {
 
 .blg-head {
     display: inline-flex;
-} 
+}
 .blg-date {
     padding: 10px;
 }
@@ -847,7 +847,7 @@ span.wpag {
     color: #00b5c8;
 }
 
-    
+
 .blg-date label {
     font-size: 24px;
 }
@@ -863,7 +863,7 @@ span.wpag {
     padding: 10px 20px;
     width: 100%;
     border-bottom: 4px solid #dfdfdf;
-}   
+}
 
 .blg-by p {
     font-size: 12px;
@@ -905,7 +905,7 @@ span.br-left {
 .reb-det p {
     font-size: 14px;
     line-height: 20px;
-}  
+}
 
 .rel-bsing {
     padding: 20px;
@@ -1039,7 +1039,7 @@ section.fo-soc {
 }
 
 
-.fs-link a:last-child:after { 
+.fs-link a:last-child:after {
     display: none;
 }
 
@@ -1426,7 +1426,7 @@ a.hov-dis {
 
 
 
-/*.customize-head a:hover .oh-dis {  
+/*.customize-head a:hover .oh-dis {
     display: block;
 }*/
 
@@ -1531,7 +1531,7 @@ ul.i-br-list li{
 ul.brf-fo{
     position: relative;
 }
- 
+
 ul.brf-fo li::before {
     margin-right: 8px;
     font-size: 14px;
@@ -1573,7 +1573,7 @@ section.cust-form p {
 .cu-frs .nice-select {
     float: none;
     border: 1px solid #efefef;
-}  
+}
 
 .cu-frs textarea {
     border: 0;
@@ -1744,7 +1744,7 @@ iframe.fo-map {
 
     /*button.bt-hv:before (attr data-hover)*/
     button.bt-hv:hover:before{opacity: 1; transform: translate(0,0);}
-    
+
     button.bt-hv:before {
         content: attr(data-hover);
         position: absolute;
@@ -2041,7 +2041,7 @@ footer ul li{
     line-height: 20px;
     font-size: 20px;
   }
-  
+
   .rating label {
     position: absolute;
     top: 0;
@@ -2049,52 +2049,52 @@ footer ul li{
     height: 100%;
     cursor: pointer;
   }
-  
+
   .rating label:last-child {
     position: static;
   }
-  
+
   .rating label:nth-child(1) {
     z-index: 5;
   }
-  
+
   .rating label:nth-child(2) {
     z-index: 4;
   }
-  
+
   .rating label:nth-child(3) {
     z-index: 3;
   }
-  
+
   .rating label:nth-child(4) {
     z-index: 2;
   }
-  
+
   .rating label:nth-child(5) {
     z-index: 1;
   }
-  
+
   .rating label input {
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
   }
-  
+
   .rating label .icon {
     float: left;
     color: transparent;
   }
-  
+
   .rating label:last-child .icon {
     color: #000;
   }
-  
+
   .rating:not(:hover) label input:checked ~ .icon,
   .rating:hover label:hover input ~ .icon {
     color: #09f;
   }
-  
+
   .rating label input:focus:not(:checked) ~ .icon:last-child {
     color: #000;
     text-shadow: 0 0 5px #09f;
